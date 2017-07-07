@@ -29,21 +29,5 @@ namespace NetChanger
 
             Cmd.Execute( net.Do );
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Cmd.Execute(
-                new string[] {
-                    "cls",
-                    "dir",
-                    "md netchangertest"
-                });
-
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Cmd.Execute( "md C:\\Users\\Mostafa\\Source\\Repos\\NetChanger\\NetChanger\\bin\\Release\\netchangertest2" );
-        }
     }
 }

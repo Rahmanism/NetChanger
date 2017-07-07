@@ -28,6 +28,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ifaceTxt = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dhcpRbn = new System.Windows.Forms.RadioButton();
             this.staticRbn = new System.Windows.Forms.RadioButton();
@@ -40,10 +42,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.btnOk = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ifaceTxt = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -63,28 +61,45 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.addressTxt);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(11, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(658, 235);
+            this.groupBox1.Size = new System.Drawing.Size(603, 226);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Static IP";
+            // 
+            // ifaceTxt
+            // 
+            this.ifaceTxt.Location = new System.Drawing.Point(178, 36);
+            this.ifaceTxt.Name = "ifaceTxt";
+            this.ifaceTxt.Size = new System.Drawing.Size(165, 29);
+            this.ifaceTxt.TabIndex = 8;
+            this.ifaceTxt.Text = "Wi-Fi";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(14, 40);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(144, 25);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Interface Name";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dhcpRbn);
             this.panel2.Controls.Add(this.staticRbn);
-            this.panel2.Location = new System.Drawing.Point(430, 38);
+            this.panel2.Location = new System.Drawing.Point(394, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(203, 87);
+            this.panel2.Size = new System.Drawing.Size(186, 84);
             this.panel2.TabIndex = 6;
             // 
             // dhcpRbn
             // 
             this.dhcpRbn.AutoSize = true;
-            this.dhcpRbn.Location = new System.Drawing.Point(15, 47);
+            this.dhcpRbn.Location = new System.Drawing.Point(14, 45);
             this.dhcpRbn.Name = "dhcpRbn";
-            this.dhcpRbn.Size = new System.Drawing.Size(102, 29);
+            this.dhcpRbn.Size = new System.Drawing.Size(93, 29);
             this.dhcpRbn.TabIndex = 1;
             this.dhcpRbn.Text = "&DHCP";
             this.dhcpRbn.UseVisualStyleBackColor = true;
@@ -93,9 +108,9 @@
             // 
             this.staticRbn.AutoSize = true;
             this.staticRbn.Checked = true;
-            this.staticRbn.Location = new System.Drawing.Point(15, 12);
+            this.staticRbn.Location = new System.Drawing.Point(14, 12);
             this.staticRbn.Name = "staticRbn";
-            this.staticRbn.Size = new System.Drawing.Size(97, 29);
+            this.staticRbn.Size = new System.Drawing.Size(86, 29);
             this.staticRbn.TabIndex = 0;
             this.staticRbn.TabStop = true;
             this.staticRbn.Text = "&Static";
@@ -103,52 +118,52 @@
             // 
             // gatewayTxt
             // 
-            this.gatewayTxt.Location = new System.Drawing.Point(194, 167);
+            this.gatewayTxt.Location = new System.Drawing.Point(178, 160);
             this.gatewayTxt.Name = "gatewayTxt";
-            this.gatewayTxt.Size = new System.Drawing.Size(180, 31);
+            this.gatewayTxt.Size = new System.Drawing.Size(165, 29);
             this.gatewayTxt.TabIndex = 5;
             this.gatewayTxt.Text = "172.16.16.9";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(76, 171);
+            this.label3.Location = new System.Drawing.Point(70, 164);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 25);
+            this.label3.Size = new System.Drawing.Size(89, 25);
             this.label3.TabIndex = 4;
             this.label3.Text = "&Gateway";
             // 
             // netmaskTxt
             // 
-            this.netmaskTxt.Location = new System.Drawing.Point(194, 124);
+            this.netmaskTxt.Location = new System.Drawing.Point(178, 119);
             this.netmaskTxt.Name = "netmaskTxt";
-            this.netmaskTxt.Size = new System.Drawing.Size(180, 31);
+            this.netmaskTxt.Size = new System.Drawing.Size(165, 29);
             this.netmaskTxt.TabIndex = 3;
             this.netmaskTxt.Text = "255.255.252.0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(76, 128);
+            this.label2.Location = new System.Drawing.Point(70, 123);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(96, 25);
+            this.label2.Size = new System.Drawing.Size(89, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "&Netmask";
             // 
             // addressTxt
             // 
-            this.addressTxt.Location = new System.Drawing.Point(194, 81);
+            this.addressTxt.Location = new System.Drawing.Point(178, 78);
             this.addressTxt.Name = "addressTxt";
-            this.addressTxt.Size = new System.Drawing.Size(180, 31);
+            this.addressTxt.Size = new System.Drawing.Size(165, 29);
             this.addressTxt.TabIndex = 1;
             this.addressTxt.Text = "172.16.17.4";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(81, 85);
+            this.label1.Location = new System.Drawing.Point(74, 82);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 25);
+            this.label1.Size = new System.Drawing.Size(85, 25);
             this.label1.TabIndex = 0;
             this.label1.Text = "&Address";
             // 
@@ -156,13 +171,11 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.cancelBtn);
             this.panel1.Controls.Add(this.btnOk);
-            this.panel1.Location = new System.Drawing.Point(12, 253);
+            this.panel1.Location = new System.Drawing.Point(11, 243);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(658, 77);
+            this.panel1.Size = new System.Drawing.Size(603, 74);
             this.panel1.TabIndex = 1;
             // 
             // cancelBtn
@@ -170,9 +183,9 @@
             this.cancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.cancelBtn.Enabled = false;
-            this.cancelBtn.Location = new System.Drawing.Point(367, 21);
+            this.cancelBtn.Location = new System.Drawing.Point(336, 20);
             this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(130, 44);
+            this.cancelBtn.Size = new System.Drawing.Size(119, 42);
             this.cancelBtn.TabIndex = 1;
             this.cancelBtn.Text = "&Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
@@ -180,62 +193,25 @@
             // btnOk
             // 
             this.btnOk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOk.Location = new System.Drawing.Point(503, 21);
+            this.btnOk.Location = new System.Drawing.Point(461, 20);
             this.btnOk.Name = "btnOk";
-            this.btnOk.Size = new System.Drawing.Size(130, 44);
+            this.btnOk.Size = new System.Drawing.Size(119, 42);
             this.btnOk.TabIndex = 0;
             this.btnOk.Text = "&Ok";
             this.btnOk.UseVisualStyleBackColor = true;
             this.btnOk.Click += new System.EventHandler(this.btnOk_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 42);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(157, 25);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Interface Name";
-            // 
-            // ifaceTxt
-            // 
-            this.ifaceTxt.Location = new System.Drawing.Point(194, 38);
-            this.ifaceTxt.Name = "ifaceTxt";
-            this.ifaceTxt.Size = new System.Drawing.Size(180, 31);
-            this.ifaceTxt.TabIndex = 8;
-            this.ifaceTxt.Text = "Wi-Fi";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(32, 21);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(140, 44);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(179, 21);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 44);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // mainForm
             // 
             this.AcceptButton = this.btnOk;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelBtn;
-            this.ClientSize = new System.Drawing.Size(682, 330);
+            this.ClientSize = new System.Drawing.Size(625, 323);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(26, 400);
+            this.MinimumSize = new System.Drawing.Size(26, 387);
             this.Name = "mainForm";
             this.Text = "NetChanger";
             this.groupBox1.ResumeLayout(false);
@@ -264,8 +240,6 @@
         private System.Windows.Forms.RadioButton staticRbn;
         private System.Windows.Forms.TextBox ifaceTxt;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
     }
 }
 

@@ -16,26 +16,40 @@ namespace NetChanger
         /// Runs a sysctem command
         /// </summary>
         /// <param name="command"></param>
-        public static void Execute(string command)
+        public static string Execute(string command)
         {
-            Process process = new Process();
-            ProcessStartInfo startInfo = new ProcessStartInfo();
-            startInfo.WindowStyle = System.Diagnostics.ProcessWindowStyle.Hidden;
-            startInfo.FileName = "cmd.exe";
-            startInfo.Arguments = command;
-            process.StartInfo = startInfo;
-            process.Start();
+            // create the ProcessStartInfo using "cmd" as the program to be run,
+            // and "/c " as the parameters.
+            // Incidentally, /c tells cmd that we want it to execute the command
+            // that follows, and then exit.
+            var procStartInfo =
+                new ProcessStartInfo( "cmd", "/c " + command ) {
+                    RedirectStandardOutput = true,
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                };
+            var proc = new Process() {
+                StartInfo = procStartInfo
+            };
+            proc.Start();
+
+            // Get the output into a string
+            string result = proc.StandardOutput.ReadToEnd();
+
+            return result;
         }
 
         /// <summary>
         /// Runs multiple system commands
         /// </summary>
-        public static void Execute(string[] commands)
+        public static string[] Execute(string[] commands)
         {
-            foreach ( string command in commands ) {
-                Execute( command );
+            var results = new string[commands.Length];
+            for (var i = 0; i < commands.Length; i++ ) {
+                results[i] = Execute( commands[i] );
             }
-        }
 
+            return results;
+        }
     }
 }
