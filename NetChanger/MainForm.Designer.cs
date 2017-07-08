@@ -28,6 +28,10 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dns1Txt = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.dns2Txt = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.ifaceTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -42,10 +46,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.okBtn = new System.Windows.Forms.Button();
-            this.dns1Txt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dns2Txt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -78,6 +78,44 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Static IP";
             // 
+            // dns1Txt
+            // 
+            this.dns1Txt.Location = new System.Drawing.Point(515, 42);
+            this.dns1Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dns1Txt.Name = "dns1Txt";
+            this.dns1Txt.Size = new System.Drawing.Size(165, 32);
+            this.dns1Txt.TabIndex = 12;
+            this.dns1Txt.Text = "172.16.16.1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(367, 47);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(140, 27);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Nameserver 1";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // dns2Txt
+            // 
+            this.dns2Txt.Location = new System.Drawing.Point(515, 87);
+            this.dns2Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.dns2Txt.Name = "dns2Txt";
+            this.dns2Txt.Size = new System.Drawing.Size(165, 32);
+            this.dns2Txt.TabIndex = 10;
+            this.dns2Txt.Text = "8.8.8.8";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(367, 92);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(140, 27);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Nameserver 2";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // ifaceTxt
             // 
             this.ifaceTxt.Location = new System.Drawing.Point(169, 42);
@@ -101,7 +139,7 @@
             // 
             this.panel2.Controls.Add(this.dhcpRbn);
             this.panel2.Controls.Add(this.staticRbn);
-            this.panel2.Location = new System.Drawing.Point(502, 153);
+            this.panel2.Location = new System.Drawing.Point(502, 150);
             this.panel2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(186, 94);
@@ -223,45 +261,7 @@
             this.okBtn.TabIndex = 0;
             this.okBtn.Text = "&Ok";
             this.okBtn.UseVisualStyleBackColor = true;
-            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
-            // 
-            // dns1Txt
-            // 
-            this.dns1Txt.Location = new System.Drawing.Point(515, 42);
-            this.dns1Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dns1Txt.Name = "dns1Txt";
-            this.dns1Txt.Size = new System.Drawing.Size(165, 32);
-            this.dns1Txt.TabIndex = 12;
-            this.dns1Txt.Text = "172.16.16.1";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(367, 47);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(140, 27);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Nameserver 1";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dns2Txt
-            // 
-            this.dns2Txt.Location = new System.Drawing.Point(515, 87);
-            this.dns2Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.dns2Txt.Name = "dns2Txt";
-            this.dns2Txt.Size = new System.Drawing.Size(165, 32);
-            this.dns2Txt.TabIndex = 10;
-            this.dns2Txt.Text = "8.8.8.8";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(367, 92);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(140, 27);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "Nameserver 2";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.okBtn.Click += new System.EventHandler(this.OkBtn_Click);
             // 
             // mainForm
             // 
@@ -278,6 +278,7 @@
             this.MinimumSize = new System.Drawing.Size(26, 427);
             this.Name = "mainForm";
             this.Text = "NetChanger";
+            this.Load += new System.EventHandler(this.mainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);

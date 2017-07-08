@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetChanger
@@ -17,7 +10,7 @@ namespace NetChanger
             InitializeComponent();
         }
 
-        private void okBtn_Click(object sender, EventArgs e)
+        private void OkBtn_Click(object sender, EventArgs e)
         {
             var net = new NetProperties {
                 InterfaceName = ifaceTxt.Text,
@@ -30,6 +23,11 @@ namespace NetChanger
             };
 
             Cmd.Execute( net.Do );
+        }
+
+        private void mainForm_Load(object sender, EventArgs e)
+        {
+            Icon = Properties.Resources.MainIcon;
         }
     }
 }
