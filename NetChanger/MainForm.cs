@@ -17,13 +17,15 @@ namespace NetChanger
             InitializeComponent();
         }
 
-        private void btnOk_Click(object sender, EventArgs e)
+        private void okBtn_Click(object sender, EventArgs e)
         {
             var net = new NetProperties {
                 InterfaceName = ifaceTxt.Text,
                 Address = addressTxt.Text,
                 NetMask = netmaskTxt.Text,
                 Gateway = gatewayTxt.Text,
+                DnsOne = dns1Txt.Text,
+                DnsTwo = dns2Txt.Text,
                 Static = staticRbn.Checked
             };
 
