@@ -126,9 +126,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="if_router_128.ico" />
-    <Content Include="if_router_1805070.ico" />
-    <Content Include="if_router_256.ico" />
     <Content Include="Resources\MainIcon.ico" />
   </ItemGroup>
   <ItemGroup>

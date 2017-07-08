@@ -27,7 +27,13 @@ namespace NetChanger
 
         private void mainForm_Load(object sender, EventArgs e)
         {
+            FormInit();
+        }
+
+        private void FormInit()
+        {
             Icon = Properties.Resources.MainIcon;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
     }
 }
