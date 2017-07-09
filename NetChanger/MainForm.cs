@@ -19,6 +19,7 @@ namespace NetChanger
                 Gateway = gatewayTxt.Text,
                 DnsOne = dns1Txt.Text,
                 DnsTwo = dns2Txt.Text,
+
                 Static = staticRbn.Checked
             };
 
@@ -33,7 +34,6 @@ namespace NetChanger
         private void FormInit()
         {
             Icon = Properties.Resources.MainIcon;
-            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
     }
 }
