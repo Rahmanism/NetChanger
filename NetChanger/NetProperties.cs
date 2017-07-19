@@ -76,8 +76,6 @@ namespace NetChanger
         /// <summary>
         /// IPv4 address
         /// </summary>
-        [UserScopedSetting()]
-        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string Address {
             get {
                 return address;
@@ -90,8 +88,6 @@ namespace NetChanger
         /// <summary>
         /// Net mask for IPv4
         /// </summary>
-        [UserScopedSetting()]
-        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string NetMask {
             get {
                 return netmask;
@@ -104,8 +100,6 @@ namespace NetChanger
         /// <summary>
         /// Gateway for IPv4
         /// </summary>
-        [UserScopedSetting()]
-        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string Gateway {
             get {
                 return gateway;
@@ -118,8 +112,6 @@ namespace NetChanger
         /// <summary>
         /// First DNS for IPv4
         /// </summary>
-        [UserScopedSetting()]
-        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string DnsOne {
             get {
                 return dnsOne;
@@ -132,8 +124,6 @@ namespace NetChanger
         /// <summary>
         /// Second DNS for IPv4
         /// </summary>
-        [UserScopedSetting()]
-        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string DnsTwo {
             get {
                 return dnsTwo;
@@ -147,8 +137,6 @@ namespace NetChanger
         /// <summary>
         /// The network interface name that will be set.
         /// </summary>
-        [UserScopedSetting()]
-        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string InterfaceName {
             get {
                 return iface;
@@ -161,8 +149,6 @@ namespace NetChanger
         /// <summary>
         /// IP is static or DHCP. If true it'll be static.
         /// </summary>
-        [UserScopedSetting()]
-        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public bool Static {
             get { return isStatic; }
             set { isStatic = value; }

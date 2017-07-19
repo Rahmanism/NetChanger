@@ -263,7 +263,7 @@
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.OkBtn_Click);
             // 
-            // settingsForm
+            // SettingsForm
             // 
             this.AcceptButton = this.okBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
@@ -277,8 +277,8 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(26, 427);
-            this.Name = "settingsForm";
-            this.Text = "NetChanger";
+            this.Name = "SettingsForm";
+            this.Text = "NetChanger Settings";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

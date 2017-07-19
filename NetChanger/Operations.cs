@@ -188,44 +188,14 @@ namespace NetChanger
         /// </summary>
         private void LoadSettings()
         {
-            // TODO: load app settings here
-
-            // Add net properties to app settings.
-            if ( !Properties.Settings.Default.SettingsKey.Contains( "NetProperties" ) ) {
-                // define a new settings property
-                var netprop = new SettingsProperty( "NetProperties" ) {
-                    IsReadOnly = false,
-                    DefaultValue = new NetProperties(),
-                    PropertyType = typeof( NetProperties ),
-                    Provider = Properties.Settings.Default.Providers["LocalFileSettingsProvider"]
-                };
-                netprop.Attributes.Add( typeof( UserScopedSettingAttribute ), new UserScopedSettingAttribute() );
-                // add the new property to settings.
-                Properties.Settings.Default.Properties.Add( netprop );
-                // reload the settings with new entries.
-                Properties.Settings.Default.Reload();
-
-                // define a new settings property
-                var netprop1 = new SettingsProperty( "TestPropety" ) {
-                    IsReadOnly = false,
-                    DefaultValue = "Test Value",
-                    PropertyType = typeof( string ),
-                    Provider = Properties.Settings.Default.Providers["LocalFileSettingsProvider"]
-                };
-                netprop1.Attributes.Add( typeof( UserScopedSettingAttribute ), new UserScopedSettingAttribute() );
-                // add the new property to settings.
-                Properties.Settings.Default.Properties.Add( netprop1 );
-                // reload the settings with new entries.
-                Properties.Settings.Default.Reload();
-
-
-                // save the current (default) net properties in settings
-                // cuz there's no NetProperties entry in settings already.
-                Properties.Settings.Default["NetProperties"] = Net;
-            }
-
-            // load the net properties from settings into Net intance.
-            Net = (NetProperties)Properties.Settings.Default["NetProperties"];
+            // Loading net properties from app settings.
+            Net.Address = Properties.Settings.Default.Address;
+            Net.NetMask = Properties.Settings.Default.Netmask;
+            Net.Gateway = Properties.Settings.Default.Gateway;
+            Net.DnsOne = Properties.Settings.Default.DnsOne;
+            Net.DnsTwo = Properties.Settings.Default.DnsTwo;
+            Net.Static = Properties.Settings.Default.Static;
+            Net.InterfaceName = Properties.Settings.Default.InterfaceName;
         }
         #endregion
 

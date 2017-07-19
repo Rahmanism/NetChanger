@@ -50,12 +50,12 @@ namespace NetChanger.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.1")]
-        public string Gatewat {
+        public string Gateway {
             get {
-                return ((string)(this["Gatewat"]));
+                return ((string)(this["Gateway"]));
             }
             set {
-                this["Gatewat"] = value;
+                this["Gateway"] = value;
             }
         }
         

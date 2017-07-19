@@ -8,7 +8,7 @@
     <Setting Name="Netmask" Type="System.String" Scope="User">
       <Value Profile="(Default)">255.255.255.0</Value>
     </Setting>
-    <Setting Name="Gatewat" Type="System.String" Scope="User">
+    <Setting Name="Gateway" Type="System.String" Scope="User">
       <Value Profile="(Default)">192.168.1.1</Value>
     </Setting>
     <Setting Name="DnsOne" Type="System.String" Scope="User">

@@ -19,15 +19,19 @@ namespace NetChanger
             Program.operations.Net.Gateway = gatewayTxt.Text;
             Program.operations.Net.DnsOne = dns1Txt.Text;
             Program.operations.Net.DnsTwo = dns2Txt.Text;
-
             Program.operations.Net.Static = staticRbn.Checked;
 
-            // TODO: this should not execute, but just save the settings
-            // settings.save!!();
+            // Setting values of net properties in app settings.
+            Properties.Settings.Default.Address = Program.operations.Net.Address;
+            Properties.Settings.Default.Netmask = Program.operations.Net.NetMask;
+            Properties.Settings.Default.Gateway = Program.operations.Net.Gateway;
+            Properties.Settings.Default.DnsOne = Program.operations.Net.DnsOne;
+            Properties.Settings.Default.DnsTwo = Program.operations.Net.DnsTwo;
+            Properties.Settings.Default.Static = Program.operations.Net.Static;
+            Properties.Settings.Default.InterfaceName = Program.operations.Net.InterfaceName;
 
-            Properties.Settings.Default["NetProperties"] = Program.operations.Net;
+            // save the app settings.
             Properties.Settings.Default.Save();
-
 
             // Closes the form.
             Close();
@@ -41,17 +45,15 @@ namespace NetChanger
 
         private void FillSettingsControls()
         {
-            var net = Program.operations.Net;
-
             // fill the controls (text boxes and ...) in the form based on read data.
-            ifaceTxt.Text = net.InterfaceName;
-            addressTxt.Text = net.Address;
-            netmaskTxt.Text = net.NetMask;
-            gatewayTxt.Text = net.Gateway;
-            dns1Txt.Text = net.DnsOne;
-            dns2Txt.Text = net.DnsTwo;
+            ifaceTxt.Text = Program.operations.Net.InterfaceName;
+            addressTxt.Text = Program.operations.Net.Address;
+            netmaskTxt.Text = Program.operations.Net.NetMask;
+            gatewayTxt.Text = Program.operations.Net.Gateway;
+            dns1Txt.Text = Program.operations.Net.DnsOne;
+            dns2Txt.Text = Program.operations.Net.DnsTwo;
 
-            staticRbn.Checked = net.Static;
+            staticRbn.Checked = Program.operations.Net.Static;
             dhcpRbn.Checked = !staticRbn.Checked;
         }
 
