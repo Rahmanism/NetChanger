@@ -1,4 +1,6 @@
-﻿namespace NetChanger
+﻿using System.Configuration;
+
+namespace NetChanger
 {
     /// <summary>
     /// It contains properties of network adapter mostly IP info.
@@ -74,6 +76,8 @@
         /// <summary>
         /// IPv4 address
         /// </summary>
+        [UserScopedSetting()]
+        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string Address {
             get {
                 return address;
@@ -86,6 +90,8 @@
         /// <summary>
         /// Net mask for IPv4
         /// </summary>
+        [UserScopedSetting()]
+        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string NetMask {
             get {
                 return netmask;
@@ -98,6 +104,8 @@
         /// <summary>
         /// Gateway for IPv4
         /// </summary>
+        [UserScopedSetting()]
+        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string Gateway {
             get {
                 return gateway;
@@ -110,6 +118,8 @@
         /// <summary>
         /// First DNS for IPv4
         /// </summary>
+        [UserScopedSetting()]
+        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string DnsOne {
             get {
                 return dnsOne;
@@ -122,6 +132,8 @@
         /// <summary>
         /// Second DNS for IPv4
         /// </summary>
+        [UserScopedSetting()]
+        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string DnsTwo {
             get {
                 return dnsTwo;
@@ -135,6 +147,8 @@
         /// <summary>
         /// The network interface name that will be set.
         /// </summary>
+        [UserScopedSetting()]
+        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public string InterfaceName {
             get {
                 return iface;
@@ -147,6 +161,8 @@
         /// <summary>
         /// IP is static or DHCP. If true it'll be static.
         /// </summary>
+        [UserScopedSetting()]
+        [SettingsSerializeAs( SettingsSerializeAs.Xml )]
         public bool Static {
             get { return isStatic; }
             set { isStatic = value; }

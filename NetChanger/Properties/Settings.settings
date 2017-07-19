@@ -2,8 +2,26 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NetChanger.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="What" Type="System.String" Scope="User">
-      <Value Profile="(Default)">yes</Value>
+    <Setting Name="Address" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.2</Value>
+    </Setting>
+    <Setting Name="Netmask" Type="System.String" Scope="User">
+      <Value Profile="(Default)">255.255.255.0</Value>
+    </Setting>
+    <Setting Name="Gatewat" Type="System.String" Scope="User">
+      <Value Profile="(Default)">192.168.1.1</Value>
+    </Setting>
+    <Setting Name="DnsOne" Type="System.String" Scope="User">
+      <Value Profile="(Default)">8.8.8.8</Value>
+    </Setting>
+    <Setting Name="DnsTwo" Type="System.String" Scope="User">
+      <Value Profile="(Default)">4.2.2.4</Value>
+    </Setting>
+    <Setting Name="Static" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="InterfaceName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Wi-Fi</Value>
     </Setting>
   </Settings>
 </SettingsFile>

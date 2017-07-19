@@ -22,11 +22,11 @@
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
+    <MapFileExtensions>false</MapFileExtensions>
     <ProductName>NetChanger</ProductName>
-    <PublisherName>S. Mostafa Rahmani</PublisherName>
+    <PublisherName>Mostafa Rahmani</PublisherName>
     <ApplicationRevision>2</ApplicationRevision>
-    <ApplicationVersion>0.3.10.%2a</ApplicationVersion>
+    <ApplicationVersion>0.5.10.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>

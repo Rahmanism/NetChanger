@@ -205,6 +205,20 @@ namespace NetChanger
                 // reload the settings with new entries.
                 Properties.Settings.Default.Reload();
 
+                // define a new settings property
+                var netprop1 = new SettingsProperty( "TestPropety" ) {
+                    IsReadOnly = false,
+                    DefaultValue = "Test Value",
+                    PropertyType = typeof( string ),
+                    Provider = Properties.Settings.Default.Providers["LocalFileSettingsProvider"]
+                };
+                netprop1.Attributes.Add( typeof( UserScopedSettingAttribute ), new UserScopedSettingAttribute() );
+                // add the new property to settings.
+                Properties.Settings.Default.Properties.Add( netprop1 );
+                // reload the settings with new entries.
+                Properties.Settings.Default.Reload();
+
+
                 // save the current (default) net properties in settings
                 // cuz there's no NetProperties entry in settings already.
                 Properties.Settings.Default["NetProperties"] = Net;
