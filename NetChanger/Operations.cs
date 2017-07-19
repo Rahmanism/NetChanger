@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Drawing;
 using System.Reflection;
 using System.Threading;
@@ -82,15 +83,15 @@ namespace NetChanger
         /// </summary>
         private void Initialize()
         {
+            // make a new instance of net properties.
+            Net = new NetProperties();
             // This should be run first
-            LoadConfig();
+            LoadSettings();
             // LoadIcons must be run before ShowNotificationIcon
             LoadIcons();
             // ShowNotificationIcon() must run after the LoadIcons() method.
             ShowNotificationIcon();
             CreateContextMenu();
-
-            //perfMonitor = new PerformanceMonitor();
         }
 
         /// <summary>
@@ -185,9 +186,32 @@ namespace NetChanger
         /// <summary>
         /// Load configuration from file
         /// </summary>
-        private void LoadConfig()
+        private void LoadSettings()
         {
             // TODO: load app settings here
+
+            // Add net properties to app settings.
+            if ( !Properties.Settings.Default.SettingsKey.Contains( "NetProperties" ) ) {
+                // define a new settings property
+                var netprop = new SettingsProperty( "NetProperties" ) {
+                    IsReadOnly = false,
+                    DefaultValue = new NetProperties(),
+                    PropertyType = typeof( NetProperties ),
+                    Provider = Properties.Settings.Default.Providers["LocalFileSettingsProvider"]
+                };
+                netprop.Attributes.Add( typeof( UserScopedSettingAttribute ), new UserScopedSettingAttribute() );
+                // add the new property to settings.
+                Properties.Settings.Default.Properties.Add( netprop );
+                // reload the settings with new entries.
+                Properties.Settings.Default.Reload();
+
+                // save the current (default) net properties in settings
+                // cuz there's no NetProperties entry in settings already.
+                Properties.Settings.Default["NetProperties"] = Net;
+            }
+
+            // load the net properties from settings into Net intance.
+            Net = (NetProperties)Properties.Settings.Default["NetProperties"];
         }
         #endregion
 

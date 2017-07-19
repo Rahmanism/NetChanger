@@ -22,5 +22,17 @@ namespace NetChanger.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("yes")]
+        public string What {
+            get {
+                return ((string)(this["What"]));
+            }
+            set {
+                this["What"] = value;
+            }
+        }
     }
 }

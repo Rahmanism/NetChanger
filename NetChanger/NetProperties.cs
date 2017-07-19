@@ -6,11 +6,12 @@
     class NetProperties
     {
         private string iface = "Wi-Fi";
-        private string address;
+        private string address = "192.168.1.2";
         private string netmask = "255.255.255.0";
-        private string gateway;
+        private string gateway = "192.168.1.1";
         private string dnsOne = "8.8.8.8";
         private string dnsTwo = "4.2.2.4";
+        private bool isStatic = false;
 
         #region COMMANDS
 
@@ -66,7 +67,7 @@
         public string[] Do => Static ? StaticIPCommand : DHCPCommand;
 
         #endregion
-        
+
         #region IPs
         // TODO: do some controls on values for IPs.
 
@@ -146,6 +147,9 @@
         /// <summary>
         /// IP is static or DHCP. If true it'll be static.
         /// </summary>
-        public bool Static { get; set; }
+        public bool Static {
+            get { return isStatic; }
+            set { isStatic = value; }
+        }
     }
 }
