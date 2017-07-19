@@ -1,6 +1,6 @@
 ﻿namespace NetChanger
 {
-    partial class mainForm
+    partial class SettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -242,7 +242,6 @@
             // 
             this.cancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn.Enabled = false;
             this.cancelBtn.Location = new System.Drawing.Point(445, 22);
             this.cancelBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancelBtn.Name = "cancelBtn";
@@ -250,6 +249,7 @@
             this.cancelBtn.TabIndex = 1;
             this.cancelBtn.Text = "&Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
             // 
             // okBtn
             // 
@@ -263,7 +263,7 @@
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.OkBtn_Click);
             // 
-            // mainForm
+            // settingsForm
             // 
             this.AcceptButton = this.okBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
@@ -277,9 +277,9 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimumSize = new System.Drawing.Size(26, 427);
-            this.Name = "mainForm";
+            this.Name = "settingsForm";
             this.Text = "NetChanger";
-            this.Load += new System.EventHandler(this.mainForm_Load);
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);

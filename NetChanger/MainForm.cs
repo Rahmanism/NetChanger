@@ -3,37 +3,37 @@ using System.Windows.Forms;
 
 namespace NetChanger
 {
-    public partial class mainForm : Form
+    public partial class SettingsForm : Form
     {
-        public mainForm()
+        public SettingsForm()
         {
             InitializeComponent();
         }
 
         private void OkBtn_Click(object sender, EventArgs e)
         {
-            var net = new NetProperties {
-                InterfaceName = ifaceTxt.Text,
-                Address = addressTxt.Text,
-                NetMask = netmaskTxt.Text,
-                Gateway = gatewayTxt.Text,
-                DnsOne = dns1Txt.Text,
-                DnsTwo = dns2Txt.Text,
+            // Change the current settings (just) values
+            Program.operations.Net.InterfaceName = ifaceTxt.Text;
+            Program.operations.Net.Address = addressTxt.Text;
+            Program.operations.Net.NetMask = netmaskTxt.Text;
+            Program.operations.Net.Gateway = gatewayTxt.Text;
+            Program.operations.Net.DnsOne = dns1Txt.Text;
+            Program.operations.Net.DnsTwo = dns2Txt.Text;
 
-                Static = staticRbn.Checked
-            };
+            Program.operations.Net.Static = staticRbn.Checked;
 
-            Cmd.Execute( net.Do );
+            // TODO: this should not execute, but just save the settings
+            // settings.save!!();
         }
 
-        private void mainForm_Load(object sender, EventArgs e)
-        {
-            FormInit();
-        }
-
-        private void FormInit()
+        private void MainForm_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.MainIcon;
+        }
+
+        private void CancelBtn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

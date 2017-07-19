@@ -11,7 +11,10 @@ namespace NetChanger
         #region Fields
         NotifyIcon notifyIcon;
         Icon normalIcon;
-        NetProperties net;
+        #endregion
+
+        #region Public Fields
+        public NetProperties Net;
         #endregion
 
         public Operations()
@@ -27,13 +30,23 @@ namespace NetChanger
         }
 
         /// <summary>
-        /// Changes mute available memory alert property to None
+        /// Changes IP settings to DHCP
         /// </summary>
-        void NoMuteMemAlertMenuItemClick(object sender, EventArgs e)
+        void DhcpMenuItemClick(object sender, EventArgs e)
         {
-            // TODO: change this to set dhcp
             UpdateRadioMenu( (MenuItem)sender );
-            // TODO: update netproperties
+            Net.Static = false;
+            Cmd.Execute( Net.Do );
+        }
+
+        /// <summary>
+        /// Changes IP settings to static mode
+        /// </summary>
+        void StaticIpMenuItemClick(object sender, EventArgs e)
+        {
+            UpdateRadioMenu( (MenuItem)sender );
+            Net.Static = true;
+            Cmd.Execute( Net.Do );
         }
 
         /// <summary>
@@ -96,7 +109,7 @@ namespace NetChanger
             // Show notification tray icon
             notifyIcon = new NotifyIcon() {
                 Icon = normalIcon,
-                Text = "You can see system monitor information here...",
+                Text = "Easily change your IP settings!",
                 Visible = true
             };
         }
@@ -109,10 +122,6 @@ namespace NetChanger
             // Create context menu and assign it to notification icon
             var progNameMenuItem = new MenuItem( String.Format( "NetChanger, Change your net easily - v{0}",
                 Assembly.GetExecutingAssembly().GetName().Version.ToString() ) );
-            var spacerMenuItem = new MenuItem( "-" );
-            var spacer2MenuItem = new MenuItem( "-" );
-            var spacer3MenuItem = new MenuItem( "-" );
-            var spacer4MenuItem = new MenuItem( "-" );
             var settingsMenuItem = new MenuItem {
                 Text = "Settings",
                 Name = "settingsMenuItem"
@@ -135,14 +144,14 @@ namespace NetChanger
             var quitMenuItem = new MenuItem( "Quit" );
             var contextMenu = new ContextMenu();
             contextMenu.MenuItems.Add( progNameMenuItem );
-            contextMenu.MenuItems.Add( spacerMenuItem );
+            contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( settingsMenuItem );
-            contextMenu.MenuItems.Add( spacerMenuItem );
+            contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( dhcpMenuItem );
             contextMenu.MenuItems.Add( staticIpMenuItem );
-            contextMenu.MenuItems.Add( spacer3MenuItem );
+            contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( aboutMenuItem );
-            contextMenu.MenuItems.Add( spacer4MenuItem );
+            contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( quitMenuItem );
             notifyIcon.ContextMenu = contextMenu;
 
@@ -156,12 +165,12 @@ namespace NetChanger
             // Wire up menu items event handlers
             quitMenuItem.Click += QuitMenuItemClick;
             // TODO: set dhcp & static ip menu items event handler in main Program
-            //dhcpMenuItem.Click += DhcpMenuItemClick;
-            //staticIpMenuItem.Click += StaticIpMenuItemClick;
+            dhcpMenuItem.Click += DhcpMenuItemClick;
+            staticIpMenuItem.Click += StaticIpMenuItemClick;
 
             // Wire up settings menu item to show the settigns form (Main form of app!)
             settingsMenuItem.Click += (s, e) => {
-                var main = new mainForm();
+                var main = new SettingsForm();
                 main.Show();
             };
 
