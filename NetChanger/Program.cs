@@ -16,7 +16,10 @@ namespace NetChanger
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault( false );
-            Application.Run( new mainForm() );
+
+            var ops = new Operations();
+
+            Application.Run();
         }
     }
 }
