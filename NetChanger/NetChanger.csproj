@@ -99,6 +99,12 @@
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
     <Compile Include="Cmd.cs" />
+    <Compile Include="ManageProfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageProfiles.Designer.cs">
+      <DependentUpon>ManageProfiles.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageProfiles.resx">
+      <DependentUpon>ManageProfiles.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsForm.resx">
       <DependentUpon>SettingsForm.cs</DependentUpon>

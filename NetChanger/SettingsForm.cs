@@ -5,6 +5,14 @@ namespace NetChanger
 {
     public partial class SettingsForm : Form
     {
+        private string action = "edit-current";
+
+        public SettingsForm(string act)
+        {
+            action = act;
+            InitializeComponent();
+        }
+
         public SettingsForm()
         {
             InitializeComponent();
@@ -40,9 +48,32 @@ namespace NetChanger
         private void MainForm_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.MainIcon;
-            FillSettingsControls();
+            if ( action == "edit-current" ) {
+                FillSettingsControls();
+            } else if(action == "new") {
+                FillWithEmpty();
+            }
         }
 
+        /// <summary>
+        /// Empties the form controls (usually for creating new profile)
+        /// </summary>
+        private void FillWithEmpty()
+        {
+            ifaceTxt.Text = "";
+            addressTxt.Text = "";
+            netmaskTxt.Text = "";
+            gatewayTxt.Text = "";
+            dns1Txt.Text = "";
+            dns2Txt.Text = "";
+
+            staticRbn.Checked = false;
+            dhcpRbn.Checked = !staticRbn.Checked;
+        }
+
+        /// <summary>
+        /// Fill the form with read data.
+        /// </summary>
         private void FillSettingsControls()
         {
             // fill the controls (text boxes and ...) in the form based on read data.

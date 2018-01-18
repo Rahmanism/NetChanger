@@ -121,12 +121,29 @@ namespace NetChanger
         private void CreateContextMenu()
         {
             // Create context menu and assign it to notification icon
-            var progNameMenuItem = new MenuItem( String.Format( "NetChanger, Change your net easily - v{0}",
+            var progNameMenuItem = new MenuItem( String.Format( "NetChanger - v{0}",
                 Assembly.GetExecutingAssembly().GetName().Version.ToString() ) );
             var settingsMenuItem = new MenuItem {
                 Text = "Settings",
                 Name = "settingsMenuItem"
             };
+
+            var profilesMenuItem = new MenuItem {
+                Text = "Profiles",
+                Name = "profilesMenuItem"
+            };
+            var profileCreateMenuItem = new MenuItem {
+                Text = "Create New Profile...",
+                Name = "createProfileMenuItem"
+            };
+            var profileManageMenuItem = new MenuItem {
+                Text = "Manage Profiles...",
+                Name = "profilesManageMenuItem"
+            };
+            profilesMenuItem.MenuItems.Add( profileCreateMenuItem );
+            profilesMenuItem.MenuItems.Add( profileManageMenuItem );
+            profilesMenuItem.MenuItems.Add( "-" );
+
             var dhcpMenuItem = new MenuItem {
                 Text = "DHCP",
                 Name = "dhcpMenuItem",
@@ -147,6 +164,8 @@ namespace NetChanger
             contextMenu.MenuItems.Add( progNameMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( settingsMenuItem );
+            contextMenu.MenuItems.Add( "-" );
+            contextMenu.MenuItems.Add( profilesMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( dhcpMenuItem );
             contextMenu.MenuItems.Add( staticIpMenuItem );
@@ -173,6 +192,18 @@ namespace NetChanger
             settingsMenuItem.Click += (s, e) => {
                 var main = new SettingsForm();
                 main.Show();
+            };
+
+            // Wire up create profiles menu item to show profile form (settings actually)
+            profileCreateMenuItem.Click += (s, e) => {
+                var createProfile = new SettingsForm( "new" );
+                createProfile.Show();
+            };
+
+            // Wire up manage profiles menu item to show the form
+            profileManageMenuItem.Click += (s, e) => {
+                var manageProfiles = new ManageProfiles();
+                manageProfiles.Show();
             };
 
             // Wire up about menu item to show about form
