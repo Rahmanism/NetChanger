@@ -13,7 +13,10 @@ namespace NetChanger
         private string gateway = "192.168.1.1";
         private string dnsOne = "8.8.8.8";
         private string dnsTwo = "4.2.2.4";
+        private string[] nameservsers;
         private bool isStatic = false;
+
+        private byte index = 2; // just a counter for nameservers.
 
         #region COMMANDS
 
@@ -34,7 +37,7 @@ namespace NetChanger
         /// A command to execute in cmd to set second DNS.
         /// </summary>
         public string SetSecondDnsCommand
-            => $"netsh interface ipv4 add dns name=\"{InterfaceName}\" {DnsTwo} index=2";
+            => $"netsh interface ipv4 add dns name=\"{InterfaceName}\" {DnsTwo} index={index}";
 
         /// <summary>
         /// Returns an array of strings that contains all necessary commands for static IP.
@@ -130,6 +133,18 @@ namespace NetChanger
             }
             set {
                 dnsTwo = value.Trim();
+            }
+        }
+
+        /// <summary>
+        /// A counter for nameservers
+        /// </summary>
+        public byte Index {
+            get {
+                return index;
+            }
+            set {
+                index = (byte)System.Math.Abs( value );
             }
         }
         #endregion

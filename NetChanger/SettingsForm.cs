@@ -60,10 +60,12 @@ namespace NetChanger
         /// </summary>
         private void FillWithEmpty()
         {
+            profilesCbx.Text = "new profile";
             ifaceTxt.Text = "";
             addressTxt.Text = "";
             netmaskTxt.Text = "";
             gatewayTxt.Text = "";
+            nameserversLbx.Items.Clear();
             dns1Txt.Text = "";
             dns2Txt.Text = "";
 
@@ -83,6 +85,7 @@ namespace NetChanger
             gatewayTxt.Text = Program.operations.Net.Gateway;
             dns1Txt.Text = Program.operations.Net.DnsOne;
             dns2Txt.Text = Program.operations.Net.DnsTwo;
+            // TODO: fill the nameservers listbox.
 
             staticRbn.Checked = Program.operations.Net.Static;
             dhcpRbn.Checked = !staticRbn.Checked;
@@ -91,6 +94,11 @@ namespace NetChanger
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void profilesCbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // TODO: load settings of the selected profile from json file.
         }
     }
 }
