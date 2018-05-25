@@ -8,3 +8,5 @@ There will be a system tray menu, so you can switch the network status fast enou
 
 # Links
 - [me](http://rahmanism.ir)
+
+:)
