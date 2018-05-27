@@ -23,5 +23,8 @@
     <Setting Name="InterfaceName" Type="System.String" Scope="User">
       <Value Profile="(Default)">Wi-Fi</Value>
     </Setting>
+    <Setting Name="ActiveProfile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">office static</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

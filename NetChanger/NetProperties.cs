@@ -1,4 +1,4 @@
-﻿using System.Configuration;
+﻿using System.Collections.Generic;
 
 namespace NetChanger
 {
@@ -7,14 +7,7 @@ namespace NetChanger
     /// </summary>
     class NetProperties
     {
-        private string iface = "Wi-Fi";
-        private string address = "192.168.1.2";
-        private string netmask = "255.255.255.0";
-        private string gateway = "192.168.1.1";
-        private string dnsOne = "8.8.8.8";
-        private string dnsTwo = "4.2.2.4";
-        private string[] nameservsers;
-        private bool isStatic = false;
+        public Profile Profile = new Profile();
 
         private byte index = 2; // just a counter for nameservers.
 
@@ -25,25 +18,37 @@ namespace NetChanger
         /// A command to execute in cmd to set the IP address.
         /// </summary>
         public string SetIPCommand
-            => $"netsh interface ipv4 set address name=\"{InterfaceName}\" static {Address} {NetMask} {Gateway}";
+            => $"netsh interface ipv4 set address name=\"{Profile.Settings.InterfaceName}\" static {Profile.Settings.Address} {Profile.Settings.NetMask} {Profile.Settings.Gateway}";
 
         /// <summary>
         /// A command to execute in cmd to set first DNS.
         /// </summary>
         public string SetFirstDnsCommand
-            => $"netsh interface ipv4 set dns name=\"{InterfaceName}\" static {DnsOne}";
+            => $"netsh interface ipv4 set dns name=\"{Profile.Settings.InterfaceName}\" static {Profile.Settings.Nameservers[0]}";
 
         /// <summary>
         /// A command to execute in cmd to set second DNS.
         /// </summary>
         public string SetSecondDnsCommand
-            => $"netsh interface ipv4 add dns name=\"{InterfaceName}\" {DnsTwo} index={index}";
+            => $"netsh interface ipv4 add dns name=\"{Profile.Settings.InterfaceName}\" {Profile.Settings.Nameservers[1]} index={index}";
 
         /// <summary>
         /// Returns an array of strings that contains all necessary commands for static IP.
         /// </summary>
-        public string[] StaticIPCommand
-            => new string[] { SetIPCommand, SetFirstDnsCommand, SetSecondDnsCommand };
+        public string[] StaticIPCommand {
+            get {
+                List<string> commands = new List<string> {
+                    SetIPCommand,
+                    SetFirstDnsCommand
+                };
+                foreach (var i in Profile.Settings.Nameservers) {
+                    commands.Add( SetSecondDnsCommand );
+                    index++;
+                }
+                var c = commands.ToArray();
+                return commands.ToArray();
+            }
+        }
         #endregion
 
         #region DHCP COMMANDS
@@ -51,13 +56,13 @@ namespace NetChanger
         /// A command to execute in cmd to enable DHCP.
         /// </summary>
         public string SetDHCPForIP
-            => $"netsh interface ipv4 set address name=\"{InterfaceName}\" source=dhcp";
+            => $"netsh interface ipv4 set address name=\"{Profile.Settings.InterfaceName}\" source=dhcp";
 
         /// <summary>
         /// A command to execute in cmd to enable DHCP for DNS.
         /// </summary>
         public string SetDHCPForDNS
-            => $"netsh interface ipv4 set dns \"{InterfaceName}\" dhcp";
+            => $"netsh interface ipv4 set dns \"{Profile.Settings.InterfaceName}\" dhcp";
 
         /// <summary>
         /// Returns an array of strings that contains all necessary commands for IP from DHCP.
@@ -69,72 +74,11 @@ namespace NetChanger
         /// <summary>
         /// An array of strings that contains the final executive commands, based on Static property
         /// </summary>
-        public string[] Do => Static ? StaticIPCommand : DHCPCommand;
+        public string[] Do => Profile.Settings.IsStatic ? StaticIPCommand : DHCPCommand;
 
         #endregion
 
-        #region IPs
         // TODO: do some controls on values for IPs.
-
-        /// <summary>
-        /// IPv4 address
-        /// </summary>
-        public string Address {
-            get {
-                return address;
-            }
-            set {
-                address = value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// Net mask for IPv4
-        /// </summary>
-        public string NetMask {
-            get {
-                return netmask;
-            }
-            set {
-                netmask = value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// Gateway for IPv4
-        /// </summary>
-        public string Gateway {
-            get {
-                return gateway;
-            }
-            set {
-                gateway = value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// First DNS for IPv4
-        /// </summary>
-        public string DnsOne {
-            get {
-                return dnsOne;
-            }
-            set {
-                dnsOne = value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// Second DNS for IPv4
-        /// </summary>
-        public string DnsTwo {
-            get {
-                return dnsTwo;
-            }
-            set {
-                dnsTwo = value.Trim();
-            }
-        }
 
         /// <summary>
         /// A counter for nameservers
@@ -146,27 +90,6 @@ namespace NetChanger
             set {
                 index = (byte)System.Math.Abs( value );
             }
-        }
-        #endregion
-
-        /// <summary>
-        /// The network interface name that will be set.
-        /// </summary>
-        public string InterfaceName {
-            get {
-                return iface;
-            }
-            set {
-                iface = value.Trim();
-            }
-        }
-
-        /// <summary>
-        /// IP is static or DHCP. If true it'll be static.
-        /// </summary>
-        public bool Static {
-            get { return isStatic; }
-            set { isStatic = value; }
         }
     }
 }

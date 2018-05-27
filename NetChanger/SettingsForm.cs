@@ -21,22 +21,22 @@ namespace NetChanger
         private void OkBtn_Click(object sender, EventArgs e)
         {
             // Change the current settings (just) values
-            Program.operations.Net.InterfaceName = ifaceTxt.Text;
-            Program.operations.Net.Address = addressTxt.Text;
-            Program.operations.Net.NetMask = netmaskTxt.Text;
-            Program.operations.Net.Gateway = gatewayTxt.Text;
-            Program.operations.Net.DnsOne = dns1Txt.Text;
-            Program.operations.Net.DnsTwo = dns2Txt.Text;
-            Program.operations.Net.Static = staticRbn.Checked;
+            Program.operations.Net.Profile.Settings.InterfaceName = ifaceTxt.Text;
+            Program.operations.Net.Profile.Settings.Address = addressTxt.Text;
+            Program.operations.Net.Profile.Settings.NetMask = netmaskTxt.Text;
+            Program.operations.Net.Profile.Settings.Gateway = gatewayTxt.Text;
+            Program.operations.Net.Profile.Settings.Nameservers[0] = dns1Txt.Text;
+            Program.operations.Net.Profile.Settings.Nameservers[1] = dns2Txt.Text;
+            Program.operations.Net.Profile.Settings.IsStatic = staticRbn.Checked;
 
             // Setting values of net properties in app settings.
-            Properties.Settings.Default.Address = Program.operations.Net.Address;
-            Properties.Settings.Default.Netmask = Program.operations.Net.NetMask;
-            Properties.Settings.Default.Gateway = Program.operations.Net.Gateway;
-            Properties.Settings.Default.DnsOne = Program.operations.Net.DnsOne;
-            Properties.Settings.Default.DnsTwo = Program.operations.Net.DnsTwo;
-            Properties.Settings.Default.Static = Program.operations.Net.Static;
-            Properties.Settings.Default.InterfaceName = Program.operations.Net.InterfaceName;
+            Properties.Settings.Default.Address = Program.operations.Net.Profile.Settings.Address;
+            Properties.Settings.Default.Netmask = Program.operations.Net.Profile.Settings.NetMask;
+            Properties.Settings.Default.Gateway = Program.operations.Net.Profile.Settings.Gateway;
+            Properties.Settings.Default.DnsOne =  Program.operations.Net.Profile.Settings.Nameservers[0];
+            Properties.Settings.Default.DnsTwo =  Program.operations.Net.Profile.Settings.Nameservers[1];
+            Properties.Settings.Default.Static =  Program.operations.Net.Profile.Settings.IsStatic;
+            Properties.Settings.Default.InterfaceName = Program.operations.Net.Profile.Settings.InterfaceName;
 
             // save the app settings.
             Properties.Settings.Default.Save();
@@ -79,15 +79,15 @@ namespace NetChanger
         private void FillSettingsControls()
         {
             // fill the controls (text boxes and ...) in the form based on read data.
-            ifaceTxt.Text = Program.operations.Net.InterfaceName;
-            addressTxt.Text = Program.operations.Net.Address;
-            netmaskTxt.Text = Program.operations.Net.NetMask;
-            gatewayTxt.Text = Program.operations.Net.Gateway;
-            dns1Txt.Text = Program.operations.Net.DnsOne;
-            dns2Txt.Text = Program.operations.Net.DnsTwo;
+            ifaceTxt.Text =   Program.operations.Net.Profile.Settings.InterfaceName;
+            addressTxt.Text = Program.operations.Net.Profile.Settings.Address;
+            netmaskTxt.Text = Program.operations.Net.Profile.Settings.NetMask;
+            gatewayTxt.Text = Program.operations.Net.Profile.Settings.Gateway;
+            dns1Txt.Text =    Program.operations.Net.Profile.Settings.Nameservers[0];
+            dns2Txt.Text =    Program.operations.Net.Profile.Settings.Nameservers[1];
             // TODO: fill the nameservers listbox.
 
-            staticRbn.Checked = Program.operations.Net.Static;
+            staticRbn.Checked = Program.operations.Net.Profile.Settings.IsStatic;
             dhcpRbn.Checked = !staticRbn.Checked;
         }
 

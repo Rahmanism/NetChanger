@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Reflection;
@@ -9,6 +10,9 @@ namespace NetChanger
 {
     class Operations
     {
+        // the file that contains profiles data.
+        const string PROFILES = "profiles.json";
+
         #region Fields
         NotifyIcon notifyIcon;
         Icon normalIcon;
@@ -36,7 +40,7 @@ namespace NetChanger
         void DhcpMenuItemClick(object sender, EventArgs e)
         {
             UpdateRadioMenu( (MenuItem)sender );
-            Net.Static = false;
+            Net.Profile.Settings.IsStatic = false;
             Cmd.Execute( Net.Do );
         }
 
@@ -46,7 +50,7 @@ namespace NetChanger
         void StaticIpMenuItemClick(object sender, EventArgs e)
         {
             UpdateRadioMenu( (MenuItem)sender );
-            Net.Static = true;
+            Net.Profile.Settings.IsStatic = true;
             Cmd.Execute( Net.Do );
         }
 
@@ -219,14 +223,29 @@ namespace NetChanger
         /// </summary>
         private void LoadSettings()
         {
+            string path = AppDomain.CurrentDomain.BaseDirectory + PROFILES;
+            List<Profile> profiles = MyJson.ReadData<List<Profile>>( path );
+            //NetProperties p = MyJson.ReadData<NetProperties>( path );
+
+            Profile activeProfile =
+                profiles.Find(
+                    p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile )
+                );
+
+            Net.Profile = activeProfile;
+
+            var t = "";
+
+
+
             // Loading net properties from app settings.
-            Net.Address = Properties.Settings.Default.Address;
-            Net.NetMask = Properties.Settings.Default.Netmask;
-            Net.Gateway = Properties.Settings.Default.Gateway;
-            Net.DnsOne = Properties.Settings.Default.DnsOne;
-            Net.DnsTwo = Properties.Settings.Default.DnsTwo;
-            Net.Static = Properties.Settings.Default.Static;
-            Net.InterfaceName = Properties.Settings.Default.InterfaceName;
+            //Net.Address = Properties.Settings.Default.Address;
+            //Net.NetMask = Properties.Settings.Default.Netmask;
+            //Net.Gateway = Properties.Settings.Default.Gateway;
+            //Net.DnsOne = Properties.Settings.Default.DnsOne;
+            //Net.DnsTwo = Properties.Settings.Default.DnsTwo;
+            //Net.Static = Properties.Settings.Default.Static;
+            //Net.InterfaceName = Properties.Settings.Default.InterfaceName;
         }
         #endregion
 

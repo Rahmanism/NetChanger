@@ -78,6 +78,9 @@
     <Reference Include="MyCommon">
       <HintPath>..\..\..\..\Downloads\MyCommon.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -105,6 +108,9 @@
     <Compile Include="ManageProfiles.Designer.cs">
       <DependentUpon>ManageProfiles.cs</DependentUpon>
     </Compile>
+    <Compile Include="MyJson.cs" />
+    <Compile Include="NetSettings.cs" />
+    <Compile Include="Profile.cs" />
     <Compile Include="SettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="NetChanger_TemporaryKey.pfx" />
+    <None Include="packages.config" />
     <None Include="profiles.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
