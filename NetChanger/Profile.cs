@@ -4,7 +4,7 @@ namespace NetChanger
 {
     class Profile
     {
-        public string Name = "dhcp";
+        public string Name;
         public NetSettings Settings { get; set; }
     }
 }

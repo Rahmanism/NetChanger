@@ -30,7 +30,7 @@ namespace NetChanger
         /// A command to execute in cmd to set second DNS.
         /// </summary>
         public string SetSecondDnsCommand
-            => $"netsh interface ipv4 add dns name=\"{Profile.Settings.InterfaceName}\" {Profile.Settings.Nameservers[1]} index={index}";
+            => $"netsh interface ipv4 add dns name=\"{Profile.Settings.InterfaceName}\" {Profile.Settings.Nameservers[index - 1]} index={index}";
 
         /// <summary>
         /// Returns an array of strings that contains all necessary commands for static IP.
@@ -41,11 +41,10 @@ namespace NetChanger
                     SetIPCommand,
                     SetFirstDnsCommand
                 };
-                foreach (var i in Profile.Settings.Nameservers) {
+                for ( index = 2; index <= Profile.Settings.Nameservers.Count; index++ ) {
                     commands.Add( SetSecondDnsCommand );
-                    index++;
                 }
-                var c = commands.ToArray();
+                index = 2;
                 return commands.ToArray();
             }
         }
@@ -67,8 +66,27 @@ namespace NetChanger
         /// <summary>
         /// Returns an array of strings that contains all necessary commands for IP from DHCP.
         /// </summary>
-        public string[] DHCPCommand
-            => new string[] { SetDHCPForIP, SetDHCPForDNS };
+        public string[] DHCPCommand {
+            get {
+                List<string> commands = new List<string> {
+                    SetDHCPForIP
+                    // TODO: I should add a command for gateway in dhcp mode if there was a gateway ip in profile.
+                };
+
+                // If there's no dns set the dns to dhcp
+                if ( Profile.Settings.Nameservers.Count < 1 ) {
+                    commands.Add( SetDHCPForDNS );
+                }
+                else { // else set the nameservers
+                    commands.Add( SetFirstDnsCommand );
+                    for ( index = 2; index <= Profile.Settings.Nameservers.Count; index++ ) {
+                        commands.Add( SetSecondDnsCommand );
+                    }
+                    index = 2;
+                }
+                return commands.ToArray();
+            }
+        }
         #endregion
 
         /// <summary>
