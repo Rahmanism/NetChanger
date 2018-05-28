@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace NetChanger
@@ -20,26 +22,15 @@ namespace NetChanger
 
         private void OkBtn_Click(object sender, EventArgs e)
         {
-            // Change the current settings (just) values
+            // Change the current settings
             Program.operations.Net.Profile.Settings.InterfaceName = ifaceTxt.Text;
             Program.operations.Net.Profile.Settings.Address = addressTxt.Text;
             Program.operations.Net.Profile.Settings.NetMask = netmaskTxt.Text;
             Program.operations.Net.Profile.Settings.Gateway = gatewayTxt.Text;
-            Program.operations.Net.Profile.Settings.Nameservers[0] = dns1Txt.Text;
-            Program.operations.Net.Profile.Settings.Nameservers[1] = dns2Txt.Text;
+            Program.operations.Net.Profile.Settings.Nameservers = nameserversLbx.Items.Cast<string>().ToList();
             Program.operations.Net.Profile.Settings.IsStatic = staticRbn.Checked;
 
-            // Setting values of net properties in app settings.
-            Properties.Settings.Default.Address = Program.operations.Net.Profile.Settings.Address;
-            Properties.Settings.Default.Netmask = Program.operations.Net.Profile.Settings.NetMask;
-            Properties.Settings.Default.Gateway = Program.operations.Net.Profile.Settings.Gateway;
-            Properties.Settings.Default.DnsOne =  Program.operations.Net.Profile.Settings.Nameservers[0];
-            Properties.Settings.Default.DnsTwo =  Program.operations.Net.Profile.Settings.Nameservers[1];
-            Properties.Settings.Default.Static =  Program.operations.Net.Profile.Settings.IsStatic;
-            Properties.Settings.Default.InterfaceName = Program.operations.Net.Profile.Settings.InterfaceName;
-
-            // save the app settings.
-            Properties.Settings.Default.Save();
+            // TODO: save the changes in json file
 
             // Closes the form.
             Close();
@@ -52,6 +43,9 @@ namespace NetChanger
                 FillSettingsControls();
             } else if(action == "new") {
                 FillWithEmpty();
+            }
+            else {
+                FillWithProfile( action );
             }
         }
 
@@ -66,28 +60,45 @@ namespace NetChanger
             netmaskTxt.Text = "";
             gatewayTxt.Text = "";
             nameserversLbx.Items.Clear();
-            dns1Txt.Text = "";
-            dns2Txt.Text = "";
 
             staticRbn.Checked = false;
             dhcpRbn.Checked = !staticRbn.Checked;
         }
 
         /// <summary>
-        /// Fill the form with read data.
+        /// Fill the form with read data for current profile.
         /// </summary>
         private void FillSettingsControls()
         {
             // fill the controls (text boxes and ...) in the form based on read data.
-            ifaceTxt.Text =   Program.operations.Net.Profile.Settings.InterfaceName;
+            ifaceTxt.Text = Program.operations.Net.Profile.Settings.InterfaceName;
             addressTxt.Text = Program.operations.Net.Profile.Settings.Address;
             netmaskTxt.Text = Program.operations.Net.Profile.Settings.NetMask;
             gatewayTxt.Text = Program.operations.Net.Profile.Settings.Gateway;
-            dns1Txt.Text =    Program.operations.Net.Profile.Settings.Nameservers[0];
-            dns2Txt.Text =    Program.operations.Net.Profile.Settings.Nameservers[1];
-            // TODO: fill the nameservers listbox.
+            nameserversLbx.Items.Clear();
+            nameserversLbx.Items.AddRange( Program.operations.Net.Profile.Settings.Nameservers.ToArray() );
 
             staticRbn.Checked = Program.operations.Net.Profile.Settings.IsStatic;
+            dhcpRbn.Checked = !staticRbn.Checked;
+        }
+
+        /// <summary>
+        /// Fill the form with read data for a specific profile
+        /// </summary>
+        private void FillWithProfile(string profileName)
+        {
+            // fill the controls (text boxes and ...) in the form based on read data.
+            var aProfile = Program.operations.Profiles.Find(
+                    p => p.Name.ToLower().Equals( profileName )
+                );
+            ifaceTxt.Text =   aProfile.Settings.InterfaceName;
+            addressTxt.Text = aProfile.Settings.Address;
+            netmaskTxt.Text = aProfile.Settings.NetMask;
+            gatewayTxt.Text = aProfile.Settings.Gateway;
+            nameserversLbx.Items.Clear();
+            nameserversLbx.Items.AddRange( aProfile.Settings.Nameservers.ToArray() );
+
+            staticRbn.Checked = aProfile.Settings.IsStatic;
             dhcpRbn.Checked = !staticRbn.Checked;
         }
 

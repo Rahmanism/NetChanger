@@ -31,18 +31,16 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.okBtn = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.profilesCbx = new System.Windows.Forms.ComboBox();
             this.profileNameTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.dhcpRbn = new System.Windows.Forms.RadioButton();
-            this.staticRbn = new System.Windows.Forms.RadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.dns1Txt = new System.Windows.Forms.TextBox();
+            this.addNameserverBtn = new System.Windows.Forms.Button();
+            this.nameserversLbx = new System.Windows.Forms.ListBox();
+            this.dnsTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dns2Txt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.ifaceTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.gatewayTxt = new System.Windows.Forms.TextBox();
@@ -51,15 +49,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.addressTxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.nameserversLbx = new System.Windows.Forms.ListBox();
-            this.addNameserverBtn = new System.Windows.Forms.Button();
-            this.profilesCbx = new System.Windows.Forms.ComboBox();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.dhcpRbn = new System.Windows.Forms.RadioButton();
+            this.staticRbn = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,7 +65,7 @@
             this.panel1.Controls.Add(this.cancelBtn);
             this.panel1.Controls.Add(this.okBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 523);
+            this.panel1.Location = new System.Drawing.Point(0, 647);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(729, 95);
@@ -109,6 +107,18 @@
             this.panel3.Size = new System.Drawing.Size(729, 100);
             this.panel3.TabIndex = 3;
             // 
+            // profilesCbx
+            // 
+            this.profilesCbx.FormattingEnabled = true;
+            this.profilesCbx.Items.AddRange(new object[] {
+            "DHCP",
+            "Office Staic"});
+            this.profilesCbx.Location = new System.Drawing.Point(308, 48);
+            this.profilesCbx.Name = "profilesCbx";
+            this.profilesCbx.Size = new System.Drawing.Size(240, 37);
+            this.profilesCbx.TabIndex = 2;
+            this.profilesCbx.SelectedIndexChanged += new System.EventHandler(this.profilesCbx_SelectedIndexChanged);
+            // 
             // profileNameTxt
             // 
             this.profileNameTxt.Location = new System.Drawing.Point(18, 48);
@@ -131,7 +141,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(729, 423);
+            this.panel2.Size = new System.Drawing.Size(729, 547);
             this.panel2.TabIndex = 4;
             // 
             // groupBox1
@@ -143,56 +153,17 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.groupBox1.Size = new System.Drawing.Size(729, 423);
+            this.groupBox1.Size = new System.Drawing.Size(729, 547);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "IP Settings";
-            // 
-            // panel4
-            // 
-            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel4.Controls.Add(this.dhcpRbn);
-            this.panel4.Controls.Add(this.staticRbn);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(3, 33);
-            this.panel4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(723, 68);
-            this.panel4.TabIndex = 13;
-            this.panel4.TabStop = true;
-            // 
-            // dhcpRbn
-            // 
-            this.dhcpRbn.AutoSize = true;
-            this.dhcpRbn.Checked = true;
-            this.dhcpRbn.Location = new System.Drawing.Point(165, 15);
-            this.dhcpRbn.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.dhcpRbn.Name = "dhcpRbn";
-            this.dhcpRbn.Size = new System.Drawing.Size(102, 33);
-            this.dhcpRbn.TabIndex = 1;
-            this.dhcpRbn.TabStop = true;
-            this.dhcpRbn.Text = "&DHCP";
-            this.dhcpRbn.UseVisualStyleBackColor = true;
-            // 
-            // staticRbn
-            // 
-            this.staticRbn.AutoSize = true;
-            this.staticRbn.Location = new System.Drawing.Point(16, 15);
-            this.staticRbn.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.staticRbn.Name = "staticRbn";
-            this.staticRbn.Size = new System.Drawing.Size(108, 33);
-            this.staticRbn.TabIndex = 0;
-            this.staticRbn.Text = "&Static";
-            this.staticRbn.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
             this.panel5.Controls.Add(this.addNameserverBtn);
             this.panel5.Controls.Add(this.nameserversLbx);
-            this.panel5.Controls.Add(this.dns1Txt);
+            this.panel5.Controls.Add(this.dnsTxt);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.dns2Txt);
-            this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.ifaceTxt);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Controls.Add(this.gatewayTxt);
@@ -204,17 +175,39 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(3, 101);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(723, 317);
+            this.panel5.Size = new System.Drawing.Size(723, 441);
             this.panel5.TabIndex = 14;
             // 
-            // dns1Txt
+            // addNameserverBtn
             // 
-            this.dns1Txt.Location = new System.Drawing.Point(429, 69);
-            this.dns1Txt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.dns1Txt.Name = "dns1Txt";
-            this.dns1Txt.Size = new System.Drawing.Size(188, 35);
-            this.dns1Txt.TabIndex = 24;
-            this.dns1Txt.Text = "172.16.16.1";
+            this.addNameserverBtn.Location = new System.Drawing.Point(624, 69);
+            this.addNameserverBtn.Name = "addNameserverBtn";
+            this.addNameserverBtn.Size = new System.Drawing.Size(62, 35);
+            this.addNameserverBtn.TabIndex = 26;
+            this.addNameserverBtn.Text = "+";
+            this.addNameserverBtn.UseVisualStyleBackColor = true;
+            // 
+            // nameserversLbx
+            // 
+            this.nameserversLbx.FormattingEnabled = true;
+            this.nameserversLbx.ItemHeight = 29;
+            this.nameserversLbx.Items.AddRange(new object[] {
+            "172.16.16.1",
+            "172.16.16.70",
+            "4.2.2.4",
+            "8.8.8.8"});
+            this.nameserversLbx.Location = new System.Drawing.Point(429, 118);
+            this.nameserversLbx.Name = "nameserversLbx";
+            this.nameserversLbx.Size = new System.Drawing.Size(257, 294);
+            this.nameserversLbx.TabIndex = 25;
+            // 
+            // dnsTxt
+            // 
+            this.dnsTxt.Location = new System.Drawing.Point(429, 69);
+            this.dnsTxt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dnsTxt.Name = "dnsTxt";
+            this.dnsTxt.Size = new System.Drawing.Size(188, 35);
+            this.dnsTxt.TabIndex = 24;
             // 
             // label5
             // 
@@ -225,27 +218,6 @@
             this.label5.TabIndex = 23;
             this.label5.Text = "Nameservers";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // dns2Txt
-            // 
-            this.dns2Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.dns2Txt.Location = new System.Drawing.Point(198, 253);
-            this.dns2Txt.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.dns2Txt.Name = "dns2Txt";
-            this.dns2Txt.Size = new System.Drawing.Size(188, 35);
-            this.dns2Txt.TabIndex = 22;
-            this.dns2Txt.Text = "8.8.8.8";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 259);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(160, 29);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Nameserver 2";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ifaceTxt
             // 
@@ -323,40 +295,42 @@
             this.label1.Text = "&Address";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // nameserversLbx
+            // panel4
             // 
-            this.nameserversLbx.FormattingEnabled = true;
-            this.nameserversLbx.ItemHeight = 29;
-            this.nameserversLbx.Items.AddRange(new object[] {
-            "172.16.16.1",
-            "172.16.16.70",
-            "4.2.2.4",
-            "8.8.8.8"});
-            this.nameserversLbx.Location = new System.Drawing.Point(429, 118);
-            this.nameserversLbx.Name = "nameserversLbx";
-            this.nameserversLbx.Size = new System.Drawing.Size(257, 178);
-            this.nameserversLbx.TabIndex = 25;
+            this.panel4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel4.Controls.Add(this.dhcpRbn);
+            this.panel4.Controls.Add(this.staticRbn);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(3, 33);
+            this.panel4.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(723, 68);
+            this.panel4.TabIndex = 13;
+            this.panel4.TabStop = true;
             // 
-            // addNameserverBtn
+            // dhcpRbn
             // 
-            this.addNameserverBtn.Location = new System.Drawing.Point(624, 69);
-            this.addNameserverBtn.Name = "addNameserverBtn";
-            this.addNameserverBtn.Size = new System.Drawing.Size(62, 35);
-            this.addNameserverBtn.TabIndex = 26;
-            this.addNameserverBtn.Text = "+";
-            this.addNameserverBtn.UseVisualStyleBackColor = true;
+            this.dhcpRbn.AutoSize = true;
+            this.dhcpRbn.Checked = true;
+            this.dhcpRbn.Location = new System.Drawing.Point(165, 15);
+            this.dhcpRbn.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.dhcpRbn.Name = "dhcpRbn";
+            this.dhcpRbn.Size = new System.Drawing.Size(102, 33);
+            this.dhcpRbn.TabIndex = 1;
+            this.dhcpRbn.TabStop = true;
+            this.dhcpRbn.Text = "&DHCP";
+            this.dhcpRbn.UseVisualStyleBackColor = true;
             // 
-            // profilesCbx
+            // staticRbn
             // 
-            this.profilesCbx.FormattingEnabled = true;
-            this.profilesCbx.Items.AddRange(new object[] {
-            "DHCP",
-            "Office Staic"});
-            this.profilesCbx.Location = new System.Drawing.Point(308, 48);
-            this.profilesCbx.Name = "profilesCbx";
-            this.profilesCbx.Size = new System.Drawing.Size(240, 37);
-            this.profilesCbx.TabIndex = 2;
-            this.profilesCbx.SelectedIndexChanged += new System.EventHandler(this.profilesCbx_SelectedIndexChanged);
+            this.staticRbn.AutoSize = true;
+            this.staticRbn.Location = new System.Drawing.Point(16, 15);
+            this.staticRbn.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.staticRbn.Name = "staticRbn";
+            this.staticRbn.Size = new System.Drawing.Size(108, 33);
+            this.staticRbn.TabIndex = 0;
+            this.staticRbn.Text = "&Static";
+            this.staticRbn.UseVisualStyleBackColor = true;
             // 
             // SettingsForm
             // 
@@ -364,7 +338,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(192F, 192F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.cancelBtn;
-            this.ClientSize = new System.Drawing.Size(729, 618);
+            this.ClientSize = new System.Drawing.Size(729, 742);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
@@ -381,10 +355,10 @@
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -399,10 +373,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox dns1Txt;
+        private System.Windows.Forms.TextBox dnsTxt;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox dns2Txt;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ifaceTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox gatewayTxt;

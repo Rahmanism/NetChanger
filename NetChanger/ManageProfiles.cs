@@ -17,5 +17,16 @@ namespace NetChanger
             InitializeComponent();
             Icon = Properties.Resources.MainIcon;
         }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            var editProfile = new SettingsForm( profilesLbx.SelectedItem.ToString() );
+            editProfile.Show();
+        }
+
+        private void profilesLbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var t = profilesLbx.SelectedValue;
+        }
     }
 }

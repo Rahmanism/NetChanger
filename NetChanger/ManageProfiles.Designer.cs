@@ -30,10 +30,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.profilesLbx = new System.Windows.Forms.ListBox();
+            this.closeBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
-            this.closeBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -67,7 +67,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.listBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.profilesLbx);
             // 
             // splitContainer1.Panel2
             // 
@@ -79,19 +79,30 @@
             this.splitContainer1.SplitterDistance = 372;
             this.splitContainer1.TabIndex = 4;
             // 
-            // listBox1
+            // profilesLbx
             // 
-            this.listBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 25;
-            this.listBox1.Items.AddRange(new object[] {
+            this.profilesLbx.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.profilesLbx.FormattingEnabled = true;
+            this.profilesLbx.ItemHeight = 25;
+            this.profilesLbx.Items.AddRange(new object[] {
             "Office",
             "Home",
             "DHCP"});
-            this.listBox1.Location = new System.Drawing.Point(0, 0);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(372, 426);
-            this.listBox1.TabIndex = 4;
+            this.profilesLbx.Location = new System.Drawing.Point(0, 0);
+            this.profilesLbx.Name = "profilesLbx";
+            this.profilesLbx.Size = new System.Drawing.Size(372, 426);
+            this.profilesLbx.TabIndex = 4;
+            this.profilesLbx.SelectedIndexChanged += new System.EventHandler(this.profilesLbx_SelectedIndexChanged);
+            // 
+            // closeBtn
+            // 
+            this.closeBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.closeBtn.Location = new System.Drawing.Point(20, 355);
+            this.closeBtn.Name = "closeBtn";
+            this.closeBtn.Size = new System.Drawing.Size(174, 51);
+            this.closeBtn.TabIndex = 5;
+            this.closeBtn.Text = "Close";
+            this.closeBtn.UseVisualStyleBackColor = true;
             // 
             // deleteBtn
             // 
@@ -113,16 +124,7 @@
             this.editBtn.TabIndex = 4;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = true;
-            // 
-            // closeBtn
-            // 
-            this.closeBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.closeBtn.Location = new System.Drawing.Point(20, 355);
-            this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(174, 51);
-            this.closeBtn.TabIndex = 5;
-            this.closeBtn.Text = "Close";
-            this.closeBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // ManageProfiles
             // 
@@ -147,7 +149,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox profilesLbx;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button closeBtn;

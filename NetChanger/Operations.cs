@@ -20,6 +20,7 @@ namespace NetChanger
 
         #region Public Fields
         public NetProperties Net;
+        public List<Profile> Profiles;
         #endregion
 
         public Operations()
@@ -127,10 +128,6 @@ namespace NetChanger
             // Create context menu and assign it to notification icon
             var progNameMenuItem = new MenuItem( String.Format( "NetChanger - v{0}",
                 Assembly.GetExecutingAssembly().GetName().Version.ToString() ) );
-            var settingsMenuItem = new MenuItem {
-                Text = "Settings",
-                Name = "settingsMenuItem"
-            };
 
             var profilesMenuItem = new MenuItem {
                 Text = "Profiles",
@@ -140,11 +137,16 @@ namespace NetChanger
                 Text = "Create New Profile...",
                 Name = "createProfileMenuItem"
             };
+            var editCurrentProfileMenuItem = new MenuItem {
+                Text = "Edit current profile...",
+                Name = "editCurrentProfileMenuItem"
+            };
             var profileManageMenuItem = new MenuItem {
                 Text = "Manage Profiles...",
                 Name = "profilesManageMenuItem"
             };
             profilesMenuItem.MenuItems.Add( profileCreateMenuItem );
+            profilesMenuItem.MenuItems.Add( editCurrentProfileMenuItem );
             profilesMenuItem.MenuItems.Add( profileManageMenuItem );
             profilesMenuItem.MenuItems.Add( "-" );
 
@@ -166,8 +168,6 @@ namespace NetChanger
             var quitMenuItem = new MenuItem( "Quit" );
             var contextMenu = new ContextMenu();
             contextMenu.MenuItems.Add( progNameMenuItem );
-            contextMenu.MenuItems.Add( "-" );
-            contextMenu.MenuItems.Add( settingsMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( profilesMenuItem );
             contextMenu.MenuItems.Add( "-" );
@@ -192,16 +192,16 @@ namespace NetChanger
             dhcpMenuItem.Click += DhcpMenuItemClick;
             staticIpMenuItem.Click += StaticIpMenuItemClick;
 
-            // Wire up settings menu item to show the settigns form (Main form of app!)
-            settingsMenuItem.Click += (s, e) => {
-                var main = new SettingsForm();
-                main.Show();
-            };
-
             // Wire up create profiles menu item to show profile form (settings actually)
             profileCreateMenuItem.Click += (s, e) => {
                 var createProfile = new SettingsForm( "new" );
                 createProfile.Show();
+            };
+
+            // Wire up edit current profile menu item to show profile form (settings actually) for the active profile
+            editCurrentProfileMenuItem.Click += (s, e) => {
+                var editCurrentProfile = new SettingsForm( "edit-current" );
+                editCurrentProfile.Show();
             };
 
             // Wire up manage profiles menu item to show the form
@@ -224,28 +224,11 @@ namespace NetChanger
         private void LoadSettings()
         {
             string path = AppDomain.CurrentDomain.BaseDirectory + PROFILES;
-            List<Profile> profiles = MyJson.ReadData<List<Profile>>( path );
-            //NetProperties p = MyJson.ReadData<NetProperties>( path );
+            Profiles = MyJson.ReadData<List<Profile>>( path );
 
-            Profile activeProfile =
-                profiles.Find(
+            Net.Profile = Profiles.Find(
                     p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile )
                 );
-
-            Net.Profile = activeProfile;
-
-            var t = "";
-
-
-
-            // Loading net properties from app settings.
-            //Net.Address = Properties.Settings.Default.Address;
-            //Net.NetMask = Properties.Settings.Default.Netmask;
-            //Net.Gateway = Properties.Settings.Default.Gateway;
-            //Net.DnsOne = Properties.Settings.Default.DnsOne;
-            //Net.DnsTwo = Properties.Settings.Default.DnsTwo;
-            //Net.Static = Properties.Settings.Default.Static;
-            //Net.InterfaceName = Properties.Settings.Default.InterfaceName;
         }
         #endregion
 
