@@ -23,10 +23,5 @@ namespace NetChanger
             var editProfile = new SettingsForm( profilesLbx.SelectedItem.ToString() );
             editProfile.Show();
         }
-
-        private void profilesLbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var t = profilesLbx.SelectedValue;
-        }
     }
 }

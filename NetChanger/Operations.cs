@@ -36,26 +36,6 @@ namespace NetChanger
         }
 
         /// <summary>
-        /// Changes IP settings to DHCP
-        /// </summary>
-        void DhcpMenuItemClick(object sender, EventArgs e)
-        {
-            UpdateRadioMenu( (MenuItem)sender );
-            Net.Profile.Settings.IsStatic = false;
-            Cmd.Execute( Net.Do );
-        }
-
-        /// <summary>
-        /// Changes IP settings to static mode
-        /// </summary>
-        void StaticIpMenuItemClick(object sender, EventArgs e)
-        {
-            UpdateRadioMenu( (MenuItem)sender );
-            Net.Profile.Settings.IsStatic = true;
-            Cmd.Execute( Net.Do );
-        }
-
-        /// <summary>
         /// Puts the app in startup
         /// </summary>
         /// <param name="sender"></param>
@@ -150,17 +130,17 @@ namespace NetChanger
             profilesMenuItem.MenuItems.Add( profileManageMenuItem );
             profilesMenuItem.MenuItems.Add( "-" );
 
-            var dhcpMenuItem = new MenuItem {
-                Text = "DHCP",
-                Name = "dhcpMenuItem",
-                RadioCheck = true,
-                Checked = true
-            };
-            var staticIpMenuItem = new MenuItem {
-                Text = "Static IP",
-                Name = "staticIpMenuItem",
-                RadioCheck = true
-            };
+            foreach ( var item in Profiles ) {
+                var menuItem = new MenuItem {
+                    Text = item.Name,
+                    Name = item.Name + "MenuItem",
+                    RadioCheck = true,
+                    Checked = Net.Profile.Name.Equals( item.Name )
+                };
+                menuItem.Click += ProfileMenuItemClick;
+                profilesMenuItem.MenuItems.Add( menuItem );
+            }
+
             var aboutMenuItem = new MenuItem {
                 Text = "About",
                 Name = "aboutMenuItem"
@@ -170,9 +150,6 @@ namespace NetChanger
             contextMenu.MenuItems.Add( progNameMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( profilesMenuItem );
-            contextMenu.MenuItems.Add( "-" );
-            contextMenu.MenuItems.Add( dhcpMenuItem );
-            contextMenu.MenuItems.Add( staticIpMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( aboutMenuItem );
             contextMenu.MenuItems.Add( "-" );
@@ -188,9 +165,18 @@ namespace NetChanger
             #region Context Menu Events Wire Up
             // Wire up menu items event handlers
             quitMenuItem.Click += QuitMenuItemClick;
-            // TODO: set dhcp & static ip menu items event handler in main Program
-            dhcpMenuItem.Click += DhcpMenuItemClick;
             staticIpMenuItem.Click += StaticIpMenuItemClick;
+
+            //// old dhcp menu item click
+            //UpdateRadioMenu( (MenuItem)sender );
+            //Net.Profile.Settings.IsStatic = false;
+            //Cmd.Execute( Net.Do );
+
+            /// old static ip menu item click
+            //UpdateRadioMenu( (MenuItem)sender );
+            //Net.Profile.Settings.IsStatic = true;
+            //Cmd.Execute( Net.Do );
+
 
             // Wire up create profiles menu item to show profile form (settings actually)
             profileCreateMenuItem.Click += (s, e) => {
@@ -216,6 +202,19 @@ namespace NetChanger
                 about.Show();
             };
             #endregion
+        }
+
+        private void ProfileMenuItemClick(object sender, EventArgs e)
+        {
+            UpdateRadioMenu( (MenuItem)sender );
+            Properties.Settings.Default.ActiveProfile = ( (MenuItem)sender ).Text;
+            Properties.Settings.Default.Save();
+            Net.Profile = Profiles.Find(
+                    p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile )
+                );
+
+            //Cmd.Execute( Net.Do );
+            // TODO: Cmd.Execute with the proper commands.
         }
 
         /// <summary>
