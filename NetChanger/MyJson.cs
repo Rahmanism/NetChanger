@@ -29,5 +29,16 @@ namespace NetChanger
             // if string with JSON data is not empty, deserialize it to class and return its instance 
             return !string.IsNullOrEmpty( jsonData ) ? JsonConvert.DeserializeObject<T>( jsonData ) : new T();
         }
+
+        /// <summary>
+        /// Write data to json file.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="path"></param>
+        /// <returns></returns>
+        public static T WriteData<T>(string path) where T : new ()
+        {
+            return new T();
+        }
     }
 }

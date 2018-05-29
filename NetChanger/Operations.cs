@@ -196,13 +196,13 @@ namespace NetChanger
 
             // Wire up create profiles menu item to show profile form (settings actually)
             profileCreateMenuItem.Click += (s, e) => {
-                var createProfile = new SettingsForm( "new" );
+                var createProfile = new SettingsForm( SettingsForm.NEW );
                 createProfile.Show();
             };
 
             // Wire up edit current profile menu item to show profile form (settings actually) for the active profile
             editCurrentProfileMenuItem.Click += (s, e) => {
-                var editCurrentProfile = new SettingsForm( "edit-current" );
+                var editCurrentProfile = new SettingsForm( SettingsForm.EDIT_CURRENT );
                 editCurrentProfile.Show();
             };
 

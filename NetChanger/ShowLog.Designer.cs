@@ -30,9 +30,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.closeBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.logLbx = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -42,18 +42,18 @@
             // 
             this.panel1.Controls.Add(this.closeBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 641);
+            this.panel1.Location = new System.Drawing.Point(0, 744);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1127, 100);
+            this.panel1.Size = new System.Drawing.Size(1221, 116);
             this.panel1.TabIndex = 0;
             // 
             // closeBtn
             // 
             this.closeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.closeBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.closeBtn.Location = new System.Drawing.Point(904, 25);
+            this.closeBtn.Location = new System.Drawing.Point(979, 29);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(197, 54);
+            this.closeBtn.Size = new System.Drawing.Size(213, 63);
             this.closeBtn.TabIndex = 0;
             this.closeBtn.Text = "&Close";
             this.closeBtn.UseVisualStyleBackColor = true;
@@ -65,47 +65,48 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1127, 72);
+            this.panel2.Size = new System.Drawing.Size(1221, 84);
             this.panel2.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(29, 29);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(278, 29);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Log of command results:";
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.logLbx);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 72);
+            this.panel3.Location = new System.Drawing.Point(0, 84);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1127, 569);
+            this.panel3.Size = new System.Drawing.Size(1221, 660);
             this.panel3.TabIndex = 3;
             // 
             // logLbx
             // 
             this.logLbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logLbx.FormattingEnabled = true;
-            this.logLbx.ItemHeight = 25;
+            this.logLbx.ItemHeight = 29;
             this.logLbx.Location = new System.Drawing.Point(0, 0);
             this.logLbx.Name = "logLbx";
-            this.logLbx.Size = new System.Drawing.Size(1127, 569);
+            this.logLbx.Size = new System.Drawing.Size(1221, 660);
             this.logLbx.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(247, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Log of command results:";
             // 
             // ShowLog
             // 
             this.AcceptButton = this.closeBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.closeBtn;
-            this.ClientSize = new System.Drawing.Size(1127, 741);
+            this.ClientSize = new System.Drawing.Size(1221, 860);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Trebuchet MS", 9F);
             this.Name = "ShowLog";
             this.Text = "Log";
             this.Load += new System.EventHandler(this.ShowLog_Load);

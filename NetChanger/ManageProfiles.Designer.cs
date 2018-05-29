@@ -45,24 +45,24 @@
             // 
             this.panel2.Controls.Add(this.label1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel2.Location = new System.Drawing.Point(10, 10);
+            this.panel2.Location = new System.Drawing.Point(11, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(570, 66);
+            this.panel2.Size = new System.Drawing.Size(617, 77);
             this.panel2.TabIndex = 2;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 20);
+            this.label1.Location = new System.Drawing.Point(15, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(124, 25);
+            this.label1.Size = new System.Drawing.Size(139, 29);
             this.label1.TabIndex = 0;
             this.label1.Text = "Profiles List";
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(10, 76);
+            this.splitContainer1.Location = new System.Drawing.Point(11, 89);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -74,31 +74,31 @@
             this.splitContainer1.Panel2.Controls.Add(this.closeBtn);
             this.splitContainer1.Panel2.Controls.Add(this.deleteBtn);
             this.splitContainer1.Panel2.Controls.Add(this.editBtn);
-            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(20, 20, 20, 20);
-            this.splitContainer1.Size = new System.Drawing.Size(570, 405);
-            this.splitContainer1.SplitterDistance = 358;
+            this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(22, 23, 22, 23);
+            this.splitContainer1.Size = new System.Drawing.Size(617, 469);
+            this.splitContainer1.SplitterDistance = 387;
             this.splitContainer1.TabIndex = 4;
             // 
             // profilesLbx
             // 
             this.profilesLbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.profilesLbx.FormattingEnabled = true;
-            this.profilesLbx.ItemHeight = 25;
+            this.profilesLbx.ItemHeight = 29;
             this.profilesLbx.Items.AddRange(new object[] {
             "Office",
             "Home",
             "DHCP"});
             this.profilesLbx.Location = new System.Drawing.Point(0, 0);
             this.profilesLbx.Name = "profilesLbx";
-            this.profilesLbx.Size = new System.Drawing.Size(358, 405);
+            this.profilesLbx.Size = new System.Drawing.Size(387, 469);
             this.profilesLbx.TabIndex = 4;
             // 
             // closeBtn
             // 
             this.closeBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.closeBtn.Location = new System.Drawing.Point(20, 333);
+            this.closeBtn.Location = new System.Drawing.Point(22, 386);
             this.closeBtn.Name = "closeBtn";
-            this.closeBtn.Size = new System.Drawing.Size(168, 52);
+            this.closeBtn.Size = new System.Drawing.Size(182, 60);
             this.closeBtn.TabIndex = 5;
             this.closeBtn.Text = "Close";
             this.closeBtn.UseVisualStyleBackColor = true;
@@ -108,9 +108,9 @@
             // 
             this.deleteBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.deleteBtn.Enabled = false;
-            this.deleteBtn.Location = new System.Drawing.Point(20, 72);
+            this.deleteBtn.Location = new System.Drawing.Point(22, 83);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(168, 52);
+            this.deleteBtn.Size = new System.Drawing.Size(182, 60);
             this.deleteBtn.TabIndex = 3;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
@@ -119,9 +119,9 @@
             // editBtn
             // 
             this.editBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.editBtn.Location = new System.Drawing.Point(20, 20);
+            this.editBtn.Location = new System.Drawing.Point(22, 23);
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(168, 52);
+            this.editBtn.Size = new System.Drawing.Size(182, 60);
             this.editBtn.TabIndex = 4;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = true;
@@ -129,13 +129,14 @@
             // 
             // ManageProfiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(590, 491);
+            this.ClientSize = new System.Drawing.Size(639, 570);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel2);
+            this.Font = new System.Drawing.Font("Trebuchet MS", 9F);
             this.Name = "ManageProfiles";
-            this.Padding = new System.Windows.Forms.Padding(10);
+            this.Padding = new System.Windows.Forms.Padding(11, 12, 11, 12);
             this.Text = "ManageProfiles";
             this.Load += new System.EventHandler(this.ManageProfiles_Load);
             this.panel2.ResumeLayout(false);
