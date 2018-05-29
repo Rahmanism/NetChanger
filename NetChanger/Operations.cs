@@ -21,6 +21,7 @@ namespace NetChanger
         #region Public Fields
         public NetProperties Net;
         public List<Profile> Profiles;
+        public List<string> ResultsLog = new List<string>();
         #endregion
 
         public Operations()
@@ -59,6 +60,27 @@ namespace NetChanger
                 }
                 catch { }
             }
+        }
+
+        /// <summary>
+        /// When user clicks (selects) a profile, changes happens here.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void ProfileMenuItemClick(object sender, EventArgs e)
+        {
+            UpdateRadioMenu( (MenuItem)sender );
+
+            // Change the active profile in app settings.
+            Properties.Settings.Default.ActiveProfile = ( (MenuItem)sender ).Text;
+            Properties.Settings.Default.Save();
+
+            // Change the current (active) profile to the selected for runtime.
+            Net.Profile = Profiles.Find(
+                    p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile )
+                );
+
+            Log( Cmd.Execute( Net.Do ) );
         }
         #endregion
 
@@ -141,6 +163,11 @@ namespace NetChanger
                 profilesMenuItem.MenuItems.Add( menuItem );
             }
 
+            var showLogMenuItem = new MenuItem {
+                Text = "Show Log...",
+                Name = "showLogMenuItem"
+            };
+
             var aboutMenuItem = new MenuItem {
                 Text = "About",
                 Name = "aboutMenuItem"
@@ -151,6 +178,7 @@ namespace NetChanger
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( profilesMenuItem );
             contextMenu.MenuItems.Add( "-" );
+            contextMenu.MenuItems.Add( showLogMenuItem );
             contextMenu.MenuItems.Add( aboutMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( quitMenuItem );
@@ -165,18 +193,6 @@ namespace NetChanger
             #region Context Menu Events Wire Up
             // Wire up menu items event handlers
             quitMenuItem.Click += QuitMenuItemClick;
-            staticIpMenuItem.Click += StaticIpMenuItemClick;
-
-            //// old dhcp menu item click
-            //UpdateRadioMenu( (MenuItem)sender );
-            //Net.Profile.Settings.IsStatic = false;
-            //Cmd.Execute( Net.Do );
-
-            /// old static ip menu item click
-            //UpdateRadioMenu( (MenuItem)sender );
-            //Net.Profile.Settings.IsStatic = true;
-            //Cmd.Execute( Net.Do );
-
 
             // Wire up create profiles menu item to show profile form (settings actually)
             profileCreateMenuItem.Click += (s, e) => {
@@ -196,25 +212,18 @@ namespace NetChanger
                 manageProfiles.Show();
             };
 
+            // Wire up show log menu item to show the form
+            showLogMenuItem.Click += (s, e) => {
+                var showLog = new ShowLog();
+                showLog.Show();
+            };
+
             // Wire up about menu item to show about form
             aboutMenuItem.Click += (s, e) => {
                 var about = new AboutForm();
                 about.Show();
             };
             #endregion
-        }
-
-        private void ProfileMenuItemClick(object sender, EventArgs e)
-        {
-            UpdateRadioMenu( (MenuItem)sender );
-            Properties.Settings.Default.ActiveProfile = ( (MenuItem)sender ).Text;
-            Properties.Settings.Default.Save();
-            Net.Profile = Profiles.Find(
-                    p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile )
-                );
-
-            //Cmd.Execute( Net.Do );
-            // TODO: Cmd.Execute with the proper commands.
         }
 
         /// <summary>
@@ -230,7 +239,6 @@ namespace NetChanger
                 );
         }
         #endregion
-
 
         #region Private Methods
         /// <summary>
@@ -293,6 +301,16 @@ namespace NetChanger
                 "Jarvis System Performance Monitor" : title;
 
             notifyIcon.ShowBalloonTip( 1000 );
+        }
+
+        /// <summary>
+        /// Adds the text (and time) to the resutls list. (doesn't save on hdd)
+        /// </summary>
+        /// <param name="str"></param>
+        public void Log(string[] str)
+        {
+            ResultsLog.Add( DateTime.Now.ToString() );
+            ResultsLog.AddRange( str );
         }
         #endregion
     }

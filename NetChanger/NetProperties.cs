@@ -13,7 +13,6 @@ namespace NetChanger
 
         #region COMMANDS
 
-        #region STATIC IP COMMANDS
         /// <summary>
         /// A command to execute in cmd to set the IP address.
         /// </summary>
@@ -33,6 +32,18 @@ namespace NetChanger
             => $"netsh interface ipv4 add dns name=\"{Profile.Settings.InterfaceName}\" {Profile.Settings.Nameservers[index - 1]} index={index}";
 
         /// <summary>
+        /// A command to execute in cmd to enable DHCP.
+        /// </summary>
+        public string SetDHCPForIP
+            => $"netsh interface ipv4 set address name=\"{Profile.Settings.InterfaceName}\" source=dhcp";
+
+        /// <summary>
+        /// A command to execute in cmd to enable DHCP for DNS.
+        /// </summary>
+        public string SetDHCPForDNS
+            => $"netsh interface ipv4 set dns \"{Profile.Settings.InterfaceName}\" dhcp";
+
+        /// <summary>
         /// Returns an array of strings that contains all necessary commands for static IP.
         /// </summary>
         public string[] StaticIPCommand {
@@ -48,20 +59,6 @@ namespace NetChanger
                 return commands.ToArray();
             }
         }
-        #endregion
-
-        #region DHCP COMMANDS
-        /// <summary>
-        /// A command to execute in cmd to enable DHCP.
-        /// </summary>
-        public string SetDHCPForIP
-            => $"netsh interface ipv4 set address name=\"{Profile.Settings.InterfaceName}\" source=dhcp";
-
-        /// <summary>
-        /// A command to execute in cmd to enable DHCP for DNS.
-        /// </summary>
-        public string SetDHCPForDNS
-            => $"netsh interface ipv4 set dns \"{Profile.Settings.InterfaceName}\" dhcp";
 
         /// <summary>
         /// Returns an array of strings that contains all necessary commands for IP from DHCP.
@@ -74,7 +71,7 @@ namespace NetChanger
                 };
 
                 // If there's no dns set the dns to dhcp
-                if ( Profile.Settings.Nameservers.Count < 1 ) {
+                if ( Profile.Settings.Nameservers == null || Profile.Settings.Nameservers.Count < 1 ) {
                     commands.Add( SetDHCPForDNS );
                 }
                 else { // else set the nameservers
@@ -87,7 +84,6 @@ namespace NetChanger
                 return commands.ToArray();
             }
         }
-        #endregion
 
         /// <summary>
         /// An array of strings that contains the final executive commands, based on Static property

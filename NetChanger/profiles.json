@@ -34,7 +34,7 @@
         "Name": "office static",
         "Settings": {
             "IsStatic": true,
-            "InterfaceName": "Wi-FiOOO",
+            "InterfaceName": "Wi-Fi",
             "Address": "172.16.17.4",
             "NetMask": "255.255.252.0",
             "Gateway": "172.16.16.9",

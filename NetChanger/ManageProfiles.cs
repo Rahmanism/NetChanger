@@ -23,5 +23,23 @@ namespace NetChanger
             var editProfile = new SettingsForm( profilesLbx.SelectedItem.ToString() );
             editProfile.Show();
         }
+
+        private void ManageProfiles_Load(object sender, EventArgs e)
+        {
+            profilesLbx.Items.Clear();
+            foreach ( var item in Program.operations.Profiles ) {
+                profilesLbx.Items.Add( item.Name );
+            }
+        }
+
+        private void deleteBtn_Click(object sender, EventArgs e)
+        {
+            // TODO: delete a profile and save the result in the json file.
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -117,7 +117,7 @@
             this.profilesCbx.Name = "profilesCbx";
             this.profilesCbx.Size = new System.Drawing.Size(240, 37);
             this.profilesCbx.TabIndex = 2;
-            this.profilesCbx.SelectedIndexChanged += new System.EventHandler(this.profilesCbx_SelectedIndexChanged);
+            this.profilesCbx.Visible = false;
             // 
             // profileNameTxt
             // 
