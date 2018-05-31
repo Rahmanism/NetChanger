@@ -29,7 +29,6 @@ namespace NetChanger
                 var newProfile = new Profile();
                 UpdateProfile( newProfile );
                 Program.operations.Profiles.Add( newProfile );
-                Program.operations.LoadProfilesMenu();
             }
             else if ( action == EDIT_CURRENT ) {
                 UpdateProfile( Program.operations.Net.Profile );
@@ -43,8 +42,9 @@ namespace NetChanger
                 UpdateProfile( profile );
             }
 
-            // TODO: Save the changes to the json file.
-            // TODO: check IPs to be valid using regex.
+            // TODO!: check IPs to be valid using regex.
+
+            Program.operations.UpdateProfilesFull();
 
             // Closes the form.
             Close();

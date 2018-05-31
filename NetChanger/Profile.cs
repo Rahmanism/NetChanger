@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace NetChanger
+﻿namespace NetChanger
 {
     class Profile
     {

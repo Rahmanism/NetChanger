@@ -43,5 +43,10 @@ namespace NetChanger
         {
             System.Diagnostics.Process.Start( "http://rahmanism.ir" );
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start( "https://gitlab.com/Rahmanism/NetChanger" );
+        }
     }
 }

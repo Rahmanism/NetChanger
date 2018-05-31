@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Windows.Forms;
 
 namespace NetChanger
 {
@@ -36,9 +37,16 @@ namespace NetChanger
         /// <typeparam name="T"></typeparam>
         /// <param name="path"></param>
         /// <returns></returns>
-        public static T WriteData<T>(string path) where T : new ()
+        public static void WriteData<T>(string path, T data) where T : new ()
         {
-            return new T();
+            var jsonData = JsonConvert.SerializeObject(data);
+
+            try {
+                File.WriteAllText( path, jsonData );
+            }
+            catch ( Exception x) {
+                MessageBox.Show( x.Message );
+            }
         }
     }
 }

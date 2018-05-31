@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Drawing;
 using System.Reflection;
-using System.Threading;
 using System.Windows.Forms;
 
 namespace NetChanger
@@ -11,7 +9,7 @@ namespace NetChanger
     class Operations
     {
         // the file that contains profiles data.
-        const string PROFILES = "profiles.json";
+        public const string PROFILES = "profiles.json";
 
         #region Fields
         NotifyIcon notifyIcon;
@@ -152,7 +150,17 @@ namespace NetChanger
             profilesMenuItem.MenuItems.Add( profileManageMenuItem );
             profilesMenuItem.MenuItems.Add( "-" );
 
-            LoadProfilesMenu( true );
+            // adding profiles to the sub menu again.
+            foreach ( var item in Profiles ) {
+                var menuItem = new MenuItem {
+                    Text = item.Name,
+                    Name = item.Name + "MenuItem",
+                    RadioCheck = true,
+                    Checked = Net.Profile.Name.Equals( item.Name )
+                };
+                menuItem.Click += ProfileMenuItemClick;
+                profilesMenuItem.MenuItems.Add( menuItem );
+            }
 
             var showLogMenuItem = new MenuItem {
                 Text = "Show Log...",
@@ -176,7 +184,6 @@ namespace NetChanger
             notifyIcon.ContextMenu = contextMenu;
 
             // If there is a shortcut of app in startup folder put check mark for the menu item
-            // TODO: checked status for to menu items (dhcp and static) should be set in intialization
             //startupMenuItem.Checked =
             //    System.IO.File.Exists(
             //        Environment.GetFolderPath( Environment.SpecialFolder.Startup ) + "\\Jarvis.lnk" );
@@ -257,13 +264,44 @@ namespace NetChanger
         }
 
         /// <summary>
-        /// Updates the configuration items at runtime
+        /// Updates profiles sub menu.
         /// </summary>
-        private void UpdateConfig()
+        /// <param name="firstTime"></param>
+        private void LoadProfilesMenu()
         {
-            // TODO: should update the settings
-            //config.MuteMemAlert = MemAlert;
-            //config.MuteCpuAlert = CpuAlert;
+            byte? menuItemIndex = null;
+            MenuItem profilesMenuItem = new MenuItem();
+
+            // find the profiles submenu
+            foreach ( MenuItem item in notifyIcon.ContextMenu.MenuItems ) {
+                if ( item.Name == "profilesMenuItem" ) {
+                    menuItemIndex = (byte)item.Index;
+                    profilesMenuItem = item;
+                    break;
+                }
+            }
+
+            // find and remove profiles menu items.
+            List<byte> indices = new List<byte>();
+            foreach ( MenuItem item in profilesMenuItem.MenuItems ) {
+                if ( item.RadioCheck )
+                    indices.Add( (byte)item.Index );
+            }
+            for ( int i = indices.Count - 1; i > -1; i-- ) {
+                profilesMenuItem.MenuItems.RemoveAt( indices[i] );
+            }
+
+            // adding profiles to the sub menu again.
+            foreach ( var item in Profiles ) {
+                var menuItem = new MenuItem {
+                    Text = item.Name,
+                    Name = item.Name + "MenuItem",
+                    RadioCheck = true,
+                    Checked = Net.Profile.Name.Equals( item.Name )
+                };
+                menuItem.Click += ProfileMenuItemClick;
+                profilesMenuItem.MenuItems.Add( menuItem );
+            }
         }
         #endregion
 
@@ -304,44 +342,18 @@ namespace NetChanger
             ResultsLog.AddRange( str );
         }
 
-        public void LoadProfilesMenu(bool firstTime = false)
+        /// <summary>
+        /// Updates profiles menu, and saves the profiles in RAM
+        /// (after delete/edit/new from other forms) to the json file.
+        /// </summary>
+        public void UpdateProfilesFull()
         {
-            byte? menuItemIndex = null;
-            MenuItem profilesMenuItem = new MenuItem();
+            // reload profiles submenu.
+            LoadProfilesMenu();
 
-            // find the profiles submenu
-            foreach ( MenuItem item in notifyIcon.ContextMenu.MenuItems ) {
-                if ( item.Name == "profilesMenuItem" ) {
-                    menuItemIndex = (byte)item.Index;
-                    profilesMenuItem = item;
-                    break;
-                }
-            }
-
-            // removing old profiles from menu.
-            if ( !firstTime ) {
-                // find and remove profiles menu items.
-                List<byte> indices = new List<byte>();
-                foreach ( MenuItem item in profilesMenuItem.MenuItems ) {
-                    if ( item.RadioCheck )
-                        indices.Add( (byte)item.Index );
-                }
-                for ( int i = indices.Count - 1; i > -1; i-- ) {
-                    profilesMenuItem.MenuItems.RemoveAt( indices[i] );
-                }
-            }
-
-            // adding profiles to the sub menu again.
-            foreach ( var item in Profiles ) {
-                var menuItem = new MenuItem {
-                    Text = item.Name,
-                    Name = item.Name + "MenuItem",
-                    RadioCheck = true,
-                    Checked = Net.Profile.Name.Equals( item.Name )
-                };
-                menuItem.Click += ProfileMenuItemClick;
-                profilesMenuItem.MenuItems.Add( menuItem );
-            }
+            // Write data to Json FILE.
+            string path = AppDomain.CurrentDomain.BaseDirectory + Operations.PROFILES;
+            MyJson.WriteData( path, Program.operations.Profiles );
         }
         #endregion
     }

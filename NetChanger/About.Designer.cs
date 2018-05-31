@@ -34,6 +34,7 @@
             this.myNameLlb = new System.Windows.Forms.LinkLabel();
             this.dateLbl = new System.Windows.Forms.Label();
             this.okBtn = new System.Windows.Forms.Button();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.logoPbx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -83,7 +84,7 @@
             // 
             this.myNameLlb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.myNameLlb.AutoSize = true;
-            this.myNameLlb.Location = new System.Drawing.Point(350, 248);
+            this.myNameLlb.Location = new System.Drawing.Point(350, 240);
             this.myNameLlb.Name = "myNameLlb";
             this.myNameLlb.Size = new System.Drawing.Size(161, 29);
             this.myNameLlb.TabIndex = 5;
@@ -95,11 +96,11 @@
             // 
             this.dateLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.dateLbl.AutoSize = true;
-            this.dateLbl.Location = new System.Drawing.Point(350, 279);
+            this.dateLbl.Location = new System.Drawing.Point(350, 278);
             this.dateLbl.Name = "dateLbl";
             this.dateLbl.Size = new System.Drawing.Size(457, 29);
             this.dateLbl.TabIndex = 6;
-            this.dateLbl.Text = "Release date of this version: 1397/03/08";
+            this.dateLbl.Text = "Release date of this version: 1397/03/10";
             // 
             // okBtn
             // 
@@ -113,6 +114,18 @@
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(350, 202);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(46, 29);
+            this.linkLabel1.TabIndex = 8;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Git";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // AboutForm
             // 
             this.AcceptButton = this.okBtn;
@@ -121,6 +134,7 @@
             this.CancelButton = this.okBtn;
             this.ClientSize = new System.Drawing.Size(978, 407);
             this.ControlBox = false;
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.myNameLlb);
@@ -148,5 +162,6 @@
         private System.Windows.Forms.LinkLabel myNameLlb;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Button okBtn;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }

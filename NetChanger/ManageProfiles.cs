@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetChanger
@@ -34,7 +27,14 @@ namespace NetChanger
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            // TODO: delete a profile and save the result in the json file.
+            if ( MessageBox.Show( "Are you sure to delete this item ?? It cannot be undone.",
+                                  "Confirm Delete!!",
+                                  MessageBoxButtons.YesNo ) == DialogResult.Yes ) {
+                var profileToDelete = Program.operations.Profiles.Find(
+                    p => p.Name.ToLower().Equals( profilesLbx.SelectedItem.ToString() ) );
+                Program.operations.Profiles.Remove( profileToDelete );
+                Program.operations.UpdateProfilesFull();
+            }
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
