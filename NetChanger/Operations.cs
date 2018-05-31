@@ -152,16 +152,7 @@ namespace NetChanger
             profilesMenuItem.MenuItems.Add( profileManageMenuItem );
             profilesMenuItem.MenuItems.Add( "-" );
 
-            foreach ( var item in Profiles ) {
-                var menuItem = new MenuItem {
-                    Text = item.Name,
-                    Name = item.Name + "MenuItem",
-                    RadioCheck = true,
-                    Checked = Net.Profile.Name.Equals( item.Name )
-                };
-                menuItem.Click += ProfileMenuItemClick;
-                profilesMenuItem.MenuItems.Add( menuItem );
-            }
+            LoadProfilesMenu( true );
 
             var showLogMenuItem = new MenuItem {
                 Text = "Show Log...",
@@ -311,6 +302,46 @@ namespace NetChanger
         {
             ResultsLog.Add( DateTime.Now.ToString() );
             ResultsLog.AddRange( str );
+        }
+
+        public void LoadProfilesMenu(bool firstTime = false)
+        {
+            byte? menuItemIndex = null;
+            MenuItem profilesMenuItem = new MenuItem();
+
+            // find the profiles submenu
+            foreach ( MenuItem item in notifyIcon.ContextMenu.MenuItems ) {
+                if ( item.Name == "profilesMenuItem" ) {
+                    menuItemIndex = (byte)item.Index;
+                    profilesMenuItem = item;
+                    break;
+                }
+            }
+
+            // removing old profiles from menu.
+            if ( !firstTime ) {
+                // find and remove profiles menu items.
+                List<byte> indices = new List<byte>();
+                foreach ( MenuItem item in profilesMenuItem.MenuItems ) {
+                    if ( item.RadioCheck )
+                        indices.Add( (byte)item.Index );
+                }
+                for ( int i = indices.Count - 1; i > -1; i-- ) {
+                    profilesMenuItem.MenuItems.RemoveAt( indices[i] );
+                }
+            }
+
+            // adding profiles to the sub menu again.
+            foreach ( var item in Profiles ) {
+                var menuItem = new MenuItem {
+                    Text = item.Name,
+                    Name = item.Name + "MenuItem",
+                    RadioCheck = true,
+                    Checked = Net.Profile.Name.Equals( item.Name )
+                };
+                menuItem.Click += ProfileMenuItemClick;
+                profilesMenuItem.MenuItems.Add( menuItem );
+            }
         }
         #endregion
     }

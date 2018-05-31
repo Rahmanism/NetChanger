@@ -25,38 +25,50 @@ namespace NetChanger
 
         private void OkBtn_Click(object sender, EventArgs e)
         {
-            // Change the current settings
-            //Program.operations.Net.Profile.Settings.InterfaceName = ifaceTxt.Text;
-            //Program.operations.Net.Profile.Settings.Address = addressTxt.Text;
-            //Program.operations.Net.Profile.Settings.NetMask = netmaskTxt.Text;
-            //Program.operations.Net.Profile.Settings.Gateway = gatewayTxt.Text;
-            //Program.operations.Net.Profile.Settings.Nameservers = nameserversLbx.Items.Cast<string>().ToList();
-            //Program.operations.Net.Profile.Settings.IsStatic = staticRbn.Checked;
-
             if ( action == NEW ) {
-
+                var newProfile = new Profile();
+                UpdateProfile( newProfile );
+                Program.operations.Profiles.Add( newProfile );
+                Program.operations.LoadProfilesMenu();
             }
             else if ( action == EDIT_CURRENT ) {
-                Program.operations.Net.Profile.Name = profileNameTxt.Text.Trim();
-                Program.operations.Net.Profile.Settings.InterfaceName = ifaceTxt.Text.Trim();
-                Program.operations.Net.Profile.Settings.IsStatic = staticRbn.Checked;
-                Program.operations.Net.Profile.Settings.Nameservers = new List<string>();
-                if ( nameserversLbx.Items.Count > 0 ) {
-                    Program.operations.Net.Profile.Settings.Nameservers.AddRange( nameserversLbx.Items.Cast<string>() );
-                }
-                Program.operations.Net.Profile.Settings.Address = addressTxt.Text.Trim();
-                Program.operations.Net.Profile.Settings.NetMask = netmaskTxt.Text.Trim();
-                Program.operations.Net.Profile.Settings.Gateway = gatewayTxt.Text.Trim();
-
+                UpdateProfile( Program.operations.Net.Profile );
+                // save the active profile.
                 Properties.Settings.Default.ActiveProfile = Program.operations.Net.Profile.Name;
                 Properties.Settings.Default.Save();
             }
+            else { // edit a specific profile mode
+                var profile = Program.operations.Profiles.Find(
+                    p => p.Name.ToLower().Equals( this.action.ToLower() ) );
+                UpdateProfile( profile );
+            }
 
-            // TODO: Change the profile, and save it to the json file.
+            // TODO: Save the changes to the json file.
             // TODO: check IPs to be valid using regex.
 
             // Closes the form.
             Close();
+        }
+
+        /// <summary>
+        /// Saves the data from form to the given profile.
+        /// </summary>
+        /// <param name="profile"></param>
+        private void UpdateProfile(Profile profile)
+        {
+            profile.Name = profileNameTxt.Text.Trim();
+            profile.Settings = new NetSettings {
+                InterfaceName = ifaceTxt.Text.Trim(),
+                IsStatic = staticRbn.Checked,
+                Address = addressTxt.Text.Trim(),
+                NetMask = netmaskTxt.Text.Trim(),
+                Gateway = gatewayTxt.Text.Trim(),
+                Nameservers = null
+            };
+            if ( nameserversLbx.Items.Count > 0 ) {
+                profile.Settings.Nameservers = new List<string>();
+                profile.Settings.Nameservers.AddRange( nameserversLbx.Items.Cast<string>() );
+            }
         }
 
         private void MainForm_Load(object sender, EventArgs e)
