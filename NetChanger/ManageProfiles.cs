@@ -41,5 +41,11 @@ namespace NetChanger
         {
             Close();
         }
+
+        private void newBtn_Click(object sender, EventArgs e)
+        {
+            var createProfile = new SettingsForm( SettingsForm.NEW );
+            createProfile.Show();
+        }
     }
 }

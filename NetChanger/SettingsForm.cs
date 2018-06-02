@@ -11,6 +11,7 @@ namespace NetChanger
         public const string NEW = "new";
 
         private string action = EDIT_CURRENT;
+        private List<string> interfaces = new List<string>();
 
         public SettingsForm(string act = NEW)
         {
@@ -58,7 +59,7 @@ namespace NetChanger
         {
             profile.Name = profileNameTxt.Text.Trim();
             profile.Settings = new NetSettings {
-                InterfaceName = ifaceTxt.Text.Trim(),
+                InterfaceName = ifaceCbx.Text.Trim(),
                 IsStatic = staticRbn.Checked,
                 Address = addressTxt.Text.Trim(),
                 NetMask = netmaskTxt.Text.Trim(),
@@ -74,6 +75,7 @@ namespace NetChanger
         private void MainForm_Load(object sender, EventArgs e)
         {
             Icon = Properties.Resources.MainIcon;
+            LoadInterfaces();
             if ( action == EDIT_CURRENT ) {
                 FillSettingsControls();
             }
@@ -85,13 +87,23 @@ namespace NetChanger
             }
         }
 
+        private void LoadInterfaces()
+        {
+            interfaces = new List<string>();
+            string ids = Cmd.Execute( new string[] { Program.operations.Net.NetConnectionIDs } )[0];
+            var idsArray = new List<string>( ids.Split( new char[] { '\r', '\r', '\n' } ) );
+            idsArray.RemoveAt( 0 );
+            interfaces.AddRange( idsArray.Where(i => i.Trim().Length > 0 ).Select(t => t.Trim()) );
+            ifaceCbx.Items.Clear();
+            ifaceCbx.Items.AddRange( interfaces.ToArray() );
+        }
+
         /// <summary>
         /// Empties the form controls (usually for creating new profile)
         /// </summary>
         private void FillWithEmpty()
         {
             profilesCbx.Text = "new profile";
-            ifaceTxt.Text = "";
             addressTxt.Text = "";
             netmaskTxt.Text = "";
             gatewayTxt.Text = "";
@@ -108,7 +120,7 @@ namespace NetChanger
         {
             // fill the controls (text boxes and ...) in the form based on read data.
             profileNameTxt.Text = Program.operations.Net.Profile.Name;
-            ifaceTxt.Text = Program.operations.Net.Profile.Settings.InterfaceName;
+            ifaceCbx.Text = Program.operations.Net.Profile.Settings.InterfaceName;
             addressTxt.Text = Program.operations.Net.Profile.Settings.Address;
             netmaskTxt.Text = Program.operations.Net.Profile.Settings.NetMask;
             gatewayTxt.Text = Program.operations.Net.Profile.Settings.Gateway;
@@ -131,7 +143,7 @@ namespace NetChanger
                     p => p.Name.ToLower().Equals( profileName )
                 );
             profileNameTxt.Text = aProfile.Name;
-            ifaceTxt.Text = aProfile.Settings.InterfaceName;
+            ifaceCbx.Text = aProfile.Settings.InterfaceName;
             addressTxt.Text = aProfile.Settings.Address;
             netmaskTxt.Text = aProfile.Settings.NetMask;
             gatewayTxt.Text = aProfile.Settings.Gateway;

@@ -14,6 +14,11 @@ namespace NetChanger
         #region COMMANDS
 
         /// <summary>
+        /// Gets a list of interface names.
+        /// </summary>
+        public string NetConnectionIDs => "wmic nic get NetConnectionID";
+
+        /// <summary>
         /// A command to execute in cmd to set the IP address.
         /// </summary>
         public string SetIPCommand

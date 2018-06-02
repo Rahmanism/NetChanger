@@ -34,6 +34,7 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
+            this.newBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -55,7 +56,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(15, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(139, 29);
+            this.label1.Size = new System.Drawing.Size(123, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Profiles List";
             // 
@@ -74,6 +75,7 @@
             this.splitContainer1.Panel2.Controls.Add(this.closeBtn);
             this.splitContainer1.Panel2.Controls.Add(this.deleteBtn);
             this.splitContainer1.Panel2.Controls.Add(this.editBtn);
+            this.splitContainer1.Panel2.Controls.Add(this.newBtn);
             this.splitContainer1.Panel2.Padding = new System.Windows.Forms.Padding(22, 23, 22, 23);
             this.splitContainer1.Size = new System.Drawing.Size(617, 469);
             this.splitContainer1.SplitterDistance = 387;
@@ -83,7 +85,7 @@
             // 
             this.profilesLbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.profilesLbx.FormattingEnabled = true;
-            this.profilesLbx.ItemHeight = 29;
+            this.profilesLbx.ItemHeight = 27;
             this.profilesLbx.Items.AddRange(new object[] {
             "Office",
             "Home",
@@ -108,9 +110,9 @@
             // 
             this.deleteBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.deleteBtn.Enabled = false;
-            this.deleteBtn.Location = new System.Drawing.Point(22, 83);
+            this.deleteBtn.Location = new System.Drawing.Point(22, 151);
             this.deleteBtn.Name = "deleteBtn";
-            this.deleteBtn.Size = new System.Drawing.Size(182, 60);
+            this.deleteBtn.Size = new System.Drawing.Size(182, 63);
             this.deleteBtn.TabIndex = 3;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
@@ -119,17 +121,28 @@
             // editBtn
             // 
             this.editBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.editBtn.Location = new System.Drawing.Point(22, 23);
+            this.editBtn.Location = new System.Drawing.Point(22, 88);
             this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(182, 60);
+            this.editBtn.Size = new System.Drawing.Size(182, 63);
             this.editBtn.TabIndex = 4;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
+            // newBtn
+            // 
+            this.newBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.newBtn.Location = new System.Drawing.Point(22, 23);
+            this.newBtn.Name = "newBtn";
+            this.newBtn.Size = new System.Drawing.Size(182, 65);
+            this.newBtn.TabIndex = 6;
+            this.newBtn.Text = "&New";
+            this.newBtn.UseVisualStyleBackColor = true;
+            this.newBtn.Click += new System.EventHandler(this.newBtn_Click);
+            // 
             // ManageProfiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 570);
             this.Controls.Add(this.splitContainer1);
@@ -154,6 +167,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.ListBox profilesLbx;
+        private System.Windows.Forms.Button newBtn;
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button closeBtn;
