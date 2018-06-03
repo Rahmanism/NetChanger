@@ -82,7 +82,7 @@
             this.cancelBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(119, 48);
-            this.cancelBtn.TabIndex = 1;
+            this.cancelBtn.TabIndex = 15;
             this.cancelBtn.Text = "&Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.CancelBtn_Click);
@@ -94,7 +94,7 @@
             this.okBtn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.okBtn.Name = "okBtn";
             this.okBtn.Size = new System.Drawing.Size(119, 48);
-            this.okBtn.TabIndex = 0;
+            this.okBtn.TabIndex = 16;
             this.okBtn.Text = "&Ok";
             this.okBtn.UseVisualStyleBackColor = true;
             this.okBtn.Click += new System.EventHandler(this.OkBtn_Click);
@@ -190,7 +190,7 @@
             this.ifaceCbx.Location = new System.Drawing.Point(171, 18);
             this.ifaceCbx.Name = "ifaceCbx";
             this.ifaceCbx.Size = new System.Drawing.Size(385, 35);
-            this.ifaceCbx.TabIndex = 30;
+            this.ifaceCbx.TabIndex = 5;
             // 
             // moveDnsDownBtn
             // 
@@ -198,7 +198,7 @@
             this.moveDnsDownBtn.Location = new System.Drawing.Point(569, 318);
             this.moveDnsDownBtn.Name = "moveDnsDownBtn";
             this.moveDnsDownBtn.Size = new System.Drawing.Size(54, 68);
-            this.moveDnsDownBtn.TabIndex = 29;
+            this.moveDnsDownBtn.TabIndex = 14;
             this.moveDnsDownBtn.Text = "Dn";
             this.moveDnsDownBtn.UseVisualStyleBackColor = true;
             this.moveDnsDownBtn.Click += new System.EventHandler(this.moveDnsDownBtn_Click);
@@ -209,7 +209,7 @@
             this.moveDnsUpBtn.Location = new System.Drawing.Point(569, 252);
             this.moveDnsUpBtn.Name = "moveDnsUpBtn";
             this.moveDnsUpBtn.Size = new System.Drawing.Size(54, 60);
-            this.moveDnsUpBtn.TabIndex = 28;
+            this.moveDnsUpBtn.TabIndex = 13;
             this.moveDnsUpBtn.Text = "Up";
             this.moveDnsUpBtn.UseVisualStyleBackColor = true;
             this.moveDnsUpBtn.Click += new System.EventHandler(this.moveDnsUpBtn_Click);
@@ -219,7 +219,7 @@
             this.button1.Location = new System.Drawing.Point(569, 178);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(54, 42);
-            this.button1.TabIndex = 27;
+            this.button1.TabIndex = 12;
             this.button1.Text = "-";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -229,7 +229,7 @@
             this.addNameserverBtn.Location = new System.Drawing.Point(569, 108);
             this.addNameserverBtn.Name = "addNameserverBtn";
             this.addNameserverBtn.Size = new System.Drawing.Size(54, 46);
-            this.addNameserverBtn.TabIndex = 26;
+            this.addNameserverBtn.TabIndex = 10;
             this.addNameserverBtn.Text = "+";
             this.addNameserverBtn.UseVisualStyleBackColor = true;
             this.addNameserverBtn.Click += new System.EventHandler(this.addNameserverBtn_Click);
@@ -247,7 +247,7 @@
             this.nameserversLbx.Name = "nameserversLbx";
             this.nameserversLbx.ScrollAlwaysVisible = true;
             this.nameserversLbx.Size = new System.Drawing.Size(181, 220);
-            this.nameserversLbx.TabIndex = 25;
+            this.nameserversLbx.TabIndex = 11;
             // 
             // dnsTxt
             // 
@@ -255,7 +255,7 @@
             this.dnsTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dnsTxt.Name = "dnsTxt";
             this.dnsTxt.Size = new System.Drawing.Size(181, 32);
-            this.dnsTxt.TabIndex = 24;
+            this.dnsTxt.TabIndex = 9;
             // 
             // label5
             // 
@@ -279,17 +279,17 @@
             // 
             // gatewayTxt
             // 
-            this.gatewayTxt.Location = new System.Drawing.Point(172, 154);
+            this.gatewayTxt.Location = new System.Drawing.Point(172, 183);
             this.gatewayTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gatewayTxt.Name = "gatewayTxt";
             this.gatewayTxt.Size = new System.Drawing.Size(165, 32);
-            this.gatewayTxt.TabIndex = 18;
+            this.gatewayTxt.TabIndex = 8;
             this.gatewayTxt.Text = "172.16.16.9";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(73, 158);
+            this.label3.Location = new System.Drawing.Point(73, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(93, 27);
             this.label3.TabIndex = 17;
@@ -298,17 +298,17 @@
             // 
             // netmaskTxt
             // 
-            this.netmaskTxt.Location = new System.Drawing.Point(172, 108);
+            this.netmaskTxt.Location = new System.Drawing.Point(172, 137);
             this.netmaskTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.netmaskTxt.Name = "netmaskTxt";
             this.netmaskTxt.Size = new System.Drawing.Size(165, 32);
-            this.netmaskTxt.TabIndex = 16;
+            this.netmaskTxt.TabIndex = 7;
             this.netmaskTxt.Text = "255.255.252.0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(74, 113);
+            this.label2.Location = new System.Drawing.Point(74, 142);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 27);
             this.label2.TabIndex = 15;
@@ -317,17 +317,17 @@
             // 
             // addressTxt
             // 
-            this.addressTxt.Location = new System.Drawing.Point(173, 60);
+            this.addressTxt.Location = new System.Drawing.Point(173, 89);
             this.addressTxt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.addressTxt.Name = "addressTxt";
             this.addressTxt.Size = new System.Drawing.Size(165, 32);
-            this.addressTxt.TabIndex = 14;
+            this.addressTxt.TabIndex = 6;
             this.addressTxt.Text = "172.16.17.4";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(80, 66);
+            this.label1.Location = new System.Drawing.Point(80, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(86, 27);
             this.label1.TabIndex = 13;
@@ -355,7 +355,7 @@
             this.dhcpRbn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dhcpRbn.Name = "dhcpRbn";
             this.dhcpRbn.Size = new System.Drawing.Size(89, 31);
-            this.dhcpRbn.TabIndex = 1;
+            this.dhcpRbn.TabIndex = 4;
             this.dhcpRbn.TabStop = true;
             this.dhcpRbn.Text = "&DHCP";
             this.dhcpRbn.UseVisualStyleBackColor = true;
@@ -367,7 +367,7 @@
             this.staticRbn.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.staticRbn.Name = "staticRbn";
             this.staticRbn.Size = new System.Drawing.Size(90, 31);
-            this.staticRbn.TabIndex = 0;
+            this.staticRbn.TabIndex = 3;
             this.staticRbn.Text = "&Static";
             this.staticRbn.UseVisualStyleBackColor = true;
             // 

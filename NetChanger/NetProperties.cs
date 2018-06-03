@@ -97,8 +97,6 @@ namespace NetChanger
 
         #endregion
 
-        // TODO: do some controls on values for IPs.
-
         /// <summary>
         /// A counter for nameservers
         /// </summary>

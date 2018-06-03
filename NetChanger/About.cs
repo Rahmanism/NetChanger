@@ -32,6 +32,8 @@ namespace NetChanger
             versionLbl.Text = "v" + ver;
             titleLbl.Text = title;
             descriptionLbl.Text = description;
+            string releaseDate = "1397/03/13";
+            dateLbl.Text = $"Release date of this version: {releaseDate}";
         }
 
         private void okBtn_Click(object sender, EventArgs e)

@@ -26,49 +26,64 @@ namespace NetChanger
 
         private void OkBtn_Click(object sender, EventArgs e)
         {
+            bool updateSuccessful = false;
             if ( action == NEW ) {
                 var newProfile = new Profile();
-                UpdateProfile( newProfile );
-                Program.operations.Profiles.Add( newProfile );
+                updateSuccessful = UpdateProfile( newProfile );
+                if ( updateSuccessful ) {
+                    Program.operations.Profiles.Add( newProfile );
+                }
             }
             else if ( action == EDIT_CURRENT ) {
-                UpdateProfile( Program.operations.Net.Profile );
-                // save the active profile.
-                Properties.Settings.Default.ActiveProfile = Program.operations.Net.Profile.Name;
-                Properties.Settings.Default.Save();
+                updateSuccessful = UpdateProfile( Program.operations.Net.Profile );
+                if ( updateSuccessful ) {
+                    // save the active profile.
+                    Properties.Settings.Default.ActiveProfile = Program.operations.Net.Profile.Name;
+                    Properties.Settings.Default.Save();
+                }
             }
             else { // edit a specific profile mode
                 var profile = Program.operations.Profiles.Find(
                     p => p.Name.ToLower().Equals( this.action.ToLower() ) );
-                UpdateProfile( profile );
+                updateSuccessful = UpdateProfile( profile );
             }
 
-            // TODO!: check IPs to be valid using regex.
+            if ( updateSuccessful ) {
+                // save data to the file, and update menu.
+                Program.operations.UpdateProfilesFull();
 
-            Program.operations.UpdateProfilesFull();
-
-            // Closes the form.
-            Close();
+                // Closes the form.
+                Close();
+            }
         }
 
         /// <summary>
         /// Saves the data from form to the given profile.
         /// </summary>
         /// <param name="profile"></param>
-        private void UpdateProfile(Profile profile)
+        /// <returns>True if no exception happend, false otherwise.</returns>
+        private bool UpdateProfile(Profile profile)
         {
-            profile.Name = profileNameTxt.Text.Trim();
-            profile.Settings = new NetSettings {
-                InterfaceName = ifaceCbx.Text.Trim(),
-                IsStatic = staticRbn.Checked,
-                Address = addressTxt.Text.Trim(),
-                NetMask = netmaskTxt.Text.Trim(),
-                Gateway = gatewayTxt.Text.Trim(),
-                Nameservers = null
-            };
-            if ( nameserversLbx.Items.Count > 0 ) {
-                profile.Settings.Nameservers = new List<string>();
-                profile.Settings.Nameservers.AddRange( nameserversLbx.Items.Cast<string>() );
+            try {
+                profile.Name = profileNameTxt.Text.Trim();
+                profile.Settings = new NetSettings {
+                    InterfaceName = ifaceCbx.Text.Trim(),
+                    IsStatic = staticRbn.Checked,
+                    Address = addressTxt.Text.Trim(),
+                    NetMask = netmaskTxt.Text.Trim(),
+                    Gateway = gatewayTxt.Text.Trim(),
+                    Nameservers = null
+                };
+                if ( nameserversLbx.Items.Count > 0 ) {
+                    profile.Settings.Nameservers = new List<string>();
+                    profile.Settings.Nameservers.AddRange( nameserversLbx.Items.Cast<string>() );
+                }
+
+                return true;
+            }
+            catch (Exception x) {
+                MessageBox.Show( x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                return false;
             }
         }
 

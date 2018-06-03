@@ -93,7 +93,7 @@
             this.profilesLbx.Location = new System.Drawing.Point(0, 0);
             this.profilesLbx.Name = "profilesLbx";
             this.profilesLbx.Size = new System.Drawing.Size(387, 469);
-            this.profilesLbx.TabIndex = 4;
+            this.profilesLbx.TabIndex = 1;
             // 
             // closeBtn
             // 
@@ -113,7 +113,7 @@
             this.deleteBtn.Location = new System.Drawing.Point(22, 151);
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(182, 63);
-            this.deleteBtn.TabIndex = 3;
+            this.deleteBtn.TabIndex = 4;
             this.deleteBtn.Text = "Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
@@ -124,7 +124,7 @@
             this.editBtn.Location = new System.Drawing.Point(22, 88);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(182, 63);
-            this.editBtn.TabIndex = 4;
+            this.editBtn.TabIndex = 3;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
@@ -135,7 +135,7 @@
             this.newBtn.Location = new System.Drawing.Point(22, 23);
             this.newBtn.Name = "newBtn";
             this.newBtn.Size = new System.Drawing.Size(182, 65);
-            this.newBtn.TabIndex = 6;
+            this.newBtn.TabIndex = 2;
             this.newBtn.Text = "&New";
             this.newBtn.UseVisualStyleBackColor = true;
             this.newBtn.Click += new System.EventHandler(this.newBtn_Click);
