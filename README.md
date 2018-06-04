@@ -20,8 +20,8 @@ change from rahmanism user.
   (Admin privlege request removed from app manifest, so we can put the app in startup)
 [x] IP validation
 [x] User can make duplicate of a profile.
+[x] Make forms look good (sizes are bad now).
 
 [ ] Use resource for languages in all texts.
-[ ] Make forms look good (sizes are bad now).
 [ ] Load current system setting as a new profile names AutoProfile.
 [ ] Add a command for gateway in DHCP mode if there was a gateway ip in profile.
