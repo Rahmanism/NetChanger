@@ -368,6 +368,17 @@ namespace NetChanger
             string path = AppDomain.CurrentDomain.BaseDirectory + Operations.PROFILES;
             MyJson.WriteData( path, Program.operations.Profiles );
         }
+
+        /// <summary>
+        /// It will make a copy from the given profile.
+        /// </summary>
+        /// <param name="profileName"></param>
+        public void Duplicate(string profileName)
+        {
+            var sourceProfile = Profiles.Find( p => p.Name.Equals( profileName ) );
+            var newProfile = new Profile(sourceProfile);
+            Profiles.Add( newProfile );
+        }
         #endregion
     }
 }

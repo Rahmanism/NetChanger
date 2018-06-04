@@ -35,6 +35,7 @@
             this.deleteBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.newBtn = new System.Windows.Forms.Button();
+            this.duplicateBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -72,6 +73,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.duplicateBtn);
             this.splitContainer1.Panel2.Controls.Add(this.closeBtn);
             this.splitContainer1.Panel2.Controls.Add(this.deleteBtn);
             this.splitContainer1.Panel2.Controls.Add(this.editBtn);
@@ -102,7 +104,7 @@
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(182, 60);
             this.closeBtn.TabIndex = 5;
-            this.closeBtn.Text = "Close";
+            this.closeBtn.Text = "&Close";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
@@ -114,7 +116,7 @@
             this.deleteBtn.Name = "deleteBtn";
             this.deleteBtn.Size = new System.Drawing.Size(182, 63);
             this.deleteBtn.TabIndex = 4;
-            this.deleteBtn.Text = "Delete";
+            this.deleteBtn.Text = "&Delete";
             this.deleteBtn.UseVisualStyleBackColor = true;
             this.deleteBtn.Click += new System.EventHandler(this.deleteBtn_Click);
             // 
@@ -125,7 +127,7 @@
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(182, 63);
             this.editBtn.TabIndex = 3;
-            this.editBtn.Text = "Edit";
+            this.editBtn.Text = "&Edit";
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
@@ -139,6 +141,17 @@
             this.newBtn.Text = "&New";
             this.newBtn.UseVisualStyleBackColor = true;
             this.newBtn.Click += new System.EventHandler(this.newBtn_Click);
+            // 
+            // duplicateBtn
+            // 
+            this.duplicateBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.duplicateBtn.Location = new System.Drawing.Point(22, 214);
+            this.duplicateBtn.Name = "duplicateBtn";
+            this.duplicateBtn.Size = new System.Drawing.Size(182, 62);
+            this.duplicateBtn.TabIndex = 6;
+            this.duplicateBtn.Text = "D&uplicate";
+            this.duplicateBtn.UseVisualStyleBackColor = true;
+            this.duplicateBtn.Click += new System.EventHandler(this.duplicateBtn_Click);
             // 
             // ManageProfiles
             // 
@@ -171,5 +184,6 @@
         private System.Windows.Forms.Button deleteBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button closeBtn;
+        private System.Windows.Forms.Button duplicateBtn;
     }
 }

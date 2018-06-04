@@ -20,6 +20,11 @@ namespace NetChanger
 
         private void ManageProfiles_Load(object sender, EventArgs e)
         {
+            ReloadProfilesList();
+        }
+
+        private void ReloadProfilesList()
+        {
             profilesLbx.Items.Clear();
             foreach ( var item in Program.operations.Profiles ) {
                 profilesLbx.Items.Add( item.Name );
@@ -47,6 +52,20 @@ namespace NetChanger
         {
             var createProfile = new SettingsForm( SettingsForm.NEW );
             createProfile.Show();
+        }
+
+        private void duplicateBtn_Click(object sender, EventArgs e)
+        {
+            try {
+                var source = profilesLbx.SelectedItem.ToString();
+                Program.operations.Duplicate( source );
+                Program.operations.UpdateProfilesFull();
+                ReloadProfilesList();
+                profilesLbx.SelectedIndex = profilesLbx.FindString( source );
+            }
+            catch (Exception x) {
+                MessageBox.Show( x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
+            }
         }
     }
 }
