@@ -13,15 +13,17 @@ There will be a system tray menu, so you can switch the network status fast enou
 change from rahmanism user.
 
 # What happened recently?
-[x] Only x64
-[x] List of interfaces auto load
-[x] Forms tab order corrected
+[x] Only x64  
+[x] List of interfaces auto load  
+[x] Forms tab order corrected  
 [x] Put in Startup  
-  (Admin privlege request removed from app manifest, so we can put the app in startup)
-[x] IP validation
-[x] User can make duplicate of a profile.
-[x] Make forms look good (sizes are bad now).
-[x] Use resource for languages in all texts.
-
-[ ] Load current system setting as a new profile names AutoProfile.
-[ ] Add a command for gateway in DHCP mode if there was a gateway ip in profile.
+  (Admin privilege request removed from app manifest, so we can put the app in startup)  
+[x] IP validation  
+[x] User can make duplicate of a profile.  
+[x] Make forms look good (sizes are bad now).  
+[x] Use resource for languages in all texts.  
+      (So we have two languages now: EN and FA).  
+  
+[ ] Load current system setting as a new profile names AutoProfile.  
+[ ] Add a command for gateway in DHCP mode if there was a gateway ip in profile.  
+  
