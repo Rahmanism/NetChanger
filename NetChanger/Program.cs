@@ -10,6 +10,8 @@ namespace NetChanger
     {
         public static Operations operations;
 
+        // TODO: use resource for languages in all texts.
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

@@ -31,11 +31,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.profilesLbx = new System.Windows.Forms.ListBox();
+            this.duplicateBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
             this.deleteBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.newBtn = new System.Windows.Forms.Button();
-            this.duplicateBtn = new System.Windows.Forms.Button();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -97,13 +97,24 @@
             this.profilesLbx.Size = new System.Drawing.Size(387, 469);
             this.profilesLbx.TabIndex = 1;
             // 
+            // duplicateBtn
+            // 
+            this.duplicateBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.duplicateBtn.Location = new System.Drawing.Point(22, 214);
+            this.duplicateBtn.Name = "duplicateBtn";
+            this.duplicateBtn.Size = new System.Drawing.Size(182, 62);
+            this.duplicateBtn.TabIndex = 5;
+            this.duplicateBtn.Text = "D&uplicate";
+            this.duplicateBtn.UseVisualStyleBackColor = true;
+            this.duplicateBtn.Click += new System.EventHandler(this.duplicateBtn_Click);
+            // 
             // closeBtn
             // 
             this.closeBtn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.closeBtn.Location = new System.Drawing.Point(22, 386);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(182, 60);
-            this.closeBtn.TabIndex = 5;
+            this.closeBtn.TabIndex = 6;
             this.closeBtn.Text = "&Close";
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
@@ -142,21 +153,10 @@
             this.newBtn.UseVisualStyleBackColor = true;
             this.newBtn.Click += new System.EventHandler(this.newBtn_Click);
             // 
-            // duplicateBtn
-            // 
-            this.duplicateBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.duplicateBtn.Location = new System.Drawing.Point(22, 214);
-            this.duplicateBtn.Name = "duplicateBtn";
-            this.duplicateBtn.Size = new System.Drawing.Size(182, 62);
-            this.duplicateBtn.TabIndex = 6;
-            this.duplicateBtn.Text = "D&uplicate";
-            this.duplicateBtn.UseVisualStyleBackColor = true;
-            this.duplicateBtn.Click += new System.EventHandler(this.duplicateBtn_Click);
-            // 
             // ManageProfiles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 27F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(639, 570);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel2);

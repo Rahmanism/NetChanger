@@ -73,7 +73,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(29, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(278, 29);
+            this.label1.Size = new System.Drawing.Size(240, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Log of command results:";
             // 
@@ -90,7 +90,7 @@
             // 
             this.logLbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.logLbx.FormattingEnabled = true;
-            this.logLbx.ItemHeight = 29;
+            this.logLbx.ItemHeight = 27;
             this.logLbx.Location = new System.Drawing.Point(0, 0);
             this.logLbx.Name = "logLbx";
             this.logLbx.Size = new System.Drawing.Size(1017, 446);
@@ -99,8 +99,8 @@
             // ShowLog
             // 
             this.AcceptButton = this.closeBtn;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 29F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleDimensions = new System.Drawing.SizeF(168F, 168F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.closeBtn;
             this.ClientSize = new System.Drawing.Size(1017, 646);
             this.Controls.Add(this.panel3);

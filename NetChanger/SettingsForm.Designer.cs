@@ -236,17 +236,16 @@
             // 
             // nameserversLbx
             // 
-            this.nameserversLbx.FormattingEnabled = true;
+            this.nameserversLbx.IntegralHeight = false;
             this.nameserversLbx.ItemHeight = 27;
             this.nameserversLbx.Items.AddRange(new object[] {
             "172.16.16.1",
             "172.16.16.70",
             "4.2.2.4",
             "8.8.8.8"});
-            this.nameserversLbx.Location = new System.Drawing.Point(375, 183);
+            this.nameserversLbx.Location = new System.Drawing.Point(375, 161);
             this.nameserversLbx.Name = "nameserversLbx";
-            this.nameserversLbx.ScrollAlwaysVisible = true;
-            this.nameserversLbx.Size = new System.Drawing.Size(181, 220);
+            this.nameserversLbx.Size = new System.Drawing.Size(181, 342);
             this.nameserversLbx.TabIndex = 11;
             // 
             // dnsTxt
