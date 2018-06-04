@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="about" xml:space="preserve">
+    <value>درباره</value>
+  </data>
+  <data name="address" xml:space="preserve">
+    <value>آدرس</value>
+  </data>
+  <data name="admin_rights_needed" xml:space="preserve">
+    <value>متاسفانه ظاهرا مجوز مدیر به برنامه داده نشده، نمی‌توانیم به کار ادامه دهیم.</value>
+  </data>
+  <data name="cancel" xml:space="preserve">
+    <value>لغو</value>
+  </data>
+  <data name="close" xml:space="preserve">
+    <value>بستن</value>
+  </data>
+  <data name="create_new_profile" xml:space="preserve">
+    <value>ایجاد یک نمایه جدید...</value>
+  </data>
+  <data name="delete" xml:space="preserve">
+    <value>حذف</value>
+  </data>
+  <data name="delete_confirmation" xml:space="preserve">
+    <value>آیا از حذف این مورد مطمئن هستید؟ این کار غیر قابل بازگشت است.</value>
+  </data>
+  <data name="delete_confirmation_title" xml:space="preserve">
+    <value>تایید حذف!!</value>
+  </data>
+  <data name="dhcp" xml:space="preserve">
+    <value>DHCP</value>
+  </data>
+  <data name="down" xml:space="preserve">
+    <value>پایین</value>
+  </data>
+  <data name="duplicate" xml:space="preserve">
+    <value>کپی</value>
+  </data>
+  <data name="edit" xml:space="preserve">
+    <value>ویرایش</value>
+  </data>
+  <data name="edit_current_profile" xml:space="preserve">
+    <value>ویرایش نمایه جاری...</value>
+  </data>
+  <data name="en" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="error" xml:space="preserve">
+    <value>خطا</value>
+  </data>
+  <data name="fa" xml:space="preserve">
+    <value>فارسی</value>
+  </data>
+  <data name="gateway" xml:space="preserve">
+    <value>دروازه شبکه</value>
+  </data>
+  <data name="interface_name" xml:space="preserve">
+    <value>نام رابط شبکه</value>
+  </data>
+  <data name="ip_settings" xml:space="preserve">
+    <value>تنظیمات آی پی</value>
+  </data>
+  <data name="language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="log_of_command_results" xml:space="preserve">
+    <value>لاگ نتایج دستورات</value>
+  </data>
+  <data name="manage_profiles" xml:space="preserve">
+    <value>مدیریت نمایه‌ها...</value>
+  </data>
+  <data name="nameservers" xml:space="preserve">
+    <value>سرورهای نام</value>
+  </data>
+  <data name="netchagner" xml:space="preserve">
+    <value>NetChanger</value>
+  </data>
+  <data name="netmask" xml:space="preserve">
+    <value>ماسک شبکه</value>
+  </data>
+  <data name="new_" xml:space="preserve">
+    <value>جدید</value>
+  </data>
+  <data name="no_blank_interface_name" xml:space="preserve">
+    <value>رابط شبکه نمی‌تواند بدون نام باشد.</value>
+  </data>
+  <data name="no_blank_name" xml:space="preserve">
+    <value>نام نمی‌تواند خالی باشد.</value>
+  </data>
+  <data name="ok" xml:space="preserve">
+    <value>تایید</value>
+  </data>
+  <data name="profiles" xml:space="preserve">
+    <value>نمایه‌ها</value>
+  </data>
+  <data name="profiles_list" xml:space="preserve">
+    <value>فهرست نمایه‌ها</value>
+  </data>
+  <data name="profile_name" xml:space="preserve">
+    <value>نام نمایه</value>
+  </data>
+  <data name="put_in_startup" xml:space="preserve">
+    <value>اجرا در هنگام راه اندازی سیستم</value>
+  </data>
+  <data name="quit" xml:space="preserve">
+    <value>خروج</value>
+  </data>
+  <data name="release_date_of_this_version" xml:space="preserve">
+    <value>تاریخ انتشار این نسخه</value>
+  </data>
+  <data name="show_log" xml:space="preserve">
+    <value>نمایش لاگ</value>
+  </data>
+  <data name="slogan" xml:space="preserve">
+    <value>تنظیمات آی پی شبکه خود را به آسانی تغییر دهید!</value>
+  </data>
+  <data name="static_" xml:space="preserve">
+    <value>ایستا</value>
+  </data>
+  <data name="up" xml:space="preserve">
+    <value>بالا</value>
+  </data>
+  <data name="wrong_gateway" xml:space="preserve">
+    <value>دروازه شبکه آی پی درستی ندارد.</value>
+  </data>
+  <data name="wrong_ip" xml:space="preserve">
+    <value>آدرس آی پی درستی ندارد.</value>
+  </data>
+  <data name="wrong_netmask" xml:space="preserve">
+    <value>ماسک شبکه آی پی درستی ندارد.</value>
+  </data>
+</root>

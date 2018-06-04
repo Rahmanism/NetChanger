@@ -15,7 +15,7 @@ namespace NetChanger
                     name = value;
                 }
                 else {
-                    throw new NullReferenceException( "Name cannot be blank." );
+                    throw new NullReferenceException( Resources.Resources.no_blank_name );
                 }
             }
         }
@@ -33,7 +33,7 @@ namespace NetChanger
         public Profile(Profile source)
         {
             Random rnd = new Random( (int)DateTime.Now.Ticks & 0x0000FFFF );
-            this.Name = source.Name + rnd.Next(1000);
+            this.Name = source.Name + rnd.Next( 1000 );
             this.Settings = new NetSettings {
                 Address = source.Settings.Address,
                 Gateway = source.Settings.Gateway,
@@ -41,7 +41,7 @@ namespace NetChanger
                 IsStatic = source.Settings.IsStatic,
                 NetMask = source.Settings.NetMask
             };
-            if (source.Settings.Nameservers != null) {
+            if ( source.Settings.Nameservers != null ) {
                 this.Settings.Nameservers = new List<string>(
                         source.Settings.Nameservers
                     );

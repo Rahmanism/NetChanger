@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Reflection;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace NetChanger
@@ -82,6 +83,22 @@ namespace NetChanger
 
             Log( Cmd.Execute( Net.Do ) );
         }
+
+        /// <summary>
+        /// Language menu items event listener.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void LanguageSelect(object sender, EventArgs e)
+        {
+            var item = (MenuItem)sender;
+            UpdateRadioMenu( item );
+
+            Properties.Settings.Default.Language = item.Tag.ToString();
+            Properties.Settings.Default.Save();
+
+            Program.SwitchLanguage();
+        }
         #endregion
 
         #region Initializers
@@ -117,7 +134,7 @@ namespace NetChanger
             // Show notification tray icon
             notifyIcon = new NotifyIcon() {
                 Icon = normalIcon,
-                Text = "Easily change your IP settings!",
+                Text = Resources.Resources.slogan,
                 Visible = true
             };
         }
@@ -128,23 +145,24 @@ namespace NetChanger
         private void CreateContextMenu()
         {
             // Create context menu and assign it to notification icon
-            var progNameMenuItem = new MenuItem( String.Format( "NetChanger - v{0}",
-                Assembly.GetExecutingAssembly().GetName().Version.ToString() ) );
+            var progNameMenuItem = new MenuItem(
+                $"{Resources.Resources.netchagner}" +
+                $" - v{Assembly.GetExecutingAssembly().GetName().Version.ToString()}" );
 
             var profilesMenuItem = new MenuItem {
-                Text = "Profiles",
+                Text = Resources.Resources.profiles,
                 Name = "profilesMenuItem"
             };
             var profileCreateMenuItem = new MenuItem {
-                Text = "Create New Profile...",
+                Text = Resources.Resources.create_new_profile,
                 Name = "createProfileMenuItem"
             };
             var editCurrentProfileMenuItem = new MenuItem {
-                Text = "Edit current profile...",
+                Text = Resources.Resources.edit_current_profile,
                 Name = "editCurrentProfileMenuItem"
             };
             var profileManageMenuItem = new MenuItem {
-                Text = "Manage Profiles...",
+                Text = Resources.Resources.manage_profiles,
                 Name = "profilesManageMenuItem"
             };
             profilesMenuItem.MenuItems.Add( profileCreateMenuItem );
@@ -164,25 +182,51 @@ namespace NetChanger
                 profilesMenuItem.MenuItems.Add( menuItem );
             }
 
+            var languageMenuItem = new MenuItem {
+                Text = Resources.Resources.language,
+                Name = "languageMenuItem"
+            };
+
+            var englishLanguageMenuItem = new MenuItem {
+                Text = Resources.Resources.en,
+                Name = "englishLanguageMenuItem",
+                Tag = "en-US", 
+                RadioCheck = true,
+                Checked = Thread.CurrentThread.CurrentCulture.Name == "en-US",
+            };
+            englishLanguageMenuItem.Click += LanguageSelect;
+            var persianLanguageMenuItem = new MenuItem {
+                Text = Resources.Resources.fa,
+                Name = "persianLanguageMenuItem",
+                Tag = "fa-IR",
+                RadioCheck = true,
+                Checked = Thread.CurrentThread.CurrentCulture.Name == "fa-IR"
+            };
+            persianLanguageMenuItem.Click += LanguageSelect;
+
+            languageMenuItem.MenuItems.Add( englishLanguageMenuItem );
+            languageMenuItem.MenuItems.Add( persianLanguageMenuItem );
+
             var showLogMenuItem = new MenuItem {
-                Text = "Show Log...",
+                Text = Resources.Resources.show_log,
                 Name = "showLogMenuItem"
             };
 
             var startupMenuItem = new MenuItem {
-                Text = "Put in Startup",
+                Text = Resources.Resources.put_in_startup,
                 Name = "startupMenuItem"
             };
 
             var aboutMenuItem = new MenuItem {
-                Text = "About",
+                Text = Resources.Resources.about,
                 Name = "aboutMenuItem"
             };
-            var quitMenuItem = new MenuItem( "Quit" );
+            var quitMenuItem = new MenuItem( Resources.Resources.quit );
             var contextMenu = new ContextMenu();
             contextMenu.MenuItems.Add( progNameMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( profilesMenuItem );
+            contextMenu.MenuItems.Add( languageMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( showLogMenuItem );
             contextMenu.MenuItems.Add( startupMenuItem );
@@ -340,7 +384,7 @@ namespace NetChanger
             notifyIcon.BalloonTipIcon = ToolTipIcon.Info;
             notifyIcon.BalloonTipText = message;
             notifyIcon.BalloonTipTitle = title == "" ?
-                "Jarvis System Performance Monitor" : title;
+                Resources.Resources.netchagner : title;
 
             notifyIcon.ShowBalloonTip( 1000 );
         }

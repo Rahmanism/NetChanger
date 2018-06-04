@@ -9,6 +9,18 @@ namespace NetChanger
         {
             InitializeComponent();
             Icon = Properties.Resources.MainIcon;
+            LoadTexts();
+        }
+
+        private void LoadTexts()
+        {
+            this.Text = Resources.Resources.manage_profiles;
+            listTitleLbl.Text = Resources.Resources.profiles_list;
+            newBtn.Text = Resources.Resources.new_;
+            editBtn.Text = Resources.Resources.edit;
+            deleteBtn.Text = Resources.Resources.delete;
+            duplicateBtn.Text = Resources.Resources.duplicate;
+            closeBtn.Text = Resources.Resources.close;
         }
 
         private void editBtn_Click(object sender, EventArgs e)

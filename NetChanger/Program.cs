@@ -1,16 +1,28 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Reflection;
 using System.Security.Principal;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace NetChanger
 {
     static class Program
     {
+        public static CultureInfo CulInfo;
         public static Operations operations;
 
         // TODO: use resource for languages in all texts.
+
+        public static void SwitchLanguage(string lang = null)
+        {
+            if ( lang == null )
+                lang = Properties.Settings.Default.Language;
+            CulInfo = new CultureInfo( lang );
+            Thread.CurrentThread.CurrentCulture = CulInfo;
+            Thread.CurrentThread.CurrentUICulture = CulInfo;
+        }
 
         /// <summary>
         /// The main entry point for the application.
@@ -18,6 +30,9 @@ namespace NetChanger
         [STAThread]
         static void Main()
         {
+            // Load language based on app settings.
+            SwitchLanguage();
+
             var wi = WindowsIdentity.GetCurrent();
             var wp = new WindowsPrincipal( wi );
 
@@ -39,8 +54,12 @@ namespace NetChanger
                 }
                 catch ( Exception ) {
                     // The user did not allow the application to run as administrator
-                    MessageBox.Show( "Sorry, but I don't seem to be able to start " +
-                       "this program with administrator rights!" );
+                    MessageBox.Show(
+                        Resources.Resources.admin_rights_needed, // ResManager.GetString( "admin_rights_needed" ),
+                        Resources.Resources.netchagner, // ResManager.GetString( "netchanger" ),
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Exclamation
+                    );
                 }
 
                 // Shut down the current process

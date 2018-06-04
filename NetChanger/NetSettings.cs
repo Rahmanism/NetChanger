@@ -32,7 +32,7 @@ namespace NetChanger
                     interfaceName = value;
                 }
                 else {
-                    throw new NullReferenceException( "Interface name cannot be blank." );
+                    throw new NullReferenceException( Resources.Resources.no_blank_interface_name );
                 }
             }
         }
@@ -46,7 +46,7 @@ namespace NetChanger
                     address = v;
                 }
                 else {
-                    throw new RegexMatchTimeoutException( "The address isn't a correct IP." );
+                    throw new RegexMatchTimeoutException( Resources.Resources.wrong_ip );
                 }
             }
         }
@@ -59,7 +59,7 @@ namespace NetChanger
                     netMask = v;
                 }
                 else {
-                    throw new RegexMatchTimeoutException( "NetMask isn't a correct IP." );
+                    throw new RegexMatchTimeoutException( Resources.Resources.wrong_netmask );
                 }
             }
         }
@@ -73,7 +73,7 @@ namespace NetChanger
                     gateway = v;
                 }
                 else {
-                    throw new RegexMatchTimeoutException( "Gateway isn't a correct IP." );
+                    throw new RegexMatchTimeoutException( Resources.Resources.wrong_gateway );
                 }
             }
         }

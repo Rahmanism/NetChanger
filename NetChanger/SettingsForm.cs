@@ -17,11 +17,31 @@ namespace NetChanger
         {
             action = act;
             InitializeComponent();
+            LoadTexts();
         }
 
         public SettingsForm()
         {
             InitializeComponent();
+            LoadTexts();
+        }
+
+        private void LoadTexts()
+        {
+            this.Text = Resources.Resources.ip_settings;
+            nameLbl.Text = Resources.Resources.profile_name;
+            ipGbx.Text = Resources.Resources.ip_settings;
+            staticRbn.Text = Resources.Resources.static_;
+            dhcpRbn.Text = Resources.Resources.dhcp;
+            ifaceLbl.Text = Resources.Resources.interface_name;
+            addressLbl.Text = Resources.Resources.address;
+            netmaskLbl.Text = Resources.Resources.netmask;
+            gatewayLbl.Text = Resources.Resources.gateway;
+            nameserversLbl.Text = Resources.Resources.nameservers;
+            moveDnsUpBtn.Text = Resources.Resources.up;
+            moveDnsDownBtn.Text = Resources.Resources.down;
+            cancelBtn.Text = Resources.Resources.cancel;
+            okBtn.Text = Resources.Resources.ok;
         }
 
         private void OkBtn_Click(object sender, EventArgs e)
@@ -82,7 +102,7 @@ namespace NetChanger
                 return true;
             }
             catch (Exception x) {
-                MessageBox.Show( x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
+                MessageBox.Show( x.Message, Resources.Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error );
                 return false;
             }
         }

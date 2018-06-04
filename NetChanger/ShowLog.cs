@@ -8,6 +8,14 @@ namespace NetChanger
         public ShowLog()
         {
             InitializeComponent();
+            LoadTexts();
+        }
+
+        private void LoadTexts()
+        {
+            this.Text = Resources.Resources.show_log;
+            logTitleLbl.Text = Resources.Resources.log_of_command_results;
+            closeBtn.Text = Resources.Resources.close;
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
