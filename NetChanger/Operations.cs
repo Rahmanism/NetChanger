@@ -41,10 +41,12 @@ namespace NetChanger
         /// <param name="e"></param>
         void StartupMenuItemClick(object sender, EventArgs e)
         {
-            // TODO: move this to the settings
             MenuItem m = (MenuItem)sender;
             m.Checked = !m.Checked;
             bool set = m.Checked;
+
+            var exeName = System.IO.Path.GetFileNameWithoutExtension(
+                System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName );
 
             // If menu checked puts the shortcut of app to startup folder,
             // else deletes the shortcut
@@ -54,7 +56,7 @@ namespace NetChanger
             else {
                 try {
                     System.IO.File.Delete(
-                        Environment.GetFolderPath( Environment.SpecialFolder.Startup ) + "\\Jarvis.lnk" );
+                        Environment.GetFolderPath( Environment.SpecialFolder.Startup ) + $"\\{exeName}.lnk" );
                 }
                 catch { }
             }
@@ -167,6 +169,11 @@ namespace NetChanger
                 Name = "showLogMenuItem"
             };
 
+            var startupMenuItem = new MenuItem {
+                Text = "Put in Startup",
+                Name = "startupMenuItem"
+            };
+
             var aboutMenuItem = new MenuItem {
                 Text = "About",
                 Name = "aboutMenuItem"
@@ -178,19 +185,23 @@ namespace NetChanger
             contextMenu.MenuItems.Add( profilesMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( showLogMenuItem );
+            contextMenu.MenuItems.Add( startupMenuItem );
             contextMenu.MenuItems.Add( aboutMenuItem );
             contextMenu.MenuItems.Add( "-" );
             contextMenu.MenuItems.Add( quitMenuItem );
             notifyIcon.ContextMenu = contextMenu;
 
             // If there is a shortcut of app in startup folder put check mark for the menu item
-            //startupMenuItem.Checked =
-            //    System.IO.File.Exists(
-            //        Environment.GetFolderPath( Environment.SpecialFolder.Startup ) + "\\Jarvis.lnk" );
+            var exeName = System.IO.Path.GetFileNameWithoutExtension(
+                System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName );
+            startupMenuItem.Checked =
+                System.IO.File.Exists(
+                    Environment.GetFolderPath( Environment.SpecialFolder.Startup ) + $"\\{exeName}.lnk" );
 
             #region Context Menu Events Wire Up
             // Wire up menu items event handlers
             quitMenuItem.Click += QuitMenuItemClick;
+            startupMenuItem.Click += StartupMenuItemClick;
 
             // Wire up create profiles menu item to show profile form (settings actually)
             profileCreateMenuItem.Click += (s, e) => {
@@ -229,6 +240,8 @@ namespace NetChanger
         /// </summary>
         private void LoadSettings()
         {
+            // TODO: load current system setting as a new profile names AutoProfile.
+
             string path = AppDomain.CurrentDomain.BaseDirectory + PROFILES;
             Profiles = MyJson.ReadData<List<Profile>>( path );
 

@@ -9,6 +9,7 @@ namespace NetChanger
         {
             InitializeComponent();
             Icon = Properties.Resources.MainIcon;
+            // TODO: Create a duplicate button so user can make copy from available profiles.
         }
 
         private void editBtn_Click(object sender, EventArgs e)
