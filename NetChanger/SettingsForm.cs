@@ -163,7 +163,9 @@ namespace NetChanger
             netmaskTxt.Text = aProfile.Settings.NetMask;
             gatewayTxt.Text = aProfile.Settings.Gateway;
             nameserversLbx.Items.Clear();
-            nameserversLbx.Items.AddRange( aProfile.Settings.Nameservers.ToArray() );
+            if ( aProfile.Settings.Nameservers != null ) {
+                nameserversLbx.Items.AddRange( aProfile.Settings.Nameservers.ToArray() );
+            }
 
             staticRbn.Checked = aProfile.Settings.IsStatic;
             dhcpRbn.Checked = !staticRbn.Checked;
