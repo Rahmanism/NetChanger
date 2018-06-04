@@ -21,7 +21,7 @@ change from rahmanism user.
 [x] IP validation
 [x] User can make duplicate of a profile.
 [x] Make forms look good (sizes are bad now).
+[x] Use resource for languages in all texts.
 
-[ ] Use resource for languages in all texts.
 [ ] Load current system setting as a new profile names AutoProfile.
 [ ] Add a command for gateway in DHCP mode if there was a gateway ip in profile.
