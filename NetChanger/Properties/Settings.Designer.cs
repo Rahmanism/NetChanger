@@ -12,7 +12,7 @@ namespace NetChanger.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.0.1.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -25,85 +25,25 @@ namespace NetChanger.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.2")]
-        public string Address {
+        [global::System.Configuration.DefaultSettingValueAttribute("office static")]
+        public string ActiveProfile {
             get {
-                return ((string)(this["Address"]));
+                return ((string)(this["ActiveProfile"]));
             }
             set {
-                this["Address"] = value;
+                this["ActiveProfile"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("255.255.255.0")]
-        public string Netmask {
+        [global::System.Configuration.DefaultSettingValueAttribute("en-US")]
+        public string Language {
             get {
-                return ((string)(this["Netmask"]));
+                return ((string)(this["Language"]));
             }
             set {
-                this["Netmask"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("192.168.1.1")]
-        public string Gateway {
-            get {
-                return ((string)(this["Gateway"]));
-            }
-            set {
-                this["Gateway"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("8.8.8.8")]
-        public string DnsOne {
-            get {
-                return ((string)(this["DnsOne"]));
-            }
-            set {
-                this["DnsOne"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("4.2.2.4")]
-        public string DnsTwo {
-            get {
-                return ((string)(this["DnsTwo"]));
-            }
-            set {
-                this["DnsTwo"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool Static {
-            get {
-                return ((bool)(this["Static"]));
-            }
-            set {
-                this["Static"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("Wi-Fi")]
-        public string InterfaceName {
-            get {
-                return ((string)(this["InterfaceName"]));
-            }
-            set {
-                this["InterfaceName"] = value;
+                this["Language"] = value;
             }
         }
     }
