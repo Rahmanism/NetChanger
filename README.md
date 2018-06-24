@@ -13,8 +13,11 @@ There will be a system tray menu, so you can switch the network status fast enou
 change from rahmanism user.
 
 # What happened recently?  
-[x] Some bugs fixed in creating a new profile.
-[x] Profiles.json added to resources, so when you don't have the file, it'll be created based on the default one.
+[x] Some bugs fixed in deleting a profile.  
+[x] Bug in no default profiel fixed.  
+[x] Mangae profiles form updates after editing now.  
+[x] Some bugs fixed in creating a new profile.  
+[x] Profiles.json added to resources, so when you don't have the file, it'll be created based on the default one.  
 [x] Only x64  
 [x] List of interfaces auto load  
 [x] Forms tab order corrected  
