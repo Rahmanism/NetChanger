@@ -348,21 +348,6 @@
   <data name="&gt;&gt;splitContainer1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="listTitleLbl.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="listTitleLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>17, 26</value>
-  </data>
-  <data name="listTitleLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>139, 29</value>
-  </data>
-  <data name="listTitleLbl.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="listTitleLbl.Text" xml:space="preserve">
-    <value>Profiles List</value>
-  </data>
   <data name="&gt;&gt;listTitleLbl.Name" xml:space="preserve">
     <value>listTitleLbl</value>
   </data>
@@ -398,6 +383,33 @@
   </data>
   <data name="&gt;&gt;panel2.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="listTitleLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="listTitleLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>17, 26</value>
+  </data>
+  <data name="listTitleLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>139, 29</value>
+  </data>
+  <data name="listTitleLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="listTitleLbl.Text" xml:space="preserve">
+    <value>Profiles List</value>
+  </data>
+  <data name="&gt;&gt;listTitleLbl.Name" xml:space="preserve">
+    <value>listTitleLbl</value>
+  </data>
+  <data name="&gt;&gt;listTitleLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;listTitleLbl.Parent" xml:space="preserve">
+    <value>panel2</value>
+  </data>
+  <data name="&gt;&gt;listTitleLbl.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

@@ -175,7 +175,7 @@ namespace NetChanger
         {
             // fill the controls (text boxes and ...) in the form based on read data.
             var aProfile = Program.operations.Profiles.Find(
-                    p => p.Name.ToLower().Equals( profileName )
+                    p => p.Name.ToLower().Equals( profileName.ToLower() )
                 );
             profileNameTxt.Text = aProfile.Name;
             ifaceCbx.Text = aProfile.Settings.InterfaceName;

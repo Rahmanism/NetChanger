@@ -125,7 +125,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel2);
             this.Name = "ManageProfiles";
-            this.Load += new System.EventHandler(this.ManageProfiles_Load);
+            this.Activated += new System.EventHandler(this.ManageProfiles_Activated);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();

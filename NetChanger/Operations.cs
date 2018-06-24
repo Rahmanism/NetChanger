@@ -178,7 +178,8 @@ namespace NetChanger
                     Text = item.Name,
                     Name = item.Name + "MenuItem",
                     RadioCheck = true,
-                    Checked = Net.Profile.Name.Equals( item.Name )
+                    Checked = Net.Profile != null && Net.Profile.Name != null ?
+                        Net.Profile.Name.Equals( item.Name ) : true
                 };
                 menuItem.Click += ProfileMenuItemClick;
                 profilesMenuItem.MenuItems.Add( menuItem );
@@ -299,8 +300,15 @@ namespace NetChanger
             Profiles = MyJson.ReadData<List<Profile>>( path );
 
             Net.Profile = Profiles.Find(
-                    p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile )
+                    p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile.ToLower() )
                 );
+            if (Net.Profile == null && Profiles.Count > 0) {
+                Net.Profile = Profiles[0];
+
+                // Change the active profile in app settings.
+                Properties.Settings.Default.ActiveProfile = Net.Profile.Name;
+                Properties.Settings.Default.Save();
+            }
         }
         #endregion
 

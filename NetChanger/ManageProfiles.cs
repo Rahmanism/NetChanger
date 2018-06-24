@@ -29,11 +29,6 @@ namespace NetChanger
             editProfile.Show();
         }
 
-        private void ManageProfiles_Load(object sender, EventArgs e)
-        {
-            ReloadProfilesList();
-        }
-
         private void ReloadProfilesList()
         {
             profilesLbx.Items.Clear();
@@ -80,6 +75,11 @@ namespace NetChanger
             catch (Exception x) {
                 MessageBox.Show( x.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error );
             }
+        }
+
+        private void ManageProfiles_Activated(object sender, EventArgs e)
+        {
+            ReloadProfilesList();
         }
     }
 }
