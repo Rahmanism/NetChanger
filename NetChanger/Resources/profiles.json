@@ -1,0 +1,13 @@
+[
+    {
+        "Name": "dhcp",
+        "Settings": {
+            "IsStatic": false,
+            "InterfaceName": "Wi-Fi",
+            "Address": null,
+            "NetMask": null,
+            "Gateway": null,
+            "Nameservers": null
+        }
+    }
+]

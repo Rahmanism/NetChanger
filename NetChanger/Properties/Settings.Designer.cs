@@ -25,7 +25,7 @@ namespace NetChanger.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("office static")]
+        [global::System.Configuration.DefaultSettingValueAttribute("dhcp")]
         public string ActiveProfile {
             get {
                 return ((string)(this["ActiveProfile"]));

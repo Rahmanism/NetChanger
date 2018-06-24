@@ -26,7 +26,7 @@
     <ProductName>NetChanger</ProductName>
     <PublisherName>Mostafa Rahmani</PublisherName>
     <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.21.%2a</ApplicationVersion>
+    <ApplicationVersion>1.1.2.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -58,10 +58,10 @@
     <ApplicationIcon>Resources\MainIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>97E5C1FCA5E5D006460021C91EBDA46AAAAAB70F</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>EAC9B4CF1F36706B2AE60B2D22A9B11F8F3C42E4</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>NetChanger_TemporaryKey.pfx</ManifestKeyFile>
+    <ManifestKeyFile>NetChanger_1_TemporaryKey.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <GenerateManifests>true</GenerateManifests>
@@ -185,7 +185,7 @@
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="ShowLog.resx">
@@ -193,9 +193,6 @@
     </EmbeddedResource>
     <None Include="NetChanger_TemporaryKey.pfx" />
     <None Include="packages.config" />
-    <None Include="profiles.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -211,6 +208,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\profiles.json" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

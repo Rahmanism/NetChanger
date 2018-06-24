@@ -36,7 +36,7 @@ namespace NetChanger
             okBtn.Text = Resources.Resources.ok;
             this.Text = Resources.Resources.about;
             descriptionLbl.Text = description;
-            string releaseDate = "1397/03/14";
+            string releaseDate = "1397/04/03";
             dateLbl.Text = $"{Resources.Resources.release_date_of_this_version}: {releaseDate}";
         }
 

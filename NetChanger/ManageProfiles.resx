@@ -123,14 +123,14 @@
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="splitContainer1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 89</value>
+    <value>13, 102</value>
   </data>
   <data name="profilesLbx.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="profilesLbx.ItemHeight" type="System.Int32, mscorlib">
-    <value>27</value>
+    <value>29</value>
   </data>
   <data name="profilesLbx.Items" xml:space="preserve">
     <value>Office</value>
@@ -145,7 +145,7 @@
     <value>0, 0</value>
   </data>
   <data name="profilesLbx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>387, 469</value>
+    <value>441, 535</value>
   </data>
   <data name="profilesLbx.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -178,10 +178,10 @@
     <value>Top</value>
   </data>
   <data name="duplicateBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 214</value>
+    <value>25, 244</value>
   </data>
   <data name="duplicateBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 62</value>
+    <value>208, 71</value>
   </data>
   <data name="duplicateBtn.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -205,10 +205,10 @@
     <value>Bottom</value>
   </data>
   <data name="closeBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 386</value>
+    <value>25, 440</value>
   </data>
   <data name="closeBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 60</value>
+    <value>208, 69</value>
   </data>
   <data name="closeBtn.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -231,14 +231,11 @@
   <data name="deleteBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
   </data>
-  <data name="deleteBtn.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
   <data name="deleteBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 151</value>
+    <value>25, 172</value>
   </data>
   <data name="deleteBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 63</value>
+    <value>208, 72</value>
   </data>
   <data name="deleteBtn.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -262,10 +259,10 @@
     <value>Top</value>
   </data>
   <data name="editBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 88</value>
+    <value>25, 100</value>
   </data>
   <data name="editBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 63</value>
+    <value>208, 72</value>
   </data>
   <data name="editBtn.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -289,10 +286,10 @@
     <value>Top</value>
   </data>
   <data name="newBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>22, 23</value>
+    <value>25, 26</value>
   </data>
   <data name="newBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>182, 65</value>
+    <value>208, 74</value>
   </data>
   <data name="newBtn.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -313,7 +310,7 @@
     <value>4</value>
   </data>
   <data name="splitContainer1.Panel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>22, 23, 22, 23</value>
+    <value>25, 26, 25, 26</value>
   </data>
   <data name="&gt;&gt;splitContainer1.Panel2.Name" xml:space="preserve">
     <value>splitContainer1.Panel2</value>
@@ -328,10 +325,13 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 469</value>
+    <value>704, 535</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
-    <value>387</value>
+    <value>441</value>
+  </data>
+  <data name="splitContainer1.SplitterWidth" type="System.Int32, mscorlib">
+    <value>5</value>
   </data>
   <data name="splitContainer1.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -352,10 +352,10 @@
     <value>True</value>
   </data>
   <data name="listTitleLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 23</value>
+    <value>17, 26</value>
   </data>
   <data name="listTitleLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>123, 27</value>
+    <value>139, 29</value>
   </data>
   <data name="listTitleLbl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -379,10 +379,10 @@
     <value>Top</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 12</value>
+    <value>13, 14</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>617, 77</value>
+    <value>704, 88</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -403,16 +403,16 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>168, 168</value>
+    <value>192, 192</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>639, 570</value>
+    <value>730, 651</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Trebuchet MS, 9pt</value>
   </data>
   <data name="$this.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>11, 12, 11, 12</value>
+    <value>13, 14, 13, 14</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>ManageProfiles</value>

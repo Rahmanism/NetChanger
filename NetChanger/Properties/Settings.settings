@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="ActiveProfile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">office static</Value>
+      <Value Profile="(Default)">dhcp</Value>
     </Setting>
     <Setting Name="Language" Type="System.String" Scope="User">
       <Value Profile="(Default)">en-US</Value>

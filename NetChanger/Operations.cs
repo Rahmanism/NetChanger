@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
@@ -190,7 +192,7 @@ namespace NetChanger
             var englishLanguageMenuItem = new MenuItem {
                 Text = Resources.Resources.en,
                 Name = "englishLanguageMenuItem",
-                Tag = "en-US", 
+                Tag = "en-US",
                 RadioCheck = true,
                 Checked = Thread.CurrentThread.CurrentCulture.Name == "en-US",
             };
@@ -287,6 +289,13 @@ namespace NetChanger
             // TODO: load current system setting as a new profile names AutoProfile.
 
             string path = AppDomain.CurrentDomain.BaseDirectory + PROFILES;
+
+            // If there's no file, extract the default one from resources.
+            if ( !File.Exists( path ) ) {
+                File.WriteAllBytes( path, Properties.Resources.profiles );
+            }
+
+            // Load data from file.
             Profiles = MyJson.ReadData<List<Profile>>( path );
 
             Net.Profile = Profiles.Find(
@@ -354,7 +363,8 @@ namespace NetChanger
                     Text = item.Name,
                     Name = item.Name + "MenuItem",
                     RadioCheck = true,
-                    Checked = Net.Profile.Name.Equals( item.Name )
+                    Checked = Net.Profile != null && Net.Profile.Name != null ?
+                        Net.Profile.Name.Equals( item.Name ) : true
                 };
                 menuItem.Click += ProfileMenuItemClick;
                 profilesMenuItem.MenuItems.Add( menuItem );
@@ -420,7 +430,7 @@ namespace NetChanger
         public void Duplicate(string profileName)
         {
             var sourceProfile = Profiles.Find( p => p.Name.Equals( profileName ) );
-            var newProfile = new Profile(sourceProfile);
+            var newProfile = new Profile( sourceProfile );
             Profiles.Add( newProfile );
         }
         #endregion
