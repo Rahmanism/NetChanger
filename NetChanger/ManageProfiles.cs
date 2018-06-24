@@ -39,12 +39,13 @@ namespace NetChanger
 
         private void deleteBtn_Click(object sender, EventArgs e)
         {
-            if ( profilesLbx.SelectedValue != null ) {
+            if ( profilesLbx.SelectedItem != null ) {
+                string selectedItem = profilesLbx.SelectedItem.ToString();
                 if ( MessageBox.Show( "Are you sure to delete this item ?? It cannot be undone.",
                                       "Confirm Delete!!",
                                       MessageBoxButtons.YesNo ) == DialogResult.Yes ) {
                     var profileToDelete = Program.operations.Profiles.Find(
-                        p => p.Name.ToLower().Equals( profilesLbx.SelectedItem.ToString() ) );
+                        p => p.Name.ToLower().Equals( selectedItem ) );
                     Program.operations.Profiles.Remove( profileToDelete );
                     Program.operations.UpdateProfilesFull();
                     ReloadProfilesList();
