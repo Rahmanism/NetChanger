@@ -26,7 +26,7 @@
     <ProductName>NetChanger</ProductName>
     <PublisherName>Mostafa Rahmani</PublisherName>
     <ApplicationRevision>3</ApplicationRevision>
-    <ApplicationVersion>1.0.20.%2a</ApplicationVersion>
+    <ApplicationVersion>1.0.21.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -97,7 +97,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MyCommon">
-      <HintPath>..\..\..\..\Downloads\MyCommon.dll</HintPath>
+      <HintPath>.\MyCommon.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -194,7 +194,7 @@
     <None Include="NetChanger_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="profiles.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

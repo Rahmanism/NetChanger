@@ -12,35 +12,6 @@
             "IsStatic": false,
             "InterfaceName": "Wi-Fi",
             "Nameservers": [
-                "217.218.127.127",
-                "4.2.2.4",
-                "8.8.8.8"
-            ]
-        }
-    },
-    {
-        "Name": "office dhcp",
-        "Settings": {
-            "IsStatic": false,
-            "InterfaceName": "Wi-Fi",
-            "Nameservers": [
-                "172.16.16.1",
-                "172.16.16.70",
-                "4.2.2.4"
-            ]
-        }
-    },
-    {
-        "Name": "office static",
-        "Settings": {
-            "IsStatic": true,
-            "InterfaceName": "Wi-Fi",
-            "Address": "172.16.17.4",
-            "NetMask": "255.255.252.0",
-            "Gateway": "172.16.16.9",
-            "Nameservers": [
-                "172.16.16.1",
-                "172.16.16.70",
                 "4.2.2.4",
                 "8.8.8.8"
             ]
