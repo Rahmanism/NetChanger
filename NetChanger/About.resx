@@ -119,10 +119,10 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="logoPbx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>13, 15</value>
+    <value>15, 17</value>
   </data>
   <data name="logoPbx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>256, 256</value>
+    <value>293, 293</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logoPbx.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
@@ -151,10 +151,10 @@
     <value>Trebuchet MS, 9pt, style=Bold</value>
   </data>
   <data name="titleLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 15</value>
+    <value>350, 17</value>
   </data>
   <data name="titleLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>126, 27</value>
+    <value>145, 29</value>
   </data>
   <data name="titleLbl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -181,10 +181,10 @@
     <value>Trebuchet MS, 8pt</value>
   </data>
   <data name="versionLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 47</value>
+    <value>350, 54</value>
   </data>
   <data name="versionLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 24</value>
+    <value>55, 27</value>
   </data>
   <data name="versionLbl.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -208,10 +208,10 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="descriptionLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 89</value>
+    <value>350, 102</value>
   </data>
   <data name="descriptionLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>527, 76</value>
+    <value>602, 87</value>
   </data>
   <data name="descriptionLbl.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -238,10 +238,10 @@
     <value>True</value>
   </data>
   <data name="myNameLlb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 210</value>
+    <value>350, 240</value>
   </data>
   <data name="myNameLlb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 27</value>
+    <value>161, 29</value>
   </data>
   <data name="myNameLlb.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -268,10 +268,10 @@
     <value>True</value>
   </data>
   <data name="dateLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 243</value>
+    <value>350, 278</value>
   </data>
   <data name="dateLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>393, 27</value>
+    <value>457, 29</value>
   </data>
   <data name="dateLbl.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -295,10 +295,10 @@
     <value>Bottom, Right</value>
   </data>
   <data name="okBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>688, 286</value>
+    <value>786, 327</value>
   </data>
   <data name="okBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 58</value>
+    <value>166, 66</value>
   </data>
   <data name="okBtn.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -325,10 +325,10 @@
     <value>True</value>
   </data>
   <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>306, 177</value>
+    <value>350, 202</value>
   </data>
   <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>40, 27</value>
+    <value>46, 29</value>
   </data>
   <data name="linkLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -352,10 +352,10 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>168, 168</value>
+    <value>192, 192</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>856, 356</value>
+    <value>978, 407</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Trebuchet MS, 9pt</value>

@@ -79,9 +79,7 @@ namespace NetChanger
             Properties.Settings.Default.Save();
 
             // Change the current (active) profile to the selected for runtime.
-            Net.Profile = Profiles.Find(
-                    p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile )
-                );
+            Net.Profile = FindProfile();
 
             Log( Cmd.Execute( Net.Do ) );
         }
@@ -299,9 +297,7 @@ namespace NetChanger
             // Load data from file.
             Profiles = MyJson.ReadData<List<Profile>>( path );
 
-            Net.Profile = Profiles.Find(
-                    p => p.Name.ToLower().Equals( Properties.Settings.Default.ActiveProfile.ToLower() )
-                );
+            Net.Profile = FindProfile();
             if (Net.Profile == null && Profiles.Count > 0) {
                 Net.Profile = Profiles[0];
 
@@ -437,9 +433,22 @@ namespace NetChanger
         /// <param name="profileName"></param>
         public void Duplicate(string profileName)
         {
-            var sourceProfile = Profiles.Find( p => p.Name.Equals( profileName ) );
+            var sourceProfile = FindProfile( profileName );
             var newProfile = new Profile( sourceProfile );
             Profiles.Add( newProfile );
+        }
+
+        /// <summary>
+        /// Returns profile using ActiveProfile name from app settings
+        /// or with the given name.
+        /// </summary>
+        /// <returns>A Profile</returns>
+        public Profile FindProfile(string name = null)
+        {
+            var pName = (name ?? Properties.Settings.Default.ActiveProfile).ToLower();
+            return Profiles.Find(
+                    p => p.Name.ToLower().Equals( pName )
+                ) ?? new Profile();
         }
         #endregion
     }

@@ -1,6 +1,6 @@
 [
     {
-        "Name": "dhcp",
+        "Name": "DHCP",
         "Settings": {
             "IsStatic": false,
             "InterfaceName": "Wi-Fi",

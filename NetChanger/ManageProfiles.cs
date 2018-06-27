@@ -44,8 +44,7 @@ namespace NetChanger
                 if ( MessageBox.Show( "Are you sure to delete this item ?? It cannot be undone.",
                                       "Confirm Delete!!",
                                       MessageBoxButtons.YesNo ) == DialogResult.Yes ) {
-                    var profileToDelete = Program.operations.Profiles.Find(
-                        p => p.Name.ToLower().Equals( selectedItem ) );
+                    var profileToDelete = Program.operations.FindProfile( selectedItem );
                     Program.operations.Profiles.Remove( profileToDelete );
                     Program.operations.UpdateProfilesFull();
                     ReloadProfilesList();

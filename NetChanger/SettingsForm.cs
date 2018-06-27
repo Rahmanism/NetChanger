@@ -63,8 +63,7 @@ namespace NetChanger
                 }
             }
             else { // edit a specific profile mode
-                var profile = Program.operations.Profiles.Find(
-                    p => p.Name.ToLower().Equals( this.action.ToLower() ) );
+                var profile = Program.operations.FindProfile( this.action );
                 updateSuccessful = UpdateProfile( profile );
             }
 
@@ -174,9 +173,7 @@ namespace NetChanger
         private void FillWithProfile(string profileName)
         {
             // fill the controls (text boxes and ...) in the form based on read data.
-            var aProfile = Program.operations.Profiles.Find(
-                    p => p.Name.ToLower().Equals( profileName.ToLower() )
-                );
+            var aProfile = Program.operations.FindProfile( profileName );
             profileNameTxt.Text = aProfile.Name;
             ifaceCbx.Text = aProfile.Settings.InterfaceName;
             addressTxt.Text = aProfile.Settings.Address;
