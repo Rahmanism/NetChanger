@@ -13,6 +13,7 @@ There will be a system tray menu, so you can switch the network status fast enou
 change from rahmanism user.
 
 # What happened recently?  
+[x] Some small bugs fixed in profile operations (finding a profile moved to a single method converts everything to lower to search).
 [x] Some bugs fixed in deleting a profile.  
 [x] Bug in no default profiel fixed.  
 [x] Mangae profiles form updates after editing now.  
@@ -31,4 +32,5 @@ change from rahmanism user.
   
 [ ] Load current system setting as a new profile names AutoProfile.  
 [ ] Add a command for gateway in DHCP mode if there was a gateway ip in profile.  
+[ ] Update the previous installation when using setup.
   
