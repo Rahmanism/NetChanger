@@ -12,7 +12,7 @@ There will be a system tray menu, so you can switch the network status fast enou
 
 # What happened recently?  
 [x] Some small bugs fixed in profile operations  
-    (finding a profile moved to a single method converts everything to lower to search).  
+&nbsp;&nbsp;&nbsp;&nbsp;(finding a profile moved to a single method converts everything to lower to search).  
 [x] Some bugs fixed in deleting a profile.  
 [x] Bug in no default profiel fixed.  
 [x] Mangae profiles form updates after editing now.  
