@@ -8,31 +8,34 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>NetChanger</RootNamespace>
     <AssemblyName>NetChanger</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>ftp://ftp.rahmanism.ir/</PublishUrl>
+    <PublishUrl>C:\Users\Mostafa\Downloads\nc\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateEnabled>false</UpdateEnabled>
     <UpdateMode>Background</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>true</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
+    <TargetCulture>en</TargetCulture>
     <ProductName>NetChanger</ProductName>
     <PublisherName>Mostafa Rahmani</PublisherName>
-    <ApplicationRevision>5</ApplicationRevision>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>7</ApplicationRevision>
     <ApplicationVersion>1.3.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -58,7 +61,7 @@
     <ApplicationIcon>Resources\MainIcon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>EAC9B4CF1F36706B2AE60B2D22A9B11F8F3C42E4</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>8785A56E34A25DB4DA7CD3C185D09C3B800075E9</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>NetChanger_1_TemporaryKey.pfx</ManifestKeyFile>
@@ -191,6 +194,7 @@
     <EmbeddedResource Include="ShowLog.resx">
       <DependentUpon>ShowLog.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="NetChanger_1_TemporaryKey.pfx" />
     <None Include="NetChanger_TemporaryKey.pfx" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
