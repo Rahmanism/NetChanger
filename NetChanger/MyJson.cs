@@ -1,7 +1,8 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.IO;
+using System.Text.Json;
 using System.Windows.Forms;
+
 
 namespace NetChanger
 {
@@ -28,7 +29,7 @@ namespace NetChanger
             }
             catch ( Exception ) { }
             // if string with JSON data is not empty, deserialize it to class and return its instance 
-            return !string.IsNullOrEmpty( jsonData ) ? JsonConvert.DeserializeObject<T>( jsonData ) : new T();
+            return !string.IsNullOrEmpty( jsonData ) ? JsonSerializer.Deserialize<T>( jsonData ) : new T();
         }
 
         /// <summary>
@@ -39,7 +40,7 @@ namespace NetChanger
         /// <returns></returns>
         public static void WriteData<T>(string path, T data) where T : new ()
         {
-            var jsonData = JsonConvert.SerializeObject(data);
+            var jsonData = JsonSerializer.Serialize(data);
 
             try {
                 File.WriteAllText( path, jsonData );

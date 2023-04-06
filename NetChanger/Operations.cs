@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -6,6 +6,7 @@ using System.IO;
 using System.Reflection;
 using System.Threading;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace NetChanger
 {
@@ -13,6 +14,7 @@ namespace NetChanger
     {
         // the file that contains profiles data.
         public const string PROFILES = "profiles.json";
+        public const string STARTUP = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run";
 
         #region Fields
         NotifyIcon notifyIcon;
@@ -22,7 +24,7 @@ namespace NetChanger
         #region Public Fields
         public NetProperties Net;
         public List<Profile> Profiles;
-        public List<string> ResultsLog = new List<string>();
+        public List<string> ResultsLog = new();
         #endregion
 
         public Operations()
@@ -31,10 +33,22 @@ namespace NetChanger
         }
 
         #region Context Menu Event Handlers
-        void QuitMenuItemClick(object sender, EventArgs e)
+        void QuitToolStripMenuItemClick(object sender, EventArgs e)
         {
             notifyIcon.Dispose();
             Application.Exit();
+        }
+
+        /// <summary>
+        /// Gets if this app is added to startup via Windows Registry.
+        /// </summary>
+        /// <returns>True if it's in the startup.</returns>
+        static bool IsInStartup()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(STARTUP, true);
+            var exeName = Path.GetFileNameWithoutExtension(Environment.ProcessPath);
+            var value = key.GetValue(exeName);
+            return value != null;
         }
 
         /// <summary>
@@ -42,24 +56,23 @@ namespace NetChanger
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void StartupMenuItemClick(object sender, EventArgs e)
+        void StartupToolStripMenuItemClick(object sender, EventArgs e)
         {
-            MenuItem m = (MenuItem)sender;
+            ToolStripMenuItem m = (ToolStripMenuItem)sender;
             m.Checked = !m.Checked;
             bool set = m.Checked;
 
-            var exeName = System.IO.Path.GetFileNameWithoutExtension(
-                System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName );
+            var exeName = Path.GetFileNameWithoutExtension(Environment.ProcessPath);
+            var key = Registry.CurrentUser.OpenSubKey(STARTUP, true);
 
             // If menu checked puts the shortcut of app to startup folder,
             // else deletes the shortcut
-            if ( set ) {
-                Rahmanism.ir.Common.PutInStartupFolder();
+            if (set) {
+                key.SetValue(exeName, "\"" + Environment.ProcessPath + "\"");
             }
             else {
                 try {
-                    System.IO.File.Delete(
-                        Environment.GetFolderPath( Environment.SpecialFolder.Startup ) + $"\\{exeName}.lnk" );
+                    key.DeleteValue(exeName);
                 }
                 catch { }
             }
@@ -70,18 +83,18 @@ namespace NetChanger
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        void ProfileMenuItemClick(object sender, EventArgs e)
+        void ProfileToolStripMenuItemClick(object sender, EventArgs e)
         {
-            UpdateRadioMenu( (MenuItem)sender );
+            UpdateRadioMenu((ToolStripMenuItem)sender);
 
             // Change the active profile in app settings.
-            Properties.Settings.Default.ActiveProfile = ( (MenuItem)sender ).Text;
+            Properties.Settings.Default.ActiveProfile = ((ToolStripMenuItem)sender).Text;
             Properties.Settings.Default.Save();
 
             // Change the current (active) profile to the selected for runtime.
             Net.Profile = FindProfile();
 
-            Log( Cmd.Execute( Net.Do ) );
+            Log(Cmd.Execute(Net.Do));
         }
 
         /// <summary>
@@ -91,8 +104,8 @@ namespace NetChanger
         /// <param name="e"></param>
         void LanguageSelect(object sender, EventArgs e)
         {
-            var item = (MenuItem)sender;
-            UpdateRadioMenu( item );
+            var item = (ToolStripMenuItem)sender;
+            UpdateRadioMenu(item);
 
             Properties.Settings.Default.Language = item.Tag.ToString();
             Properties.Settings.Default.Save();
@@ -145,135 +158,139 @@ namespace NetChanger
         private void CreateContextMenu()
         {
             // Create context menu and assign it to notification icon
-            var progNameMenuItem = new MenuItem(
+            var progNameToolStripMenuItem = new ToolStripMenuItem(
                 $"{Resources.Resources.netchagner}" +
-                $" - v{Assembly.GetExecutingAssembly().GetName().Version.ToString()}" );
+                $" - v{Assembly.GetExecutingAssembly().GetName().Version.ToString()}");
 
-            var profilesMenuItem = new MenuItem {
+            var profilesToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.profiles,
-                Name = "profilesMenuItem"
+                Name = "profilesToolStripMenuItem"
             };
-            var profileCreateMenuItem = new MenuItem {
+            var profileCreateToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.create_new_profile,
-                Name = "createProfileMenuItem"
+                Name = "createProfileToolStripMenuItem"
             };
-            var editCurrentProfileMenuItem = new MenuItem {
+            var editCurrentProfileToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.edit_current_profile,
-                Name = "editCurrentProfileMenuItem"
+                Name = "editCurrentProfileToolStripMenuItem"
             };
-            var profileManageMenuItem = new MenuItem {
+            var profileManageToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.manage_profiles,
-                Name = "profilesManageMenuItem"
+                Name = "profilesManageToolStripMenuItem"
             };
-            profilesMenuItem.MenuItems.Add( profileCreateMenuItem );
-            profilesMenuItem.MenuItems.Add( editCurrentProfileMenuItem );
-            profilesMenuItem.MenuItems.Add( profileManageMenuItem );
-            profilesMenuItem.MenuItems.Add( "-" );
+            profilesToolStripMenuItem.DropDownItems.Add(profileCreateToolStripMenuItem);
+            profilesToolStripMenuItem.DropDownItems.Add(editCurrentProfileToolStripMenuItem);
+            profilesToolStripMenuItem.DropDownItems.Add(profileManageToolStripMenuItem);
+            profilesToolStripMenuItem.DropDownItems.Add("-");
 
             // adding profiles to the sub menu again.
-            foreach ( var item in Profiles ) {
-                var menuItem = new MenuItem {
+            foreach (var item in Profiles) {
+                var ToolStripMenuItem = new ToolStripMenuItem {
                     Text = item.Name,
-                    Name = item.Name + "MenuItem",
-                    RadioCheck = true,
-                    Checked = Net.Profile != null && Net.Profile.Name != null ?
-                        Net.Profile.Name.Equals( item.Name ) : true
+                    Name = item.Name + "ToolStripMenuItem",
+                    //RadioCheck = true,
+                    Checked = Net.Profile == null || Net.Profile.Name == null ||
+                        Net.Profile.Name.Equals(item.Name)
                 };
-                menuItem.Click += ProfileMenuItemClick;
-                profilesMenuItem.MenuItems.Add( menuItem );
+                ToolStripMenuItem.Click += ProfileToolStripMenuItemClick;
+                profilesToolStripMenuItem.DropDownItems.Add(ToolStripMenuItem);
             }
 
-            var languageMenuItem = new MenuItem {
+            var languageToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.language,
-                Name = "languageMenuItem"
+                Name = "languageToolStripMenuItem"
             };
 
-            var englishLanguageMenuItem = new MenuItem {
+            var englishLanguageToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.en,
-                Name = "englishLanguageMenuItem",
+                Name = "englishLanguageToolStripMenuItem",
                 Tag = "en-US",
-                RadioCheck = true,
+                //RadioCheck = true,
                 Checked = Thread.CurrentThread.CurrentCulture.Name == "en-US",
             };
-            englishLanguageMenuItem.Click += LanguageSelect;
-            var persianLanguageMenuItem = new MenuItem {
+            englishLanguageToolStripMenuItem.Click += LanguageSelect;
+            var persianLanguageToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.fa,
-                Name = "persianLanguageMenuItem",
+                Name = "persianLanguageToolStripMenuItem",
                 Tag = "fa-IR",
-                RadioCheck = true,
+                //RadioCheck = true,
                 Checked = Thread.CurrentThread.CurrentCulture.Name == "fa-IR"
             };
-            persianLanguageMenuItem.Click += LanguageSelect;
+            persianLanguageToolStripMenuItem.Click += LanguageSelect;
 
-            languageMenuItem.MenuItems.Add( englishLanguageMenuItem );
-            languageMenuItem.MenuItems.Add( persianLanguageMenuItem );
+            languageToolStripMenuItem.DropDownItems.Add(englishLanguageToolStripMenuItem);
+            languageToolStripMenuItem.DropDownItems.Add(persianLanguageToolStripMenuItem);
 
-            var showLogMenuItem = new MenuItem {
+            var proxyToolStripMenuItem = new ToolStripMenuItem {
+                Text = Resources.Resources.proxy,
+                Name = "proxyToolStripMenuItem"
+            };
+
+            var showLogToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.show_log,
-                Name = "showLogMenuItem"
+                Name = "showLogToolStripMenuItem"
             };
 
-            var startupMenuItem = new MenuItem {
+            var startupToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.put_in_startup,
-                Name = "startupMenuItem"
+                Name = "startupToolStripMenuItem"
             };
 
-            var aboutMenuItem = new MenuItem {
+            var aboutToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.about,
-                Name = "aboutMenuItem"
+                Name = "aboutToolStripMenuItem"
             };
-            var quitMenuItem = new MenuItem( Resources.Resources.quit );
-            var contextMenu = new ContextMenu();
-            contextMenu.MenuItems.Add( progNameMenuItem );
-            contextMenu.MenuItems.Add( "-" );
-            contextMenu.MenuItems.Add( profilesMenuItem );
-            contextMenu.MenuItems.Add( languageMenuItem );
-            contextMenu.MenuItems.Add( "-" );
-            contextMenu.MenuItems.Add( showLogMenuItem );
-            contextMenu.MenuItems.Add( startupMenuItem );
-            contextMenu.MenuItems.Add( aboutMenuItem );
-            contextMenu.MenuItems.Add( "-" );
-            contextMenu.MenuItems.Add( quitMenuItem );
-            notifyIcon.ContextMenu = contextMenu;
+            var quitToolStripMenuItem = new ToolStripMenuItem(Resources.Resources.quit);
+            var contextMenu = new ContextMenuStrip();
+            contextMenu.Items.Add(progNameToolStripMenuItem);
+            contextMenu.Items.Add("-");
+            contextMenu.Items.Add(profilesToolStripMenuItem);
+            contextMenu.Items.Add(languageToolStripMenuItem);
+            contextMenu.Items.Add(proxyToolStripMenuItem);
+            contextMenu.Items.Add("-");
+            contextMenu.Items.Add(showLogToolStripMenuItem);
+            contextMenu.Items.Add(startupToolStripMenuItem);
+            contextMenu.Items.Add(aboutToolStripMenuItem);
+            contextMenu.Items.Add("-");
+            contextMenu.Items.Add(quitToolStripMenuItem);
+            notifyIcon.ContextMenuStrip = contextMenu;
 
             // If there is a shortcut of app in startup folder put check mark for the menu item
-            var exeName = System.IO.Path.GetFileNameWithoutExtension(
-                System.Diagnostics.Process.GetCurrentProcess().MainModule.FileName );
-            startupMenuItem.Checked =
-                System.IO.File.Exists(
-                    Environment.GetFolderPath( Environment.SpecialFolder.Startup ) + $"\\{exeName}.lnk" );
+            var exeName = Path.GetFileNameWithoutExtension(Environment.ProcessPath);
+            // TODO: maybe should check with registry, if PutInStartupFolder made that way.
+            startupToolStripMenuItem.Checked = IsInStartup();
 
             #region Context Menu Events Wire Up
             // Wire up menu items event handlers
-            quitMenuItem.Click += QuitMenuItemClick;
-            startupMenuItem.Click += StartupMenuItemClick;
+            quitToolStripMenuItem.Click += QuitToolStripMenuItemClick;
+            startupToolStripMenuItem.Click += StartupToolStripMenuItemClick;
 
             // Wire up create profiles menu item to show profile form (settings actually)
-            profileCreateMenuItem.Click += (s, e) => {
-                var createProfile = new SettingsForm( SettingsForm.NEW );
+            profileCreateToolStripMenuItem.Click += (s, e) => {
+                var createProfile = new SettingsForm(SettingsForm.NEW);
                 createProfile.Show();
             };
 
             // Wire up edit current profile menu item to show profile form (settings actually) for the active profile
-            editCurrentProfileMenuItem.Click += (s, e) => {
-                var editCurrentProfile = new SettingsForm( SettingsForm.EDIT_CURRENT );
+            editCurrentProfileToolStripMenuItem.Click += (s, e) => {
+                var editCurrentProfile = new SettingsForm(SettingsForm.EDIT_CURRENT);
                 editCurrentProfile.Show();
             };
 
             // Wire up manage profiles menu item to show the form
-            profileManageMenuItem.Click += (s, e) => {
+            profileManageToolStripMenuItem.Click += (s, e) => {
                 var manageProfiles = new ManageProfiles();
                 manageProfiles.Show();
             };
 
             // Wire up show log menu item to show the form
-            showLogMenuItem.Click += (s, e) => {
+            showLogToolStripMenuItem.Click += (s, e) => {
                 var showLog = new ShowLog();
                 showLog.Show();
             };
 
             // Wire up about menu item to show about form
-            aboutMenuItem.Click += (s, e) => {
+            aboutToolStripMenuItem.Click += (s, e) => {
                 var about = new AboutForm();
                 about.Show();
             };
@@ -290,12 +307,12 @@ namespace NetChanger
             string path = AppDomain.CurrentDomain.BaseDirectory + PROFILES;
 
             // If there's no file, extract the default one from resources.
-            if ( !File.Exists( path ) ) {
-                File.WriteAllBytes( path, Properties.Resources.profiles );
+            if (!File.Exists(path)) {
+                File.WriteAllBytes(path, Properties.Resources.profiles);
             }
 
             // Load data from file.
-            Profiles = MyJson.ReadData<List<Profile>>( path );
+            Profiles = MyJson.ReadData<List<Profile>>(path);
 
             Net.Profile = FindProfile();
             if (Net.Profile == null && Profiles.Count > 0) {
@@ -325,9 +342,9 @@ namespace NetChanger
         /// Changes the state of radio check in all sibling menu items
         /// </summary>
         /// <param name="sender">This menu item will be checked</param>
-        private static void UpdateRadioMenu(MenuItem sender)
+        private static void UpdateRadioMenu(ToolStripMenuItem sender)
         {
-            foreach ( MenuItem item in sender.Parent.MenuItems ) {
+            foreach (ToolStripMenuItem item in sender.GetCurrentParent().Items) {
                 item.Checked = false;
             }
             sender.Checked = true;
@@ -339,39 +356,39 @@ namespace NetChanger
         /// <param name="firstTime"></param>
         private void LoadProfilesMenu()
         {
-            byte? menuItemIndex = null;
-            MenuItem profilesMenuItem = new MenuItem();
+            //byte? ToolStripMenuItemIndex = null;
+            ToolStripMenuItem profilesToolStripMenuItem = new ToolStripMenuItem();
 
             // find the profiles submenu
-            foreach ( MenuItem item in notifyIcon.ContextMenu.MenuItems ) {
-                if ( item.Name == "profilesMenuItem" ) {
-                    menuItemIndex = (byte)item.Index;
-                    profilesMenuItem = item;
+            foreach (ToolStripMenuItem item in notifyIcon.ContextMenuStrip.Items) {
+                if (item.Name == "profilesToolStripMenuItem") {
+                    //ToolStripMenuItemIndex = (byte)item.Index;
+                    profilesToolStripMenuItem = item;
                     break;
                 }
             }
 
             // find and remove profiles menu items.
-            List<byte> indices = new List<byte>();
-            foreach ( MenuItem item in profilesMenuItem.MenuItems ) {
-                if ( item.RadioCheck )
-                    indices.Add( (byte)item.Index );
+            List<ToolStripMenuItem> indices = new();
+            foreach (ToolStripMenuItem item in profilesToolStripMenuItem.DropDownItems) {
+                if (item.Checked)
+                    indices.Add(item);
             }
-            for ( int i = indices.Count - 1; i > -1; i-- ) {
-                profilesMenuItem.MenuItems.RemoveAt( indices[i] );
+            for (int i = indices.Count - 1; i > -1; i--) {
+                profilesToolStripMenuItem.DropDownItems.Remove(indices[i]);
             }
 
             // adding profiles to the sub menu again.
-            foreach ( var item in Profiles ) {
-                var menuItem = new MenuItem {
+            foreach (var item in Profiles) {
+                var ToolStripMenuItem = new ToolStripMenuItem {
                     Text = item.Name,
-                    Name = item.Name + "MenuItem",
-                    RadioCheck = true,
+                    Name = item.Name + "ToolStripMenuItem",
+                    //Check = true,
                     Checked = Net.Profile != null && Net.Profile.Name != null ?
-                        Net.Profile.Name.Equals( item.Name ) : true
+                        Net.Profile.Name.Equals(item.Name) : true
                 };
-                menuItem.Click += ProfileMenuItemClick;
-                profilesMenuItem.MenuItems.Add( menuItem );
+                ToolStripMenuItem.Click += ProfileToolStripMenuItemClick;
+                profilesToolStripMenuItem.DropDownItems.Add(ToolStripMenuItem);
             }
         }
         #endregion
@@ -385,7 +402,7 @@ namespace NetChanger
         /// <param name="title"></param>
         public void Message(string message, string title = "", bool mute = false)
         {
-            ShowBallonMessage( message, title );
+            ShowBallonMessage(message, title);
         }
 
         /// <summary>
@@ -400,7 +417,7 @@ namespace NetChanger
             notifyIcon.BalloonTipTitle = title == "" ?
                 Resources.Resources.netchagner : title;
 
-            notifyIcon.ShowBalloonTip( 1000 );
+            notifyIcon.ShowBalloonTip(1000);
         }
 
         /// <summary>
@@ -409,8 +426,8 @@ namespace NetChanger
         /// <param name="str"></param>
         public void Log(string[] str)
         {
-            ResultsLog.Add( DateTime.Now.ToString() );
-            ResultsLog.AddRange( str );
+            ResultsLog.Add(DateTime.Now.ToString());
+            ResultsLog.AddRange(str);
         }
 
         /// <summary>
@@ -424,7 +441,7 @@ namespace NetChanger
 
             // Write data to Json FILE.
             string path = AppDomain.CurrentDomain.BaseDirectory + Operations.PROFILES;
-            MyJson.WriteData( path, Program.operations.Profiles );
+            MyJson.WriteData(path, Program.operations.Profiles);
         }
 
         /// <summary>
@@ -433,9 +450,9 @@ namespace NetChanger
         /// <param name="profileName"></param>
         public void Duplicate(string profileName)
         {
-            var sourceProfile = FindProfile( profileName );
-            var newProfile = new Profile( sourceProfile );
-            Profiles.Add( newProfile );
+            var sourceProfile = FindProfile(profileName);
+            var newProfile = new Profile(sourceProfile);
+            Profiles.Add(newProfile);
         }
 
         /// <summary>
@@ -447,7 +464,7 @@ namespace NetChanger
         {
             var pName = (name ?? Properties.Settings.Default.ActiveProfile).ToLower();
             return Profiles.Find(
-                    p => p.Name.ToLower().Equals( pName )
+                    p => p.Name.ToLower().Equals(pName)
                 ) ?? new Profile();
         }
         #endregion

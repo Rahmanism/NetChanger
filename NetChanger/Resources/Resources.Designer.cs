@@ -358,6 +358,15 @@ namespace NetChanger.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Proxy.
+        /// </summary>
+        public static string proxy {
+            get {
+                return ResourceManager.GetString("proxy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Put in Startup.
         /// </summary>
         public static string put_in_startup {

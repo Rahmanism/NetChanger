@@ -207,6 +207,9 @@
   <data name="ok" xml:space="preserve">
     <value>&amp;Ok</value>
   </data>
+  <data name="on" xml:space="preserve">
+    <value>On</value>
+  </data>
   <data name="profiles" xml:space="preserve">
     <value>Profiles</value>
   </data>
@@ -215,6 +218,9 @@
   </data>
   <data name="profile_name" xml:space="preserve">
     <value>Profile's Name</value>
+  </data>
+  <data name="proxy" xml:space="preserve">
+    <value>Proxy</value>
   </data>
   <data name="put_in_startup" xml:space="preserve">
     <value>Put in Startup</value>

@@ -17,9 +17,9 @@ namespace NetChanger
 
         public static void SwitchLanguage(string lang = null)
         {
-            if ( lang == null )
+            if (lang == null)
                 lang = Properties.Settings.Default.Language;
-            CulInfo = new CultureInfo( lang );
+            CulInfo = new CultureInfo(lang);
             Thread.CurrentThread.CurrentCulture = CulInfo;
             Thread.CurrentThread.CurrentUICulture = CulInfo;
         }
@@ -33,15 +33,15 @@ namespace NetChanger
             // Load language based on app settings.
             SwitchLanguage();
 
-            var wi = WindowsIdentity.GetCurrent();
-            var wp = new WindowsPrincipal( wi );
+            WindowsIdentity wi = WindowsIdentity.GetCurrent();
+            WindowsPrincipal wp = new(wi);
 
-            bool runAsAdmin = wp.IsInRole( WindowsBuiltInRole.Administrator );
+            bool runAsAdmin = wp.IsInRole(WindowsBuiltInRole.Administrator);
 
-            if ( !runAsAdmin ) {
+            if (!runAsAdmin) {
                 // It is not possible to launch a ClickOnce app as administrator directly,
                 // so instead we launch the app as administrator in a new process.
-                var processInfo = new ProcessStartInfo( Assembly.GetExecutingAssembly().CodeBase ) {
+                var processInfo = new ProcessStartInfo(Assembly.GetExecutingAssembly().CodeBase) {
 
                     // The following properties run the new process as administrator
                     UseShellExecute = true,
@@ -50,9 +50,9 @@ namespace NetChanger
 
                 // Start the new process
                 try {
-                    Process.Start( processInfo );
+                    Process.Start(processInfo);
                 }
-                catch ( Exception ) {
+                catch (Exception) {
                     // The user did not allow the application to run as administrator
                     MessageBox.Show(
                         Resources.Resources.admin_rights_needed, // ResManager.GetString( "admin_rights_needed" ),
@@ -68,7 +68,7 @@ namespace NetChanger
             else {
                 // We are running as administrator
                 Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault( false );
+                Application.SetCompatibleTextRenderingDefault(false);
 
                 operations = new Operations();
 

@@ -207,6 +207,9 @@
   <data name="ok" xml:space="preserve">
     <value>تایید</value>
   </data>
+  <data name="on" xml:space="preserve">
+    <value>روشن</value>
+  </data>
   <data name="profiles" xml:space="preserve">
     <value>نمایه‌ها</value>
   </data>
@@ -215,6 +218,9 @@
   </data>
   <data name="profile_name" xml:space="preserve">
     <value>نام نمایه</value>
+  </data>
+  <data name="proxy" xml:space="preserve">
+    <value>پراکسی</value>
   </data>
   <data name="put_in_startup" xml:space="preserve">
     <value>اجرا در هنگام راه اندازی سیستم</value>
