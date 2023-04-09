@@ -23,6 +23,7 @@ namespace NetChanger
 
         #region Public Fields
         public NetProperties Net;
+        public ProxySettings Proxy;
         public List<Profile> Profiles;
         public List<string> ResultsLog = new();
         #endregion
@@ -112,6 +113,40 @@ namespace NetChanger
 
             Program.SwitchLanguage();
         }
+
+        /// <summary>
+        /// Turn the proxy on menu item event listener
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void TurnProxyOn(object sender, EventArgs e)
+        {
+            var onItem = (ToolStripMenuItem)sender;
+            onItem.Checked = true;
+
+            var offItem = (ToolStripMenuItem)notifyIcon.ContextMenuStrip.Items.Find(
+                "proxyOffToolStripMenuItem", true)[0];
+            offItem.Checked = false;
+
+            Log(new string[] { Proxy.TurnOn() });
+        }
+
+        /// <summary>
+        /// Turn the proxy off menu item event listener
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void TurnProxyOff(object sender, EventArgs e)
+        {
+            var offItem = (ToolStripMenuItem)sender;
+            offItem.Checked = true;
+
+            var onItem = (ToolStripMenuItem)notifyIcon.ContextMenuStrip.Items.Find(
+                "proxyOnToolStripMenuItem", true)[0];
+            onItem.Checked = false;
+
+            Log(new string[] { Proxy.TurnOff() });
+        }
         #endregion
 
         #region Initializers
@@ -122,6 +157,7 @@ namespace NetChanger
         {
             // make a new instance of net properties.
             Net = new NetProperties();
+            Proxy = new ProxySettings();
             // This should be run first
             LoadSettings();
             // LoadIcons must be run before ShowNotificationIcon
@@ -162,6 +198,7 @@ namespace NetChanger
                 $"{Resources.Resources.netchagner}" +
                 $" - v{Assembly.GetExecutingAssembly().GetName().Version.ToString()}");
 
+            // Profiles menu
             var profilesToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.profiles,
                 Name = "profilesToolStripMenuItem"
@@ -196,6 +233,7 @@ namespace NetChanger
                 profilesToolStripMenuItem.DropDownItems.Add(ToolStripMenuItem);
             }
 
+            // Language menu
             var languageToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.language,
                 Name = "languageToolStripMenuItem"
@@ -221,11 +259,25 @@ namespace NetChanger
             languageToolStripMenuItem.DropDownItems.Add(englishLanguageToolStripMenuItem);
             languageToolStripMenuItem.DropDownItems.Add(persianLanguageToolStripMenuItem);
 
+            // Proxy menu
             var proxyToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.proxy,
                 Name = "proxyToolStripMenuItem"
             };
+            var proxyOnToolStripMenuItem = new ToolStripMenuItem {
+                Text = Resources.Resources.on,
+                Name = "proxyOnToolStripMenuItem",
+                Checked = Proxy.IsOn()
+            };
+            var proxyOffToolStripMenuItem = new ToolStripMenuItem {
+                Text = Resources.Resources.off,
+                Name = "proxyOffToolStripMenuItem",
+                Checked = !Proxy.IsOn()
+            };
+            proxyToolStripMenuItem.DropDownItems.Add(proxyOnToolStripMenuItem);
+            proxyToolStripMenuItem.DropDownItems.Add(proxyOffToolStripMenuItem);
 
+            // Other menus
             var showLogToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.show_log,
                 Name = "showLogToolStripMenuItem"
@@ -241,6 +293,8 @@ namespace NetChanger
                 Name = "aboutToolStripMenuItem"
             };
             var quitToolStripMenuItem = new ToolStripMenuItem(Resources.Resources.quit);
+
+            // Context menu for notify icon (aka main menu)
             var contextMenu = new ContextMenuStrip();
             contextMenu.Items.Add(progNameToolStripMenuItem);
             contextMenu.Items.Add("-");
@@ -293,6 +347,16 @@ namespace NetChanger
             aboutToolStripMenuItem.Click += (s, e) => {
                 var about = new AboutForm();
                 about.Show();
+            };
+
+            // Wire up proxy on menu item to turn on the proxy
+            proxyOnToolStripMenuItem.Click += (s, e) => {
+                TurnProxyOn(s, e);
+            };
+
+            // Wire up proxy off menu item to turn on the proxy
+            proxyOffToolStripMenuItem.Click += (s, e) => {
+                TurnProxyOff(s, e);
             };
             #endregion
         }

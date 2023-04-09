@@ -204,6 +204,9 @@
   <data name="no_blank_name" xml:space="preserve">
     <value>نام نمی‌تواند خالی باشد.</value>
   </data>
+  <data name="off" xml:space="preserve">
+    <value>خاموش</value>
+  </data>
   <data name="ok" xml:space="preserve">
     <value>تایید</value>
   </data>
