@@ -79,6 +79,15 @@ namespace NetChanger.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Addresses.
+        /// </summary>
+        public static string addresses {
+            get {
+                return ResourceManager.GetString("addresses", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sorry, but I don&apos;t seem to be able to start this program with administrator rights!.
         /// </summary>
         public static string admin_rights_needed {
@@ -93,6 +102,24 @@ namespace NetChanger.Resources {
         public static string cancel {
             get {
                 return ResourceManager.GetString("cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change proxy override.
+        /// </summary>
+        public static string change_proxy_override {
+            get {
+                return ResourceManager.GetString("change_proxy_override", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change proxy server.
+        /// </summary>
+        public static string change_proxy_server {
+            get {
+                return ResourceManager.GetString("change_proxy_server", resourceCulture);
             }
         }
         
@@ -385,6 +412,51 @@ namespace NetChanger.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Proxy IP address.
+        /// </summary>
+        public static string proxy_ip_address {
+            get {
+                return ResourceManager.GetString("proxy_ip_address", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proxy Override.
+        /// </summary>
+        public static string proxy_override {
+            get {
+                return ResourceManager.GetString("proxy_override", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add the addresses that you don&apos;t want to go through proxy. Use semicolons (;) to separate entries..
+        /// </summary>
+        public static string proxy_override_addresses_comment {
+            get {
+                return ResourceManager.GetString("proxy_override_addresses_comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proxy Port.
+        /// </summary>
+        public static string proxy_port {
+            get {
+                return ResourceManager.GetString("proxy_port", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Proxy Server.
+        /// </summary>
+        public static string proxy_server {
+            get {
+                return ResourceManager.GetString("proxy_server", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Put in Startup.
         /// </summary>
         public static string put_in_startup {
@@ -408,6 +480,15 @@ namespace NetChanger.Resources {
         public static string release_date_of_this_version {
             get {
                 return ResourceManager.GetString("release_date_of_this_version", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &amp;Save.
+        /// </summary>
+        public static string save {
+            get {
+                return ResourceManager.GetString("save", resourceCulture);
             }
         }
         

@@ -1,9 +1,8 @@
 ﻿using Microsoft.Win32;
-using System;
 
 namespace NetChanger
 {
-    internal class ProxySettings
+    public class ProxySettings
     {
         const string INTERNET_SETTINGS = "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings";
         readonly RegistryKey key = Registry.CurrentUser.OpenSubKey(INTERNET_SETTINGS, true);
@@ -21,33 +20,58 @@ namespace NetChanger
         /// <summary>
         /// Turns on the system proxy via registry.
         /// </summary>
-        /// <returns>Successful message or exception error message</returns>
-        public string TurnOn()
+        public void TurnOn()
         {
-            try {
-                key.SetValue(ENABLE, 1);
-            }
-            catch (Exception x) {
-                return x.Message;
-            }
-
-            return "Proxy enabled";
+            key.SetValue(ENABLE, 1);
         }
 
         /// <summary>
         /// Turns off the system proxy via registry.
         /// </summary>
-        /// <returns>Successful message or exception error message</returns>
-        public string TurnOff()
+        public void TurnOff()
         {
-            try {
-                key.SetValue(ENABLE, 0);
-            }
-            catch (Exception x) {
-                return x.Message;
-            }
+            key.SetValue(ENABLE, 0);
+        }
 
-            return "Proxy disabled";
+        /// <summary>
+        /// Changes proxy override via registry.
+        /// </summary>
+        /// <param name="overrideText">Bunch of URLs and IPs
+        /// separated with ; which be ignored by proxy server.</param>
+        public void ChangeProxyOverride(string overrideText)
+        {
+            key.SetValue(OVERRIDE, overrideText);
+        }
+
+        /// <summary>
+        /// Gets the current override addresses from registry.
+        /// </summary>
+        /// <returns></returns>
+        public string GetProxyOverride()
+        {
+            return key.GetValue(OVERRIDE).ToString();
+        }
+
+        /// <summary>
+        /// Changes proxy server and port via registry.
+        /// </summary>
+        /// <param name="server">Proxy server IP (or address) - default is 127.0.0.1</param>
+        /// <param name="port">Proxy server port number - default is 1080</param>
+        public void ChangeProxyServer(string server = "127.0.0.1", string port = "1080")
+        {
+            key.SetValue(SERVER, $"{server}:{port}");
+        }
+
+        /// <summary>
+        /// Gets the current proxy ip and port from registry.
+        /// </summary>
+        /// <returns>An string array of 2
+        /// which contains ip and port of current proxy server.</returns>
+        public string[] GetProxyServer()
+        {
+            string server = key.GetValue(SERVER).ToString();
+            string[] result = server.Split(':');
+            return result;
         }
     }
 }

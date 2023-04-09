@@ -47,27 +47,27 @@ namespace NetChanger
         private void OkBtn_Click(object sender, EventArgs e)
         {
             bool updateSuccessful = false;
-            if ( action == NEW ) {
+            if (action == NEW) {
                 var newProfile = new Profile();
-                updateSuccessful = UpdateProfile( newProfile );
-                if ( updateSuccessful ) {
-                    Program.operations.Profiles.Add( newProfile );
+                updateSuccessful = UpdateProfile(newProfile);
+                if (updateSuccessful) {
+                    Program.operations.Profiles.Add(newProfile);
                 }
             }
-            else if ( action == EDIT_CURRENT ) {
-                updateSuccessful = UpdateProfile( Program.operations.Net.Profile );
-                if ( updateSuccessful ) {
+            else if (action == EDIT_CURRENT) {
+                updateSuccessful = UpdateProfile(Program.operations.Net.Profile);
+                if (updateSuccessful) {
                     // save the active profile.
                     Properties.Settings.Default.ActiveProfile = Program.operations.Net.Profile.Name;
                     Properties.Settings.Default.Save();
                 }
             }
             else { // edit a specific profile mode
-                var profile = Program.operations.FindProfile( this.action );
-                updateSuccessful = UpdateProfile( profile );
+                var profile = Program.operations.FindProfile(this.action);
+                updateSuccessful = UpdateProfile(profile);
             }
 
-            if ( updateSuccessful ) {
+            if (updateSuccessful) {
                 // save data to the file, and update menu.
                 Program.operations.UpdateProfilesFull();
 
@@ -93,15 +93,15 @@ namespace NetChanger
                     Gateway = gatewayTxt.Text.Trim(),
                     Nameservers = null
                 };
-                if ( nameserversLbx.Items.Count > 0 ) {
+                if (nameserversLbx.Items.Count > 0) {
                     profile.Settings.Nameservers = new List<string>();
-                    profile.Settings.Nameservers.AddRange( nameserversLbx.Items.Cast<string>() );
+                    profile.Settings.Nameservers.AddRange(nameserversLbx.Items.Cast<string>());
                 }
 
                 return true;
             }
             catch (Exception x) {
-                MessageBox.Show( x.Message, Resources.Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error );
+                MessageBox.Show(x.Message, Resources.Resources.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -110,26 +110,26 @@ namespace NetChanger
         {
             Icon = Properties.Resources.MainIcon;
             LoadInterfaces();
-            if ( action == EDIT_CURRENT ) {
+            if (action == EDIT_CURRENT) {
                 FillSettingsControls();
             }
-            else if ( action == NEW ) {
+            else if (action == NEW) {
                 FillWithEmpty();
             }
             else {
-                FillWithProfile( action );
+                FillWithProfile(action);
             }
         }
 
         private void LoadInterfaces()
         {
             interfaces = new List<string>();
-            string ids = Cmd.Execute( new string[] { Program.operations.Net.NetConnectionIDs } )[0];
-            var idsArray = new List<string>( ids.Split( new char[] { '\r', '\r', '\n' } ) );
-            idsArray.RemoveAt( 0 );
-            interfaces.AddRange( idsArray.Where(i => i.Trim().Length > 0 ).Select(t => t.Trim()) );
+            string ids = Cmd.Execute(new string[] { Program.operations.Net.NetConnectionIDs })[0];
+            var idsArray = new List<string>(ids.Split(new char[] { '\r', '\r', '\n' }));
+            idsArray.RemoveAt(0);
+            interfaces.AddRange(idsArray.Where(i => i.Trim().Length > 0).Select(t => t.Trim()));
             ifaceCbx.Items.Clear();
-            ifaceCbx.Items.AddRange( interfaces.ToArray() );
+            ifaceCbx.Items.AddRange(interfaces.ToArray());
         }
 
         /// <summary>
@@ -159,8 +159,8 @@ namespace NetChanger
             netmaskTxt.Text = Program.operations.Net.Profile.Settings.NetMask;
             gatewayTxt.Text = Program.operations.Net.Profile.Settings.Gateway;
             nameserversLbx.Items.Clear();
-            if ( Program.operations.Net.Profile.Settings.Nameservers != null ) {
-                nameserversLbx.Items.AddRange( Program.operations.Net.Profile.Settings.Nameservers?.ToArray() );
+            if (Program.operations.Net.Profile.Settings.Nameservers != null) {
+                nameserversLbx.Items.AddRange(Program.operations.Net.Profile.Settings.Nameservers?.ToArray());
             }
 
             staticRbn.Checked = Program.operations.Net.Profile.Settings.IsStatic;
@@ -173,15 +173,15 @@ namespace NetChanger
         private void FillWithProfile(string profileName)
         {
             // fill the controls (text boxes and ...) in the form based on read data.
-            var aProfile = Program.operations.FindProfile( profileName );
+            var aProfile = Program.operations.FindProfile(profileName);
             profileNameTxt.Text = aProfile.Name;
             ifaceCbx.Text = aProfile.Settings.InterfaceName;
             addressTxt.Text = aProfile.Settings.Address;
             netmaskTxt.Text = aProfile.Settings.NetMask;
             gatewayTxt.Text = aProfile.Settings.Gateway;
             nameserversLbx.Items.Clear();
-            if ( aProfile.Settings.Nameservers != null ) {
-                nameserversLbx.Items.AddRange( aProfile.Settings.Nameservers.ToArray() );
+            if (aProfile.Settings.Nameservers != null) {
+                nameserversLbx.Items.AddRange(aProfile.Settings.Nameservers.ToArray());
             }
 
             staticRbn.Checked = aProfile.Settings.IsStatic;
@@ -195,19 +195,19 @@ namespace NetChanger
 
         private void addNameserverBtn_Click(object sender, EventArgs e)
         {
-            nameserversLbx.Items.Add( dnsTxt.Text.Trim() );
+            nameserversLbx.Items.Add(dnsTxt.Text.Trim());
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void removeNameServerBtn_Click(object sender, EventArgs e)
         {
-            if ( nameserversLbx.SelectedItem != null ) {
-                nameserversLbx.Items.Remove( nameserversLbx.SelectedItem );
+            if (nameserversLbx.SelectedItem != null) {
+                nameserversLbx.Items.Remove(nameserversLbx.SelectedItem);
             }
         }
 
         private void moveDnsUpBtn_Click(object sender, EventArgs e)
         {
-            if ( nameserversLbx.SelectedItem == null || nameserversLbx.SelectedIndex < 1 )
+            if (nameserversLbx.SelectedItem == null || nameserversLbx.SelectedIndex < 1)
                 return;
 
             var temp = nameserversLbx.Items[nameserversLbx.SelectedIndex - 1];
@@ -218,7 +218,7 @@ namespace NetChanger
 
         private void moveDnsDownBtn_Click(object sender, EventArgs e)
         {
-            if ( nameserversLbx.SelectedItem == null || nameserversLbx.SelectedIndex == nameserversLbx.Items.Count - 1 )
+            if (nameserversLbx.SelectedItem == null || nameserversLbx.SelectedIndex == nameserversLbx.Items.Count - 1)
                 return;
 
             var temp = nameserversLbx.SelectedItem;

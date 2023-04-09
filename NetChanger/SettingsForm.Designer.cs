@@ -41,7 +41,7 @@
             this.ifaceCbx = new System.Windows.Forms.ComboBox();
             this.moveDnsDownBtn = new System.Windows.Forms.Button();
             this.moveDnsUpBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.removeNameServerBtn = new System.Windows.Forms.Button();
             this.addNameserverBtn = new System.Windows.Forms.Button();
             this.nameserversLbx = new System.Windows.Forms.ListBox();
             this.dnsTxt = new System.Windows.Forms.TextBox();
@@ -132,7 +132,7 @@
             this.panel5.Controls.Add(this.ifaceCbx);
             this.panel5.Controls.Add(this.moveDnsDownBtn);
             this.panel5.Controls.Add(this.moveDnsUpBtn);
-            this.panel5.Controls.Add(this.button1);
+            this.panel5.Controls.Add(this.removeNameServerBtn);
             this.panel5.Controls.Add(this.addNameserverBtn);
             this.panel5.Controls.Add(this.nameserversLbx);
             this.panel5.Controls.Add(this.dnsTxt);
@@ -167,12 +167,12 @@
             this.moveDnsUpBtn.UseVisualStyleBackColor = true;
             this.moveDnsUpBtn.Click += new System.EventHandler(this.moveDnsUpBtn_Click);
             // 
-            // button1
+            // removeNameServerBtn
             // 
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            resources.ApplyResources(this.removeNameServerBtn, "removeNameServerBtn");
+            this.removeNameServerBtn.Name = "removeNameServerBtn";
+            this.removeNameServerBtn.UseVisualStyleBackColor = true;
+            this.removeNameServerBtn.Click += new System.EventHandler(this.removeNameServerBtn_Click);
             // 
             // addNameserverBtn
             // 
@@ -310,7 +310,7 @@
         private System.Windows.Forms.Button addNameserverBtn;
         private System.Windows.Forms.ListBox nameserversLbx;
         private System.Windows.Forms.ComboBox profilesCbx;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button removeNameServerBtn;
         private System.Windows.Forms.Button moveDnsDownBtn;
         private System.Windows.Forms.Button moveDnsUpBtn;
         private System.Windows.Forms.ComboBox ifaceCbx;

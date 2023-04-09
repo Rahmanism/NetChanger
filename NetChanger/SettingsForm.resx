@@ -1,64 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
+﻿<root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -117,19 +57,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cancelBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="cancelBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>399, 22</value>
+    <value>228, 13</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cancelBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="cancelBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 48</value>
+    <value>68, 27</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="cancelBtn.TabIndex" type="System.Int32, mscorlib">
@@ -142,7 +83,7 @@
     <value>cancelBtn</value>
   </data>
   <data name="&gt;&gt;cancelBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;cancelBtn.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -154,13 +95,13 @@
     <value>Bottom, Right</value>
   </data>
   <data name="okBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>523, 22</value>
+    <value>299, 13</value>
   </data>
   <data name="okBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="okBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>119, 48</value>
+    <value>68, 27</value>
   </data>
   <data name="okBtn.TabIndex" type="System.Int32, mscorlib">
     <value>16</value>
@@ -172,7 +113,7 @@
     <value>okBtn</value>
   </data>
   <data name="&gt;&gt;okBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;okBtn.Parent" xml:space="preserve">
     <value>panel1</value>
@@ -184,13 +125,13 @@
     <value>Bottom</value>
   </data>
   <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 597</value>
+    <value>0, 342</value>
   </data>
   <data name="panel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>666, 83</value>
+    <value>381, 47</value>
   </data>
   <data name="panel1.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -199,7 +140,7 @@
     <value>panel1</value>
   </data>
   <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -214,10 +155,13 @@
     <value>Office Staic</value>
   </data>
   <data name="profilesCbx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>270, 42</value>
+    <value>154, 24</value>
+  </data>
+  <data name="profilesCbx.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="profilesCbx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>210, 35</value>
+    <value>122, 26</value>
   </data>
   <data name="profilesCbx.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -229,7 +173,7 @@
     <value>profilesCbx</value>
   </data>
   <data name="&gt;&gt;profilesCbx.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;profilesCbx.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -238,10 +182,13 @@
     <value>0</value>
   </data>
   <data name="profileNameTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 42</value>
+    <value>9, 24</value>
+  </data>
+  <data name="profileNameTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="profileNameTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 32</value>
+    <value>128, 21</value>
   </data>
   <data name="profileNameTxt.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -250,7 +197,7 @@
     <value>profileNameTxt</value>
   </data>
   <data name="&gt;&gt;profileNameTxt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;profileNameTxt.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -262,10 +209,13 @@
     <value>True</value>
   </data>
   <data name="nameLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 11</value>
+    <value>6, 6</value>
+  </data>
+  <data name="nameLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="nameLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 27</value>
+    <value>84, 18</value>
   </data>
   <data name="nameLbl.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -277,7 +227,7 @@
     <value>nameLbl</value>
   </data>
   <data name="&gt;&gt;nameLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nameLbl.Parent" xml:space="preserve">
     <value>panel3</value>
@@ -291,8 +241,11 @@
   <data name="panel3.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
+  <data name="panel3.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
   <data name="panel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>666, 88</value>
+    <value>381, 50</value>
   </data>
   <data name="panel3.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -301,7 +254,7 @@
     <value>panel3</value>
   </data>
   <data name="&gt;&gt;panel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel3.Parent" xml:space="preserve">
     <value>$this</value>
@@ -310,10 +263,13 @@
     <value>1</value>
   </data>
   <data name="ifaceCbx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>171, 18</value>
+    <value>98, 10</value>
+  </data>
+  <data name="ifaceCbx.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="ifaceCbx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>385, 35</value>
+    <value>222, 26</value>
   </data>
   <data name="ifaceCbx.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -322,7 +278,7 @@
     <value>ifaceCbx</value>
   </data>
   <data name="&gt;&gt;ifaceCbx.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ifaceCbx.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -334,10 +290,13 @@
     <value>Bottom, Left</value>
   </data>
   <data name="moveDnsDownBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 318</value>
+    <value>325, 182</value>
+  </data>
+  <data name="moveDnsDownBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="moveDnsDownBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 68</value>
+    <value>31, 39</value>
   </data>
   <data name="moveDnsDownBtn.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -349,7 +308,7 @@
     <value>moveDnsDownBtn</value>
   </data>
   <data name="&gt;&gt;moveDnsDownBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;moveDnsDownBtn.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -361,10 +320,13 @@
     <value>Bottom, Left</value>
   </data>
   <data name="moveDnsUpBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 252</value>
+    <value>325, 144</value>
+  </data>
+  <data name="moveDnsUpBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="moveDnsUpBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 60</value>
+    <value>31, 34</value>
   </data>
   <data name="moveDnsUpBtn.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -376,7 +338,7 @@
     <value>moveDnsUpBtn</value>
   </data>
   <data name="&gt;&gt;moveDnsUpBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;moveDnsUpBtn.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -384,35 +346,41 @@
   <data name="&gt;&gt;moveDnsUpBtn.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 178</value>
+  <data name="removeNameServerBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>325, 102</value>
   </data>
-  <data name="button1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 42</value>
+  <data name="removeNameServerBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
-  <data name="button1.TabIndex" type="System.Int32, mscorlib">
+  <data name="removeNameServerBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>31, 24</value>
+  </data>
+  <data name="removeNameServerBtn.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
   </data>
-  <data name="button1.Text" xml:space="preserve">
+  <data name="removeNameServerBtn.Text" xml:space="preserve">
     <value>-</value>
   </data>
-  <data name="&gt;&gt;button1.Name" xml:space="preserve">
-    <value>button1</value>
+  <data name="&gt;&gt;removeNameServerBtn.Name" xml:space="preserve">
+    <value>removeNameServerBtn</value>
   </data>
-  <data name="&gt;&gt;button1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;removeNameServerBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;removeNameServerBtn.Parent" xml:space="preserve">
     <value>panel5</value>
   </data>
-  <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;removeNameServerBtn.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
   <data name="addNameserverBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>569, 108</value>
+    <value>325, 62</value>
+  </data>
+  <data name="addNameserverBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="addNameserverBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>54, 46</value>
+    <value>31, 26</value>
   </data>
   <data name="addNameserverBtn.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
@@ -424,7 +392,7 @@
     <value>addNameserverBtn</value>
   </data>
   <data name="&gt;&gt;addNameserverBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;addNameserverBtn.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -436,7 +404,7 @@
     <value>False</value>
   </data>
   <data name="nameserversLbx.ItemHeight" type="System.Int32, mscorlib">
-    <value>27</value>
+    <value>18</value>
   </data>
   <data name="nameserversLbx.Items" xml:space="preserve">
     <value>172.16.16.1</value>
@@ -451,10 +419,13 @@
     <value>8.8.8.8</value>
   </data>
   <data name="nameserversLbx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>375, 161</value>
+    <value>214, 92</value>
+  </data>
+  <data name="nameserversLbx.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="nameserversLbx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 342</value>
+    <value>105, 197</value>
   </data>
   <data name="nameserversLbx.TabIndex" type="System.Int32, mscorlib">
     <value>11</value>
@@ -463,7 +434,7 @@
     <value>nameserversLbx</value>
   </data>
   <data name="&gt;&gt;nameserversLbx.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.ListBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nameserversLbx.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -472,13 +443,13 @@
     <value>5</value>
   </data>
   <data name="dnsTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>376, 122</value>
+    <value>215, 70</value>
   </data>
   <data name="dnsTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="dnsTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>181, 32</value>
+    <value>105, 21</value>
   </data>
   <data name="dnsTxt.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
@@ -487,7 +458,7 @@
     <value>dnsTxt</value>
   </data>
   <data name="&gt;&gt;dnsTxt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dnsTxt.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -499,10 +470,13 @@
     <value>True</value>
   </data>
   <data name="nameserversLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>371, 91</value>
+    <value>212, 52</value>
+  </data>
+  <data name="nameserversLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="nameserversLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>132, 27</value>
+    <value>77, 18</value>
   </data>
   <data name="nameserversLbl.TabIndex" type="System.Int32, mscorlib">
     <value>23</value>
@@ -517,7 +491,7 @@
     <value>nameserversLbl</value>
   </data>
   <data name="&gt;&gt;nameserversLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;nameserversLbl.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -529,10 +503,13 @@
     <value>True</value>
   </data>
   <data name="ifaceLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>11, 21</value>
+    <value>6, 12</value>
+  </data>
+  <data name="ifaceLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="ifaceLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>154, 27</value>
+    <value>93, 18</value>
   </data>
   <data name="ifaceLbl.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
@@ -547,7 +524,7 @@
     <value>ifaceLbl</value>
   </data>
   <data name="&gt;&gt;ifaceLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ifaceLbl.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -556,13 +533,13 @@
     <value>8</value>
   </data>
   <data name="gatewayTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 183</value>
+    <value>98, 105</value>
   </data>
   <data name="gatewayTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="gatewayTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 32</value>
+    <value>96, 21</value>
   </data>
   <data name="gatewayTxt.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -574,7 +551,7 @@
     <value>gatewayTxt</value>
   </data>
   <data name="&gt;&gt;gatewayTxt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gatewayTxt.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -586,10 +563,13 @@
     <value>True</value>
   </data>
   <data name="gatewayLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>73, 187</value>
+    <value>42, 107</value>
+  </data>
+  <data name="gatewayLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="gatewayLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>93, 27</value>
+    <value>55, 18</value>
   </data>
   <data name="gatewayLbl.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -604,7 +584,7 @@
     <value>gatewayLbl</value>
   </data>
   <data name="&gt;&gt;gatewayLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;gatewayLbl.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -613,13 +593,13 @@
     <value>10</value>
   </data>
   <data name="netmaskTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>172, 137</value>
+    <value>98, 78</value>
   </data>
   <data name="netmaskTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="netmaskTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 32</value>
+    <value>96, 21</value>
   </data>
   <data name="netmaskTxt.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -631,7 +611,7 @@
     <value>netmaskTxt</value>
   </data>
   <data name="&gt;&gt;netmaskTxt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;netmaskTxt.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -643,10 +623,13 @@
     <value>True</value>
   </data>
   <data name="netmaskLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>74, 142</value>
+    <value>42, 81</value>
+  </data>
+  <data name="netmaskLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="netmaskLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>91, 27</value>
+    <value>54, 18</value>
   </data>
   <data name="netmaskLbl.TabIndex" type="System.Int32, mscorlib">
     <value>15</value>
@@ -661,7 +644,7 @@
     <value>netmaskLbl</value>
   </data>
   <data name="&gt;&gt;netmaskLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;netmaskLbl.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -670,13 +653,13 @@
     <value>12</value>
   </data>
   <data name="addressTxt.Location" type="System.Drawing.Point, System.Drawing">
-    <value>173, 89</value>
+    <value>99, 51</value>
   </data>
   <data name="addressTxt.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="addressTxt.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 32</value>
+    <value>96, 21</value>
   </data>
   <data name="addressTxt.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -688,7 +671,7 @@
     <value>addressTxt</value>
   </data>
   <data name="&gt;&gt;addressTxt.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;addressTxt.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -700,10 +683,13 @@
     <value>True</value>
   </data>
   <data name="addressLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>80, 95</value>
+    <value>46, 54</value>
+  </data>
+  <data name="addressLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="addressLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>86, 27</value>
+    <value>51, 18</value>
   </data>
   <data name="addressLbl.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -718,7 +704,7 @@
     <value>addressLbl</value>
   </data>
   <data name="&gt;&gt;addressLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;addressLbl.Parent" xml:space="preserve">
     <value>panel5</value>
@@ -730,10 +716,13 @@
     <value>Fill</value>
   </data>
   <data name="panel5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 89</value>
+    <value>2, 52</value>
+  </data>
+  <data name="panel5.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="panel5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>660, 416</value>
+    <value>377, 238</value>
   </data>
   <data name="panel5.TabIndex" type="System.Int32, mscorlib">
     <value>14</value>
@@ -742,7 +731,7 @@
     <value>panel5</value>
   </data>
   <data name="&gt;&gt;panel5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel5.Parent" xml:space="preserve">
     <value>ipGbx</value>
@@ -754,13 +743,13 @@
     <value>True</value>
   </data>
   <data name="dhcpRbn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>144, 13</value>
+    <value>82, 7</value>
   </data>
   <data name="dhcpRbn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="dhcpRbn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>89, 31</value>
+    <value>55, 22</value>
   </data>
   <data name="dhcpRbn.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -772,7 +761,7 @@
     <value>dhcpRbn</value>
   </data>
   <data name="&gt;&gt;dhcpRbn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dhcpRbn.Parent" xml:space="preserve">
     <value>panel4</value>
@@ -784,13 +773,13 @@
     <value>True</value>
   </data>
   <data name="staticRbn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>14, 13</value>
+    <value>8, 7</value>
   </data>
   <data name="staticRbn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="staticRbn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 31</value>
+    <value>58, 22</value>
   </data>
   <data name="staticRbn.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -802,7 +791,7 @@
     <value>staticRbn</value>
   </data>
   <data name="&gt;&gt;staticRbn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;staticRbn.Parent" xml:space="preserve">
     <value>panel4</value>
@@ -814,13 +803,13 @@
     <value>Top</value>
   </data>
   <data name="panel4.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 29</value>
+    <value>2, 16</value>
   </data>
   <data name="panel4.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="panel4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>660, 60</value>
+    <value>377, 36</value>
   </data>
   <data name="panel4.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -829,7 +818,7 @@
     <value>panel4</value>
   </data>
   <data name="&gt;&gt;panel4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel4.Parent" xml:space="preserve">
     <value>ipGbx</value>
@@ -844,13 +833,13 @@
     <value>0, 0</value>
   </data>
   <data name="ipGbx.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="ipGbx.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="ipGbx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>666, 509</value>
+    <value>381, 292</value>
   </data>
   <data name="ipGbx.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -862,7 +851,7 @@
     <value>ipGbx</value>
   </data>
   <data name="&gt;&gt;ipGbx.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ipGbx.Parent" xml:space="preserve">
     <value>panel2</value>
@@ -874,10 +863,13 @@
     <value>Fill</value>
   </data>
   <data name="panel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 88</value>
+    <value>0, 50</value>
+  </data>
+  <data name="panel2.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="panel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>666, 509</value>
+    <value>381, 292</value>
   </data>
   <data name="panel2.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -886,7 +878,7 @@
     <value>panel2</value>
   </data>
   <data name="&gt;&gt;panel2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;panel2.Parent" xml:space="preserve">
     <value>$this</value>
@@ -898,19 +890,22 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>168, 168</value>
+    <value>96, 96</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>666, 680</value>
+    <value>381, 389</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Trebuchet MS, 9pt</value>
   </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 4, 3, 4</value>
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
-    <value>26, 426</value>
+    <value>22, 260</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>NetChanger Settings</value>
@@ -919,6 +914,6 @@
     <value>SettingsForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

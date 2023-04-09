@@ -123,11 +123,20 @@
   <data name="address" xml:space="preserve">
     <value>&amp;Address</value>
   </data>
+  <data name="addresses" xml:space="preserve">
+    <value>Addresses</value>
+  </data>
   <data name="admin_rights_needed" xml:space="preserve">
     <value>Sorry, but I don't seem to be able to start this program with administrator rights!</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>Cance&amp;l</value>
+  </data>
+  <data name="change_proxy_override" xml:space="preserve">
+    <value>Change proxy override</value>
+  </data>
+  <data name="change_proxy_server" xml:space="preserve">
+    <value>Change proxy server</value>
   </data>
   <data name="close" xml:space="preserve">
     <value>&amp;Close</value>
@@ -225,6 +234,21 @@
   <data name="proxy" xml:space="preserve">
     <value>Proxy</value>
   </data>
+  <data name="proxy_ip_address" xml:space="preserve">
+    <value>Proxy IP address</value>
+  </data>
+  <data name="proxy_override" xml:space="preserve">
+    <value>Proxy Override</value>
+  </data>
+  <data name="proxy_override_addresses_comment" xml:space="preserve">
+    <value>Add the addresses that you don't want to go through proxy. Use semicolons (;) to separate entries.</value>
+  </data>
+  <data name="proxy_port" xml:space="preserve">
+    <value>Proxy Port</value>
+  </data>
+  <data name="proxy_server" xml:space="preserve">
+    <value>Proxy Server</value>
+  </data>
   <data name="put_in_startup" xml:space="preserve">
     <value>Put in Startup</value>
   </data>
@@ -233,6 +257,9 @@
   </data>
   <data name="release_date_of_this_version" xml:space="preserve">
     <value>Release date of this version</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>&amp;Save</value>
   </data>
   <data name="show_log" xml:space="preserve">
     <value>Show Log...</value>

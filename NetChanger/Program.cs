@@ -17,8 +17,7 @@ namespace NetChanger
 
         public static void SwitchLanguage(string lang = null)
         {
-            if (lang == null)
-                lang = Properties.Settings.Default.Language;
+            lang ??= Properties.Settings.Default.Language;
             CulInfo = new CultureInfo(lang);
             Thread.CurrentThread.CurrentCulture = CulInfo;
             Thread.CurrentThread.CurrentUICulture = CulInfo;

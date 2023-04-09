@@ -128,7 +128,16 @@ namespace NetChanger
                 "proxyOffToolStripMenuItem", true)[0];
             offItem.Checked = false;
 
-            Log(new string[] { Proxy.TurnOn() });
+            string[] log = new string[1];
+            try {
+                Proxy.TurnOn();
+                log[0] = "Proxy enabled";
+            }
+            catch (Exception ex) {
+                log[0] = ex.Message;
+            }
+
+            Log(log);
         }
 
         /// <summary>
@@ -145,7 +154,16 @@ namespace NetChanger
                 "proxyOnToolStripMenuItem", true)[0];
             onItem.Checked = false;
 
-            Log(new string[] { Proxy.TurnOff() });
+            string[] log = new string[1];
+            try {
+                Proxy.TurnOff();
+                log[0] = "Proxy disabled";
+            }
+            catch (Exception ex) {
+                log[0] = ex.Message;
+            }
+
+            Log(log);
         }
         #endregion
 
@@ -274,8 +292,18 @@ namespace NetChanger
                 Name = "proxyOffToolStripMenuItem",
                 Checked = !Proxy.IsOn()
             };
+            var proxyOverrideToolStripMenuItem = new ToolStripMenuItem {
+                Text = Resources.Resources.change_proxy_override,
+                Name = "proxyOverrideToolStripMenuItem"
+            };
+            var proxyServerToolStripMenuItem = new ToolStripMenuItem {
+                Text = Resources.Resources.change_proxy_server,
+                Name = "proxyServerToolStripMenuItem"
+            };
             proxyToolStripMenuItem.DropDownItems.Add(proxyOnToolStripMenuItem);
             proxyToolStripMenuItem.DropDownItems.Add(proxyOffToolStripMenuItem);
+            proxyToolStripMenuItem.DropDownItems.Add(proxyOverrideToolStripMenuItem);
+            proxyToolStripMenuItem.DropDownItems.Add(proxyServerToolStripMenuItem);
 
             // Other menus
             var showLogToolStripMenuItem = new ToolStripMenuItem {
@@ -357,6 +385,18 @@ namespace NetChanger
             // Wire up proxy off menu item to turn on the proxy
             proxyOffToolStripMenuItem.Click += (s, e) => {
                 TurnProxyOff(s, e);
+            };
+
+            // Wire up change proxy override menu item to show the form
+            proxyOverrideToolStripMenuItem.Click += (s, e) => {
+                var proxyOverrideForm = new ProxyOverrideForm(Proxy);
+                proxyOverrideForm.Show();
+            };
+
+            // Wire up change proxy server menu item to show the form
+            proxyServerToolStripMenuItem.Click += (s, e) => {
+                var proxyServerForm = new ProxyServerFrom(Proxy);
+                proxyServerForm.Show();
             };
             #endregion
         }

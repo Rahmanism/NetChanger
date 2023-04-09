@@ -123,11 +123,20 @@
   <data name="address" xml:space="preserve">
     <value>آدرس</value>
   </data>
+  <data name="addresses" xml:space="preserve">
+    <value>آدرس‌ها</value>
+  </data>
   <data name="admin_rights_needed" xml:space="preserve">
     <value>متاسفانه ظاهرا مجوز مدیر به برنامه داده نشده، نمی‌توانیم به کار ادامه دهیم.</value>
   </data>
   <data name="cancel" xml:space="preserve">
     <value>لغو</value>
+  </data>
+  <data name="change_proxy_override" xml:space="preserve">
+    <value>تغییر آدرس‌های استثنا از پراکسی</value>
+  </data>
+  <data name="change_proxy_server" xml:space="preserve">
+    <value>تغییر سرور پراکسی</value>
   </data>
   <data name="close" xml:space="preserve">
     <value>بستن</value>
@@ -225,6 +234,21 @@
   <data name="proxy" xml:space="preserve">
     <value>پراکسی</value>
   </data>
+  <data name="proxy_ip_address" xml:space="preserve">
+    <value>آی پی پراکسی</value>
+  </data>
+  <data name="proxy_override" xml:space="preserve">
+    <value>استثنا از پراکسی</value>
+  </data>
+  <data name="proxy_override_addresses_comment" xml:space="preserve">
+    <value>لیست آدرس‌هایی که نمی‌خواهید از پراکسی عبور کنند. برای جدا کردن موارد از نقطه ویرگول (سمی کالن) استفاده کنید.</value>
+  </data>
+  <data name="proxy_port" xml:space="preserve">
+    <value>پورت</value>
+  </data>
+  <data name="proxy_server" xml:space="preserve">
+    <value>سرور پراکسی</value>
+  </data>
   <data name="put_in_startup" xml:space="preserve">
     <value>اجرا در هنگام راه اندازی سیستم</value>
   </data>
@@ -233,6 +257,9 @@
   </data>
   <data name="release_date_of_this_version" xml:space="preserve">
     <value>تاریخ انتشار این نسخه</value>
+  </data>
+  <data name="save" xml:space="preserve">
+    <value>ذخیره</value>
   </data>
   <data name="show_log" xml:space="preserve">
     <value>نمایش لاگ</value>

@@ -1,64 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<root>
-  <!-- 
-    Microsoft ResX Schema 
-    
-    Version 2.0
-    
-    The primary goals of this format is to allow a simple XML format 
-    that is mostly human readable. The generation and parsing of the 
-    various data types are done through the TypeConverter classes 
-    associated with the data types.
-    
-    Example:
-    
-    ... ado.net/XML headers & schema ...
-    <resheader name="resmimetype">text/microsoft-resx</resheader>
-    <resheader name="version">2.0</resheader>
-    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
-    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
-    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
-    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
-    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
-        <value>[base64 mime encoded serialized .NET Framework object]</value>
-    </data>
-    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
-        <comment>This is a comment</comment>
-    </data>
-                
-    There are any number of "resheader" rows that contain simple 
-    name/value pairs.
-    
-    Each data row contains a name, and value. The row also contains a 
-    type or mimetype. Type corresponds to a .NET class that support 
-    text/value conversion through the TypeConverter architecture. 
-    Classes that don't support this are serialized and stored with the 
-    mimetype set.
-    
-    The mimetype is used for serialized objects, and tells the 
-    ResXResourceReader how to depersist the object. This is currently not 
-    extensible. For a given mimetype the value must be set accordingly:
-    
-    Note - application/x-microsoft.net.object.binary.base64 is the format 
-    that the ResXResourceWriter will generate, however the reader can 
-    read any of the formats listed below.
-    
-    mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
-            : and then encoded with base64 encoding.
-    
-    mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with 
-            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
-            : and then encoded with base64 encoding.
-
-    mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array 
-            : using a System.ComponentModel.TypeConverter
-            : and then encoded with base64 encoding.
-    -->
+﻿<root>
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
@@ -119,12 +59,16 @@
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="logoPbx.Location" type="System.Drawing.Point, System.Drawing">
-    <value>15, 17</value>
-  </data>
-  <data name="logoPbx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>293, 293</value>
+    <value>8, 8</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="logoPbx.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="logoPbx.Size" type="System.Drawing.Size, System.Drawing">
+    <value>146, 146</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="logoPbx.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>Zoom</value>
   </data>
@@ -136,7 +80,7 @@
     <value>logoPbx</value>
   </data>
   <data name="&gt;&gt;logoPbx.Type" xml:space="preserve">
-    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;logoPbx.Parent" xml:space="preserve">
     <value>$this</value>
@@ -151,10 +95,13 @@
     <value>Trebuchet MS, 9pt, style=Bold</value>
   </data>
   <data name="titleLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 17</value>
+    <value>175, 8</value>
+  </data>
+  <data name="titleLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="titleLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>145, 29</value>
+    <value>73, 18</value>
   </data>
   <data name="titleLbl.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -166,7 +113,7 @@
     <value>titleLbl</value>
   </data>
   <data name="&gt;&gt;titleLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;titleLbl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -181,10 +128,13 @@
     <value>Trebuchet MS, 8pt</value>
   </data>
   <data name="versionLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 54</value>
+    <value>175, 27</value>
+  </data>
+  <data name="versionLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="versionLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>55, 27</value>
+    <value>29, 16</value>
   </data>
   <data name="versionLbl.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -196,7 +146,7 @@
     <value>versionLbl</value>
   </data>
   <data name="&gt;&gt;versionLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;versionLbl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -208,10 +158,13 @@
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="descriptionLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 102</value>
+    <value>175, 51</value>
+  </data>
+  <data name="descriptionLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="descriptionLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>602, 87</value>
+    <value>301, 44</value>
   </data>
   <data name="descriptionLbl.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -223,7 +176,7 @@
     <value>descriptionLbl</value>
   </data>
   <data name="&gt;&gt;descriptionLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;descriptionLbl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -238,10 +191,13 @@
     <value>True</value>
   </data>
   <data name="myNameLlb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 240</value>
+    <value>175, 120</value>
+  </data>
+  <data name="myNameLlb.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="myNameLlb.Size" type="System.Drawing.Size, System.Drawing">
-    <value>161, 29</value>
+    <value>79, 18</value>
   </data>
   <data name="myNameLlb.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -253,7 +209,7 @@
     <value>myNameLlb</value>
   </data>
   <data name="&gt;&gt;myNameLlb.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;myNameLlb.Parent" xml:space="preserve">
     <value>$this</value>
@@ -268,10 +224,13 @@
     <value>True</value>
   </data>
   <data name="dateLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 278</value>
+    <value>175, 139</value>
+  </data>
+  <data name="dateLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="dateLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>457, 29</value>
+    <value>229, 18</value>
   </data>
   <data name="dateLbl.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
@@ -283,7 +242,7 @@
     <value>dateLbl</value>
   </data>
   <data name="&gt;&gt;dateLbl.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;dateLbl.Parent" xml:space="preserve">
     <value>$this</value>
@@ -295,10 +254,13 @@
     <value>Bottom, Right</value>
   </data>
   <data name="okBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>786, 327</value>
+    <value>393, 164</value>
+  </data>
+  <data name="okBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
   </data>
   <data name="okBtn.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 66</value>
+    <value>83, 33</value>
   </data>
   <data name="okBtn.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -310,7 +272,7 @@
     <value>okBtn</value>
   </data>
   <data name="&gt;&gt;okBtn.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;okBtn.Parent" xml:space="preserve">
     <value>$this</value>
@@ -325,10 +287,13 @@
     <value>True</value>
   </data>
   <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>350, 202</value>
+    <value>175, 101</value>
+  </data>
+  <data name="linkLabel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 0, 2, 0</value>
   </data>
   <data name="linkLabel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>46, 29</value>
+    <value>24, 18</value>
   </data>
   <data name="linkLabel1.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
@@ -340,7 +305,7 @@
     <value>linkLabel1</value>
   </data>
   <data name="&gt;&gt;linkLabel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;linkLabel1.Parent" xml:space="preserve">
     <value>$this</value>
@@ -352,13 +317,19 @@
     <value>True</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>192, 192</value>
+    <value>96, 96</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>978, 407</value>
+    <value>489, 204</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Trebuchet MS, 9pt</value>
+  </data>
+  <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>2, 2, 2, 2</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>About</value>
@@ -367,6 +338,6 @@
     <value>AboutForm</value>
   </data>
   <data name="&gt;&gt;$this.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
