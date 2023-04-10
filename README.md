@@ -28,8 +28,13 @@ There will be a system tray menu, so you can switch the network status fast enou
 [x] Make forms look good (sizes are bad now).  
 [x] Use resource for languages in all texts.  
       (So we have two languages now: EN and FA).  
+[x] Add system proxy settings.  
+[x] Add export option for profiles.  
   
 [ ] Load current system setting as a new profile names AutoProfile.  
 [ ] Add a command for gateway in DHCP mode if there was a gateway ip in profile.  
-[ ] Update the previous installation when using setup.
+[ ] Update the previous installation when using setup.  
+[ ] Add import for profiles.  
+[ ] Fix app icon for small icons.  
+
   
