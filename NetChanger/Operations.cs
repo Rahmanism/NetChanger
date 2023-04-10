@@ -33,140 +33,6 @@ namespace NetChanger
             Initialize();
         }
 
-        #region Context Menu Event Handlers
-        void QuitToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            notifyIcon.Dispose();
-            Application.Exit();
-        }
-
-        /// <summary>
-        /// Gets if this app is added to startup via Windows Registry.
-        /// </summary>
-        /// <returns>True if it's in the startup.</returns>
-        static bool IsInStartup()
-        {
-            RegistryKey key = Registry.CurrentUser.OpenSubKey(STARTUP, true);
-            var exeName = Path.GetFileNameWithoutExtension(Environment.ProcessPath);
-            var value = key.GetValue(exeName);
-            return value != null;
-        }
-
-        /// <summary>
-        /// Puts the app in startup
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void StartupToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            ToolStripMenuItem m = (ToolStripMenuItem)sender;
-            m.Checked = !m.Checked;
-            bool set = m.Checked;
-
-            var exeName = Path.GetFileNameWithoutExtension(Environment.ProcessPath);
-            var key = Registry.CurrentUser.OpenSubKey(STARTUP, true);
-
-            // If menu checked puts the shortcut of app to startup folder,
-            // else deletes the shortcut
-            if (set) {
-                key.SetValue(exeName, "\"" + Environment.ProcessPath + "\"");
-            }
-            else {
-                try {
-                    key.DeleteValue(exeName);
-                }
-                catch { }
-            }
-        }
-
-        /// <summary>
-        /// When user clicks (selects) a profile, changes happens here.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void ProfileToolStripMenuItemClick(object sender, EventArgs e)
-        {
-            UpdateRadioMenu((ToolStripMenuItem)sender);
-
-            // Change the active profile in app settings.
-            Properties.Settings.Default.ActiveProfile = ((ToolStripMenuItem)sender).Text;
-            Properties.Settings.Default.Save();
-
-            // Change the current (active) profile to the selected for runtime.
-            Net.Profile = FindProfile();
-
-            Log(Cmd.Execute(Net.Do));
-        }
-
-        /// <summary>
-        /// Language menu items event listener.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void LanguageSelect(object sender, EventArgs e)
-        {
-            var item = (ToolStripMenuItem)sender;
-            UpdateRadioMenu(item);
-
-            Properties.Settings.Default.Language = item.Tag.ToString();
-            Properties.Settings.Default.Save();
-
-            Program.SwitchLanguage();
-        }
-
-        /// <summary>
-        /// Turn the proxy on menu item event listener
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void TurnProxyOn(object sender, EventArgs e)
-        {
-            var onItem = (ToolStripMenuItem)sender;
-            onItem.Checked = true;
-
-            var offItem = (ToolStripMenuItem)notifyIcon.ContextMenuStrip.Items.Find(
-                "proxyOffToolStripMenuItem", true)[0];
-            offItem.Checked = false;
-
-            string[] log = new string[1];
-            try {
-                Proxy.TurnOn();
-                log[0] = "Proxy enabled";
-            }
-            catch (Exception ex) {
-                log[0] = ex.Message;
-            }
-
-            Log(log);
-        }
-
-        /// <summary>
-        /// Turn the proxy off menu item event listener
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void TurnProxyOff(object sender, EventArgs e)
-        {
-            var offItem = (ToolStripMenuItem)sender;
-            offItem.Checked = true;
-
-            var onItem = (ToolStripMenuItem)notifyIcon.ContextMenuStrip.Items.Find(
-                "proxyOnToolStripMenuItem", true)[0];
-            onItem.Checked = false;
-
-            string[] log = new string[1];
-            try {
-                Proxy.TurnOff();
-                log[0] = "Proxy disabled";
-            }
-            catch (Exception ex) {
-                log[0] = ex.Message;
-            }
-
-            Log(log);
-        }
-        #endregion
-
         #region Initializers
         /// <summary>
         /// Runs initialization methods
@@ -244,7 +110,7 @@ namespace NetChanger
                     Text = item.Name,
                     Name = item.Name + "ToolStripMenuItem",
                     //RadioCheck = true,
-                    Checked = Net.Profile == null || Net.Profile.Name == null ||
+                    Checked = Net.Profile != null && Net.Profile.Name != null &&
                         Net.Profile.Name.Equals(item.Name)
                 };
                 ToolStripMenuItem.Click += ProfileToolStripMenuItemClick;
@@ -419,13 +285,147 @@ namespace NetChanger
             Profiles = MyJson.ReadData<List<Profile>>(path);
 
             Net.Profile = FindProfile();
-            if (Net.Profile == null && Profiles.Count > 0) {
+            if (Net.Profile.Name == null && Profiles.Count > 0) {
                 Net.Profile = Profiles[0];
 
                 // Change the active profile in app settings.
                 Properties.Settings.Default.ActiveProfile = Net.Profile.Name;
                 Properties.Settings.Default.Save();
             }
+        }
+        #endregion
+
+        #region Context Menu Event Handlers
+        void QuitToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            notifyIcon.Dispose();
+            Application.Exit();
+        }
+
+        /// <summary>
+        /// Gets if this app is added to startup via Windows Registry.
+        /// </summary>
+        /// <returns>True if it's in the startup.</returns>
+        static bool IsInStartup()
+        {
+            RegistryKey key = Registry.CurrentUser.OpenSubKey(STARTUP, true);
+            var exeName = Path.GetFileNameWithoutExtension(Environment.ProcessPath);
+            var value = key.GetValue(exeName);
+            return value != null;
+        }
+
+        /// <summary>
+        /// Puts the app in startup
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void StartupToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            ToolStripMenuItem m = (ToolStripMenuItem)sender;
+            m.Checked = !m.Checked;
+            bool set = m.Checked;
+
+            var exeName = Path.GetFileNameWithoutExtension(Environment.ProcessPath);
+            var key = Registry.CurrentUser.OpenSubKey(STARTUP, true);
+
+            // If menu checked puts the shortcut of app to startup folder,
+            // else deletes the shortcut
+            if (set) {
+                key.SetValue(exeName, "\"" + Environment.ProcessPath + "\"");
+            }
+            else {
+                try {
+                    key.DeleteValue(exeName);
+                }
+                catch { }
+            }
+        }
+
+        /// <summary>
+        /// When user clicks (selects) a profile, changes happens here.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void ProfileToolStripMenuItemClick(object sender, EventArgs e)
+        {
+            UpdateRadioMenu((ToolStripMenuItem)sender);
+
+            // Change the active profile in app settings.
+            Properties.Settings.Default.ActiveProfile = ((ToolStripMenuItem)sender).Text;
+            Properties.Settings.Default.Save();
+
+            // Change the current (active) profile to the selected for runtime.
+            Net.Profile = FindProfile();
+
+            Log(Cmd.Execute(Net.Do));
+        }
+
+        /// <summary>
+        /// Language menu items event listener.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void LanguageSelect(object sender, EventArgs e)
+        {
+            var item = (ToolStripMenuItem)sender;
+            UpdateRadioMenu(item);
+
+            Properties.Settings.Default.Language = item.Tag.ToString();
+            Properties.Settings.Default.Save();
+
+            Program.SwitchLanguage();
+        }
+
+        /// <summary>
+        /// Turn the proxy on menu item event listener
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void TurnProxyOn(object sender, EventArgs e)
+        {
+            var onItem = (ToolStripMenuItem)sender;
+            onItem.Checked = true;
+
+            var offItem = (ToolStripMenuItem)notifyIcon.ContextMenuStrip.Items.Find(
+                "proxyOffToolStripMenuItem", true)[0];
+            offItem.Checked = false;
+
+            string[] log = new string[1];
+            try {
+                Proxy.TurnOn();
+                log[0] = "Proxy enabled";
+            }
+            catch (Exception ex) {
+                log[0] = ex.Message;
+            }
+
+            Log(log);
+        }
+
+        /// <summary>
+        /// Turn the proxy off menu item event listener
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        void TurnProxyOff(object sender, EventArgs e)
+        {
+            var offItem = (ToolStripMenuItem)sender;
+            offItem.Checked = true;
+
+            var onItem = (ToolStripMenuItem)notifyIcon.ContextMenuStrip.Items.Find(
+                "proxyOnToolStripMenuItem", true)[0];
+            onItem.Checked = false;
+
+            string[] log = new string[1];
+            try {
+                Proxy.TurnOff();
+                log[0] = "Proxy disabled";
+            }
+            catch (Exception ex) {
+                log[0] = ex.Message;
+            }
+
+            Log(log);
         }
         #endregion
 
@@ -448,8 +448,9 @@ namespace NetChanger
         /// <param name="sender">This menu item will be checked</param>
         private static void UpdateRadioMenu(ToolStripMenuItem sender)
         {
-            foreach (ToolStripMenuItem item in sender.GetCurrentParent().Items) {
-                item.Checked = false;
+            foreach (ToolStripItem item in sender.GetCurrentParent().Items) {
+                if (item is ToolStripMenuItem item1)
+                    item1.Checked = false;
             }
             sender.Checked = true;
         }
