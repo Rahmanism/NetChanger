@@ -33,6 +33,7 @@
             this.portTxt = new System.Windows.Forms.TextBox();
             this.saveBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.defaultValueBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ipLbl
@@ -54,7 +55,7 @@
             // portLbl
             // 
             this.portLbl.AutoSize = true;
-            this.portLbl.Location = new System.Drawing.Point(199, 9);
+            this.portLbl.Location = new System.Drawing.Point(225, 9);
             this.portLbl.Name = "portLbl";
             this.portLbl.Size = new System.Drawing.Size(29, 15);
             this.portLbl.TabIndex = 2;
@@ -62,7 +63,7 @@
             // 
             // portTxt
             // 
-            this.portTxt.Location = new System.Drawing.Point(199, 27);
+            this.portTxt.Location = new System.Drawing.Point(225, 27);
             this.portTxt.Name = "portTxt";
             this.portTxt.Size = new System.Drawing.Size(69, 23);
             this.portTxt.TabIndex = 3;
@@ -70,7 +71,7 @@
             // saveBtn
             // 
             this.saveBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.saveBtn.Location = new System.Drawing.Point(178, 69);
+            this.saveBtn.Location = new System.Drawing.Point(204, 69);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(90, 29);
             this.saveBtn.TabIndex = 4;
@@ -81,7 +82,7 @@
             // cancelBtn
             // 
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn.Location = new System.Drawing.Point(82, 69);
+            this.cancelBtn.Location = new System.Drawing.Point(108, 69);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(90, 29);
             this.cancelBtn.TabIndex = 5;
@@ -89,11 +90,22 @@
             this.cancelBtn.UseVisualStyleBackColor = true;
             this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
+            // defaultValueBtn
+            // 
+            this.defaultValueBtn.Location = new System.Drawing.Point(12, 69);
+            this.defaultValueBtn.Name = "defaultValueBtn";
+            this.defaultValueBtn.Size = new System.Drawing.Size(90, 29);
+            this.defaultValueBtn.TabIndex = 6;
+            this.defaultValueBtn.Text = "Default";
+            this.defaultValueBtn.UseVisualStyleBackColor = true;
+            this.defaultValueBtn.Click += new System.EventHandler(this.defaultValueBtn_Click);
+            // 
             // ProxyServerFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(282, 110);
+            this.ClientSize = new System.Drawing.Size(307, 110);
+            this.Controls.Add(this.defaultValueBtn);
             this.Controls.Add(this.cancelBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.portTxt);
@@ -118,5 +130,6 @@
         private System.Windows.Forms.TextBox portTxt;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Button defaultValueBtn;
     }
 }

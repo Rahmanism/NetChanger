@@ -142,6 +142,15 @@ namespace NetChanger.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        public static string default1 {
+            get {
+                return ResourceManager.GetString("default1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Delete.
         /// </summary>
         public static string delete {

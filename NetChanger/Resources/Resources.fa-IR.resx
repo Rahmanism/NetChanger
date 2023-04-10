@@ -144,6 +144,9 @@
   <data name="create_new_profile" xml:space="preserve">
     <value>ایجاد یک نمایه جدید...</value>
   </data>
+  <data name="default1" xml:space="preserve">
+    <value>پیش فرض</value>
+  </data>
   <data name="delete" xml:space="preserve">
     <value>حذف</value>
   </data>

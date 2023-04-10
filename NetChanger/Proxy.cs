@@ -59,21 +59,22 @@ namespace NetChanger
         /// <param name="port">Proxy server port number - default is 1080</param>
         public void ChangeProxyServer(string server = "127.0.0.1", string port = "1080")
         {
-            key.SetValue(SERVER, $"{server}:{port}");
+            string proxy = server == "" ? "" : $"{server}:{port}";
+            key.SetValue(SERVER, proxy);
         }
 
         /// <summary>
         /// Gets the current proxy ip and port from registry.
         /// </summary>
-        /// <returns>An string array of 2
+        /// <returns>An tuple of strings
         /// which contains ip and port of current proxy server.</returns>
-        public string[]? GetProxyServer()
+        public (string Server, string Port) GetProxyServer()
         {
-            string? server = key.GetValue(SERVER)?.ToString();
-            if (server == null)
-                return null;
-            string[] result = server.Split(':');
-            return result;
+            var server = key.GetValue(SERVER)?.ToString();
+            if (server == null || server == "")
+                return (null, null);
+            string[] r = server.Split(":");
+            return (r[0], r[1]);
         }
     }
 }

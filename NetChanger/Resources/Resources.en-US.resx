@@ -144,6 +144,9 @@
   <data name="create_new_profile" xml:space="preserve">
     <value>Create New Profile...</value>
   </data>
+  <data name="default1" xml:space="preserve">
+    <value>Default</value>
+  </data>
   <data name="delete" xml:space="preserve">
     <value>&amp;Delete</value>
   </data>

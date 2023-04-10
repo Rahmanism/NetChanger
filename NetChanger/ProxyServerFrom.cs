@@ -1,18 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetChanger
 {
     public partial class ProxyServerFrom : Form
     {
-        ProxySettings _proxy;
+        readonly ProxySettings _proxy;
 
         public ProxyServerFrom(ProxySettings proxy)
         {
@@ -32,6 +25,7 @@ namespace NetChanger
             portLbl.Text = Resources.Resources.proxy_port;
             saveBtn.Text = Resources.Resources.save;
             cancelBtn.Text = Resources.Resources.cancel;
+            defaultValueBtn.Text = Resources.Resources.default1;
         }
 
         /// <summary>
@@ -39,9 +33,11 @@ namespace NetChanger
         /// </summary>
         private void LoadServer()
         {
-            string[] server = _proxy.GetProxyServer();
-            ipTxt.Text = server[0];
-            portTxt.Text = server[1];
+            (string Server, string Port) = _proxy.GetProxyServer();
+            if (Server != null) {
+                ipTxt.Text = Server;
+                portTxt.Text = Port;
+            }
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)
@@ -62,6 +58,12 @@ namespace NetChanger
 
             Program.operations.Log(log);
             Close();
+        }
+
+        private void defaultValueBtn_Click(object sender, EventArgs e)
+        {
+            ipTxt.Text = "127.0.0.1";
+            portTxt.Text = "1080";
         }
     }
 }
