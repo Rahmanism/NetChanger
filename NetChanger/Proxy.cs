@@ -47,9 +47,9 @@ namespace NetChanger
         /// Gets the current override addresses from registry.
         /// </summary>
         /// <returns></returns>
-        public string GetProxyOverride()
+        public string? GetProxyOverride()
         {
-            return key.GetValue(OVERRIDE).ToString();
+            return key.GetValue(OVERRIDE)?.ToString();
         }
 
         /// <summary>
@@ -67,9 +67,11 @@ namespace NetChanger
         /// </summary>
         /// <returns>An string array of 2
         /// which contains ip and port of current proxy server.</returns>
-        public string[] GetProxyServer()
+        public string[]? GetProxyServer()
         {
-            string server = key.GetValue(SERVER).ToString();
+            string? server = key.GetValue(SERVER)?.ToString();
+            if (server == null)
+                return null;
             string[] result = server.Split(':');
             return result;
         }
