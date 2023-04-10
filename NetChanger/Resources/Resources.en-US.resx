@@ -177,6 +177,12 @@
   <data name="error" xml:space="preserve">
     <value>Error</value>
   </data>
+  <data name="export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="export_profiles" xml:space="preserve">
+    <value>Export Profiles</value>
+  </data>
   <data name="fa" xml:space="preserve">
     <value>فارسی</value>
   </data>

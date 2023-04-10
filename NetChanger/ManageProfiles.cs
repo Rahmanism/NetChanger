@@ -21,6 +21,7 @@ namespace NetChanger
             deleteBtn.Text = Resources.Resources.delete;
             duplicateBtn.Text = Resources.Resources.duplicate;
             closeBtn.Text = Resources.Resources.close;
+            exportBtn.Text = Resources.Resources.export;
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -80,6 +81,11 @@ namespace NetChanger
         private void ManageProfiles_Activated(object sender, EventArgs e)
         {
             ReloadProfilesList();
+        }
+
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+            Operations.ExportProfiles();
         }
     }
 }

@@ -39,8 +39,8 @@ namespace NetChanger
         private void Initialize()
         {
             // make a new instance of net properties.
-            Net = new NetProperties();
-            Proxy = new ProxySettings();
+            Net = new();
+            Proxy = new();
             // This should be run first
             LoadSettings();
             // LoadIcons must be run before ShowNotificationIcon
@@ -98,9 +98,14 @@ namespace NetChanger
                 Text = Resources.Resources.manage_profiles,
                 Name = "profilesManageToolStripMenuItem"
             };
+            var profileExportToolStripMenuItem = new ToolStripMenuItem {
+                Text = Resources.Resources.export_profiles,
+                Name = "profileExportToolStripMenuItem"
+            };
             profilesToolStripMenuItem.DropDownItems.Add(profileCreateToolStripMenuItem);
             profilesToolStripMenuItem.DropDownItems.Add(editCurrentProfileToolStripMenuItem);
             profilesToolStripMenuItem.DropDownItems.Add(profileManageToolStripMenuItem);
+            profilesToolStripMenuItem.DropDownItems.Add(profileExportToolStripMenuItem);
             profilesToolStripMenuItem.DropDownItems.Add("-");
 
             // adding profiles to the sub menu again.
@@ -228,6 +233,11 @@ namespace NetChanger
             profileManageToolStripMenuItem.Click += (s, e) => {
                 var manageProfiles = new ManageProfiles();
                 manageProfiles.Show();
+            };
+
+            // Wire up export profiles menu item to do the export
+            profileExportToolStripMenuItem.Click += (s, e) => {
+                ExportProfiles();
             };
 
             // Wire up show log menu item to show the form
@@ -461,7 +471,7 @@ namespace NetChanger
         private void LoadProfilesMenu()
         {
             //byte? ToolStripMenuItemIndex = null;
-            ToolStripMenuItem profilesToolStripMenuItem = new ToolStripMenuItem();
+            ToolStripMenuItem profilesToolStripMenuItem = new();
 
             // find the profiles submenu
             foreach (ToolStripMenuItem item in notifyIcon.ContextMenuStrip.Items) {
@@ -555,7 +565,7 @@ namespace NetChanger
         public void Duplicate(string profileName)
         {
             var sourceProfile = FindProfile(profileName);
-            var newProfile = new Profile(sourceProfile);
+            Profile newProfile = new(sourceProfile);
             Profiles.Add(newProfile);
         }
 
@@ -567,9 +577,31 @@ namespace NetChanger
         public Profile FindProfile(string name = null)
         {
             var pName = (name ?? Properties.Settings.Default.ActiveProfile).ToLower();
+            Profile profile = new();
             return Profiles.Find(
                     p => p.Name.ToLower().Equals(pName)
-                ) ?? new Profile();
+                ) ?? profile;
+        }
+
+        /// <summary>
+        /// Exports the profiles as a json file.
+        /// In fact, it just copies the current profiles.json to where user chooses.
+        /// </summary>
+        public static void ExportProfiles()
+        {
+            SaveFileDialog saveFileDialog = new() {
+                Filter = "JSON|*.json",
+                Title = Resources.Resources.export_profiles
+            };
+            saveFileDialog.ShowDialog();
+
+            if (saveFileDialog.FileName != "") {
+                File.Copy(
+                    AppDomain.CurrentDomain.BaseDirectory + PROFILES,
+                    saveFileDialog.FileName,
+                    true
+                );
+            }
         }
         #endregion
     }

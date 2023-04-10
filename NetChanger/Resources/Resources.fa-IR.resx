@@ -177,6 +177,12 @@
   <data name="error" xml:space="preserve">
     <value>خطا</value>
   </data>
+  <data name="export" xml:space="preserve">
+    <value>خروجی</value>
+  </data>
+  <data name="export_profiles" xml:space="preserve">
+    <value>خروجی گرفتن از نمایه‌ها</value>
+  </data>
   <data name="fa" xml:space="preserve">
     <value>فارسی</value>
   </data>

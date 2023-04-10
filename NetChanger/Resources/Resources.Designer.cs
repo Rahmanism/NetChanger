@@ -241,6 +241,24 @@ namespace NetChanger.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        public static string export {
+            get {
+                return ResourceManager.GetString("export", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Export Profiles.
+        /// </summary>
+        public static string export_profiles {
+            get {
+                return ResourceManager.GetString("export_profiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to فارسی.
         /// </summary>
         public static string fa {
