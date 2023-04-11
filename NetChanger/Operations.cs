@@ -102,10 +102,15 @@ namespace NetChanger
                 Text = Resources.Resources.export_profiles,
                 Name = "profileExportToolStripMenuItem"
             };
+            var profileImportToolStripMenuItem = new ToolStripMenuItem {
+                Text = Resources.Resources.import_profiles,
+                Name = "profileImportToolStripMenuItem"
+            };
             profilesToolStripMenuItem.DropDownItems.Add(profileCreateToolStripMenuItem);
             profilesToolStripMenuItem.DropDownItems.Add(editCurrentProfileToolStripMenuItem);
             profilesToolStripMenuItem.DropDownItems.Add(profileManageToolStripMenuItem);
             profilesToolStripMenuItem.DropDownItems.Add(profileExportToolStripMenuItem);
+            profilesToolStripMenuItem.DropDownItems.Add(profileImportToolStripMenuItem);
             profilesToolStripMenuItem.DropDownItems.Add("-");
 
             // adding profiles to the sub menu again.
@@ -238,6 +243,11 @@ namespace NetChanger
             // Wire up export profiles menu item to do the export
             profileExportToolStripMenuItem.Click += (s, e) => {
                 ExportProfiles();
+            };
+
+            // Wire up import profiles menu item to do the import
+            profileImportToolStripMenuItem.Click += (s, e) => {
+                ImportProfiles();
             };
 
             // Wire up show log menu item to show the form
@@ -591,17 +601,38 @@ namespace NetChanger
         {
             SaveFileDialog saveFileDialog = new() {
                 Filter = "JSON|*.json",
-                Title = Resources.Resources.export_profiles
+                Title = Resources.Resources.export_profiles,
+                FileName = PROFILES
             };
-            saveFileDialog.ShowDialog();
-
-            if (saveFileDialog.FileName != "") {
+            DialogResult result = saveFileDialog.ShowDialog();
+            
+            if (result == DialogResult.OK) {
                 File.Copy(
                     AppDomain.CurrentDomain.BaseDirectory + PROFILES,
                     saveFileDialog.FileName,
                     true
                 );
             }
+        }
+
+        /// <summary>
+        /// Imports the profiles as a json file.
+        /// </summary>
+        public static void ImportProfiles()
+        {
+            //SaveFileDialog saveFileDialog = new() {
+            //    Filter = "JSON|*.json",
+            //    Title = Resources.Resources.export_profiles
+            //};
+            //saveFileDialog.ShowDialog();
+
+            //if (saveFileDialog.FileName != "") {
+            //    File.Copy(
+            //        AppDomain.CurrentDomain.BaseDirectory + PROFILES,
+            //        saveFileDialog.FileName,
+            //        true
+            //    );
+            //}
         }
         #endregion
     }
