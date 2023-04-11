@@ -600,13 +600,12 @@ namespace NetChanger
         public static void ExportProfiles()
         {
             SaveFileDialog saveFileDialog = new() {
-                Filter = "JSON|*.json",
+                Filter = "JSON (*.json)|*.json",
                 Title = Resources.Resources.export_profiles,
                 FileName = PROFILES
             };
-            DialogResult result = saveFileDialog.ShowDialog();
             
-            if (result == DialogResult.OK) {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) {
                 File.Copy(
                     AppDomain.CurrentDomain.BaseDirectory + PROFILES,
                     saveFileDialog.FileName,
@@ -618,21 +617,18 @@ namespace NetChanger
         /// <summary>
         /// Imports the profiles as a json file.
         /// </summary>
-        public static void ImportProfiles()
+        public void ImportProfiles()
         {
-            //SaveFileDialog saveFileDialog = new() {
-            //    Filter = "JSON|*.json",
-            //    Title = Resources.Resources.export_profiles
-            //};
-            //saveFileDialog.ShowDialog();
-
-            //if (saveFileDialog.FileName != "") {
-            //    File.Copy(
-            //        AppDomain.CurrentDomain.BaseDirectory + PROFILES,
-            //        saveFileDialog.FileName,
-            //        true
-            //    );
-            //}
+            OpenFileDialog openFileDialog = new() {
+                Title = Resources.Resources.import_profiles,
+                Filter = "JSON (*.json)|*.json",
+                FileName = PROFILES
+            };
+            if (openFileDialog.ShowDialog() == DialogResult.OK) {
+                var importedProfiles = MyJson.ReadData<List<Profile>>(openFileDialog.FileName);
+                Profiles.AddRange(importedProfiles);
+                UpdateProfilesFull();
+            }
         }
         #endregion
     }

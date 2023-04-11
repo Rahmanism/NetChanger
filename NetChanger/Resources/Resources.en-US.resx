@@ -189,6 +189,12 @@
   <data name="gateway" xml:space="preserve">
     <value>&amp;Gateway</value>
   </data>
+  <data name="import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="import_profiles" xml:space="preserve">
+    <value>Import Profiles</value>
+  </data>
   <data name="interface_name" xml:space="preserve">
     <value>&amp;Interface Name</value>
   </data>

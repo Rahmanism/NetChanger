@@ -277,6 +277,24 @@ namespace NetChanger.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import.
+        /// </summary>
+        public static string import {
+            get {
+                return ResourceManager.GetString("import", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Import Profiles.
+        /// </summary>
+        public static string import_profiles {
+            get {
+                return ResourceManager.GetString("import_profiles", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Interface Name.
         /// </summary>
         public static string interface_name {

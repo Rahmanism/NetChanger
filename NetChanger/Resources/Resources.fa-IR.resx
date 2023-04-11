@@ -189,6 +189,12 @@
   <data name="gateway" xml:space="preserve">
     <value>دروازه شبکه</value>
   </data>
+  <data name="import" xml:space="preserve">
+    <value>ورودی</value>
+  </data>
+  <data name="import_profiles" xml:space="preserve">
+    <value>وارد کردن پروفایل‌ها</value>
+  </data>
   <data name="interface_name" xml:space="preserve">
     <value>نام رابط شبکه</value>
   </data>
