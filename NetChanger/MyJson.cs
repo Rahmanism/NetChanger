@@ -23,7 +23,7 @@ namespace NetChanger
 
             try {
                 // Open the file              
-                var stream = File.OpenText( path );
+                using var stream = File.OpenText( path );
                 // Read the file              
                 jsonData = stream.ReadToEnd();
             }

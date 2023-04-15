@@ -30,6 +30,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ManageProfiles));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.profilesLbx = new System.Windows.Forms.ListBox();
+            this.importBtn = new System.Windows.Forms.Button();
             this.exportBtn = new System.Windows.Forms.Button();
             this.duplicateBtn = new System.Windows.Forms.Button();
             this.closeBtn = new System.Windows.Forms.Button();
@@ -56,6 +57,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.importBtn);
             this.splitContainer1.Panel2.Controls.Add(this.exportBtn);
             this.splitContainer1.Panel2.Controls.Add(this.duplicateBtn);
             this.splitContainer1.Panel2.Controls.Add(this.closeBtn);
@@ -73,6 +75,13 @@
             resources.GetString("profilesLbx.Items1"),
             resources.GetString("profilesLbx.Items2")});
             this.profilesLbx.Name = "profilesLbx";
+            // 
+            // importBtn
+            // 
+            resources.ApplyResources(this.importBtn, "importBtn");
+            this.importBtn.Name = "importBtn";
+            this.importBtn.UseVisualStyleBackColor = true;
+            this.importBtn.Click += new System.EventHandler(this.importBtn_Click);
             // 
             // exportBtn
             // 
@@ -156,5 +165,6 @@
         private System.Windows.Forms.Button closeBtn;
         private System.Windows.Forms.Button duplicateBtn;
         private System.Windows.Forms.Button exportBtn;
+        private System.Windows.Forms.Button importBtn;
     }
 }

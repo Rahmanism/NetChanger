@@ -92,7 +92,7 @@
     <value>2, 2, 2, 2</value>
   </data>
   <data name="profilesLbx.Size" type="System.Drawing.Size, System.Drawing">
-    <value>221, 268</value>
+    <value>221, 296</value>
   </data>
   <data name="profilesLbx.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -121,8 +121,38 @@
   <data name="&gt;&gt;splitContainer1.Panel1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="importBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="importBtn.Location" type="System.Drawing.Point, System.Drawing">
+    <value>12, 194</value>
+  </data>
+  <data name="importBtn.Size" type="System.Drawing.Size, System.Drawing">
+    <value>106, 36</value>
+  </data>
+  <data name="importBtn.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="importBtn.Text" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="&gt;&gt;importBtn.Name" xml:space="preserve">
+    <value>importBtn</value>
+  </data>
+  <data name="&gt;&gt;importBtn.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;importBtn.Parent" xml:space="preserve">
+    <value>splitContainer1.Panel2</value>
+  </data>
+  <data name="&gt;&gt;importBtn.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="exportBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
   <data name="exportBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 159</value>
+    <value>12, 158</value>
   </data>
   <data name="exportBtn.Size" type="System.Drawing.Size, System.Drawing">
     <value>106, 36</value>
@@ -143,7 +173,7 @@
     <value>splitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;exportBtn.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="duplicateBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -173,13 +203,13 @@
     <value>splitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;duplicateBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="closeBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Bottom</value>
   </data>
   <data name="closeBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>12, 221</value>
+    <value>12, 249</value>
   </data>
   <data name="closeBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -203,7 +233,7 @@
     <value>splitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;closeBtn.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="deleteBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -233,7 +263,7 @@
     <value>splitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;deleteBtn.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="editBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -263,7 +293,7 @@
     <value>splitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;editBtn.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="newBtn.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Top</value>
@@ -293,7 +323,7 @@
     <value>splitContainer1.Panel2</value>
   </data>
   <data name="&gt;&gt;newBtn.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="splitContainer1.Panel2.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>12, 13, 12, 13</value>
@@ -311,7 +341,7 @@
     <value>1</value>
   </data>
   <data name="splitContainer1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>353, 268</value>
+    <value>353, 296</value>
   </data>
   <data name="splitContainer1.SplitterDistance" type="System.Int32, mscorlib">
     <value>221</value>
@@ -398,7 +428,7 @@
     <value>96, 96</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>365, 326</value>
+    <value>365, 354</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Trebuchet MS, 9pt</value>

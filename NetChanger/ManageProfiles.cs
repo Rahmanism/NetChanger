@@ -22,6 +22,7 @@ namespace NetChanger
             duplicateBtn.Text = Resources.Resources.duplicate;
             closeBtn.Text = Resources.Resources.close;
             exportBtn.Text = Resources.Resources.export;
+            importBtn.Text = Resources.Resources.import;
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -86,6 +87,12 @@ namespace NetChanger
         private void exportBtn_Click(object sender, EventArgs e)
         {
             Operations.ExportProfiles();
+        }
+
+        private void importBtn_Click(object sender, EventArgs e)
+        {
+            Program.operations.ImportProfiles();
+            ReloadProfilesList();
         }
     }
 }

@@ -484,19 +484,23 @@ namespace NetChanger
             ToolStripMenuItem profilesToolStripMenuItem = new();
 
             // find the profiles submenu
-            foreach (ToolStripMenuItem item in notifyIcon.ContextMenuStrip.Items) {
-                if (item.Name == "profilesToolStripMenuItem") {
-                    //ToolStripMenuItemIndex = (byte)item.Index;
-                    profilesToolStripMenuItem = item;
-                    break;
+            foreach (ToolStripItem item1 in notifyIcon.ContextMenuStrip.Items) {
+                if (item1 is ToolStripMenuItem item) {
+                    if (item.Name == "profilesToolStripMenuItem") {
+                        //ToolStripMenuItemIndex = (byte)item.Index;
+                        profilesToolStripMenuItem = item;
+                        break;
+                    }
                 }
             }
 
             // find and remove profiles menu items.
             List<ToolStripMenuItem> indices = new();
-            foreach (ToolStripMenuItem item in profilesToolStripMenuItem.DropDownItems) {
-                if (item.Checked)
-                    indices.Add(item);
+            foreach (ToolStripItem item1 in profilesToolStripMenuItem.DropDownItems) {
+                if (item1 is ToolStripMenuItem item) {
+                    if (item.Checked)
+                        indices.Add( item );
+                }
             }
             for (int i = indices.Count - 1; i > -1; i--) {
                 profilesToolStripMenuItem.DropDownItems.Remove(indices[i]);
