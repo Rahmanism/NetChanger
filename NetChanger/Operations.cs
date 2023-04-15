@@ -202,10 +202,10 @@ namespace NetChanger
             contextMenu.Items.Add(progNameToolStripMenuItem);
             contextMenu.Items.Add("-");
             contextMenu.Items.Add(profilesToolStripMenuItem);
-            contextMenu.Items.Add(languageToolStripMenuItem);
             contextMenu.Items.Add(proxyToolStripMenuItem);
-            contextMenu.Items.Add("-");
             contextMenu.Items.Add(showLogToolStripMenuItem);
+            contextMenu.Items.Add("-");
+            contextMenu.Items.Add(languageToolStripMenuItem);
             contextMenu.Items.Add(startupToolStripMenuItem);
             contextMenu.Items.Add(aboutToolStripMenuItem);
             contextMenu.Items.Add("-");
