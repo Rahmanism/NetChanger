@@ -6,7 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle( "NetChanger" )]
-[assembly: AssemblyDescription( "Change your network IP settings easily!" )]
+[assembly: AssemblyDescription( "You can have mutliple settings to choose from, " +
+    "for you network IP configurations.\n" +
+    "Also, you can manage your system proxy settings here." )]
 [assembly: AssemblyConfiguration( "" )]
 [assembly: AssemblyCompany( "Rahmanism" )]
 [assembly: AssemblyProduct( "NetChanger" )]
@@ -32,7 +34,7 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyFileVersion( "1.5.3" )]
-[assembly: AssemblyVersion( "1.5.4.14" )]
+[assembly: AssemblyFileVersion( "1.6.4" )]
+[assembly: AssemblyVersion( "1.6.4.15" )]
 [assembly: NeutralResourcesLanguage( "en-US" )]
 

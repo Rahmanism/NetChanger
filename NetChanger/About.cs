@@ -23,12 +23,11 @@ namespace NetChanger
 
             // read app attributes
             string ver = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            string title = ( (AssemblyTitleAttribute)Assembly.GetExecutingAssembly()
-                .GetCustomAttribute( typeof( AssemblyTitleAttribute ) ) ).Title;
-            string description = ( (AssemblyDescriptionAttribute)Assembly.GetExecutingAssembly().
-                GetCustomAttribute( typeof( AssemblyDescriptionAttribute ) ) ).Description +
-                "\n" +
-                Resources.Resources.slogan;
+            string title = ((AssemblyTitleAttribute)Assembly.GetExecutingAssembly()
+                .GetCustomAttribute(typeof(AssemblyTitleAttribute))).Title;
+            string description =
+                ((AssemblyDescriptionAttribute)Assembly.GetExecutingAssembly().
+                GetCustomAttribute(typeof(AssemblyDescriptionAttribute))).Description;
 
             // show the app attributes (i.e version and etc.) in the form
             versionLbl.Text = "v" + ver;
@@ -36,7 +35,8 @@ namespace NetChanger
             okBtn.Text = Resources.Resources.ok;
             this.Text = Resources.Resources.about;
             descriptionLbl.Text = description;
-            string releaseDate = "1397/04/06";
+            sloganLbl.Text = Resources.Resources.slogan;
+            string releaseDate = "Farvardin 1402 (April 2023)";
             dateLbl.Text = $"{Resources.Resources.release_date_of_this_version}: {releaseDate}";
         }
 
@@ -47,12 +47,12 @@ namespace NetChanger
 
         private void myNameLlb_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start( "http://rahmanism.ir" );
+            System.Diagnostics.Process.Start("https://rahmanism.ir");
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start( "https://gitlab.com/Rahmanism/NetChanger" );
+            System.Diagnostics.Process.Start("https://gitlab.com/Rahmanism/NetChanger");
         }
     }
 }

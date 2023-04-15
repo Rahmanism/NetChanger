@@ -36,6 +36,7 @@
             this.dateLbl = new System.Windows.Forms.Label();
             this.okBtn = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.sloganLbl = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.logoPbx)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,6 +90,11 @@
             this.linkLabel1.TabStop = true;
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // sloganLbl
+            // 
+            resources.ApplyResources(this.sloganLbl, "sloganLbl");
+            this.sloganLbl.Name = "sloganLbl";
+            // 
             // AboutForm
             // 
             this.AcceptButton = this.okBtn;
@@ -96,6 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.CancelButton = this.okBtn;
             this.ControlBox = false;
+            this.Controls.Add(this.sloganLbl);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.okBtn);
             this.Controls.Add(this.dateLbl);
@@ -123,5 +130,6 @@
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Button okBtn;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label sloganLbl;
     }
 }

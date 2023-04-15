@@ -86,7 +86,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;logoPbx.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
   </data>
   <data name="titleLbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -119,7 +119,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;titleLbl.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="versionLbl.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -152,25 +152,22 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;versionLbl.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="descriptionLbl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
   </data>
   <data name="descriptionLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 51</value>
+    <value>175, 80</value>
   </data>
   <data name="descriptionLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
   <data name="descriptionLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>301, 44</value>
+    <value>466, 55</value>
   </data>
   <data name="descriptionLbl.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
-  </data>
-  <data name="descriptionLbl.Text" xml:space="preserve">
-    <value>Change your network IP settings easily.</value>
   </data>
   <data name="&gt;&gt;descriptionLbl.Name" xml:space="preserve">
     <value>descriptionLbl</value>
@@ -182,7 +179,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;descriptionLbl.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="myNameLlb.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -191,7 +188,7 @@
     <value>True</value>
   </data>
   <data name="myNameLlb.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 120</value>
+    <value>175, 160</value>
   </data>
   <data name="myNameLlb.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -215,7 +212,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;myNameLlb.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="dateLbl.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -224,19 +221,19 @@
     <value>True</value>
   </data>
   <data name="dateLbl.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 139</value>
+    <value>175, 179</value>
   </data>
   <data name="dateLbl.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
   </data>
   <data name="dateLbl.Size" type="System.Drawing.Size, System.Drawing">
-    <value>229, 18</value>
+    <value>312, 18</value>
   </data>
   <data name="dateLbl.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
   </data>
   <data name="dateLbl.Text" xml:space="preserve">
-    <value>Release date of this version: 1397/03/10</value>
+    <value>Release date of this version: Farvardin 1402 (April 2023)</value>
   </data>
   <data name="&gt;&gt;dateLbl.Name" xml:space="preserve">
     <value>dateLbl</value>
@@ -248,13 +245,13 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;dateLbl.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="okBtn.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Right</value>
   </data>
   <data name="okBtn.Location" type="System.Drawing.Point, System.Drawing">
-    <value>393, 164</value>
+    <value>558, 204</value>
   </data>
   <data name="okBtn.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 2, 2, 2</value>
@@ -278,7 +275,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;okBtn.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="linkLabel1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Bottom, Left</value>
@@ -287,7 +284,7 @@
     <value>True</value>
   </data>
   <data name="linkLabel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>175, 101</value>
+    <value>175, 141</value>
   </data>
   <data name="linkLabel1.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>2, 0, 2, 0</value>
@@ -311,6 +308,36 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;linkLabel1.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="sloganLbl.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="sloganLbl.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Trebuchet MS, 9pt, style=Bold</value>
+  </data>
+  <data name="sloganLbl.Location" type="System.Drawing.Point, System.Drawing">
+    <value>175, 43</value>
+  </data>
+  <data name="sloganLbl.Size" type="System.Drawing.Size, System.Drawing">
+    <value>233, 18</value>
+  </data>
+  <data name="sloganLbl.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="sloganLbl.Text" xml:space="preserve">
+    <value>Change your network IP settings easily!</value>
+  </data>
+  <data name="&gt;&gt;sloganLbl.Name" xml:space="preserve">
+    <value>sloganLbl</value>
+  </data>
+  <data name="&gt;&gt;sloganLbl.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;sloganLbl.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;sloganLbl.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -320,7 +347,7 @@
     <value>96, 96</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>489, 204</value>
+    <value>654, 244</value>
   </data>
   <data name="$this.Font" type="System.Drawing.Font, System.Drawing">
     <value>Trebuchet MS, 9pt</value>
