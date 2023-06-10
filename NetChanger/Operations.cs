@@ -88,23 +88,23 @@ namespace NetChanger
             };
             var profileCreateToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.create_new_profile,
-                Name = "createProfileToolStripMenuItem"
+                Name = "prfoileCommand_createProfileToolStripMenuItem"
             };
             var editCurrentProfileToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.edit_current_profile,
-                Name = "editCurrentProfileToolStripMenuItem"
+                Name = "prfoileCommand_editCurrentProfileToolStripMenuItem"
             };
             var profileManageToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.manage_profiles,
-                Name = "profilesManageToolStripMenuItem"
+                Name = "prfoileCommand_profilesManageToolStripMenuItem"
             };
             var profileExportToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.export_profiles,
-                Name = "profileExportToolStripMenuItem"
+                Name = "prfoileCommand_profileExportToolStripMenuItem"
             };
             var profileImportToolStripMenuItem = new ToolStripMenuItem {
                 Text = Resources.Resources.import_profiles,
-                Name = "profileImportToolStripMenuItem"
+                Name = "prfoileCommand_profileImportToolStripMenuItem"
             };
             profilesToolStripMenuItem.DropDownItems.Add(profileCreateToolStripMenuItem);
             profilesToolStripMenuItem.DropDownItems.Add(editCurrentProfileToolStripMenuItem);
@@ -498,7 +498,7 @@ namespace NetChanger
             List<ToolStripMenuItem> indices = new();
             foreach (ToolStripItem item1 in profilesToolStripMenuItem.DropDownItems) {
                 if (item1 is ToolStripMenuItem item) {
-                    if (item.Checked)
+                    if (!item1.Name.StartsWith( "prfoileCommand_" ))
                         indices.Add( item );
                 }
             }
