@@ -54,10 +54,9 @@ namespace NetChanger
         public string[] StaticIPCommand {
             get {
                 List<string> commands = new List<string> {
-                    SetIPCommand,
-                    SetFirstDnsCommand
+                    SetIPCommand
                 };
-                for ( index = 2; index <= Profile.Settings.Nameservers.Count; index++ ) {
+                for ( index = 1; index <= Profile.Settings.Nameservers?.Count; index++ ) {
                     commands.Add( SetSecondDnsCommand );
                 }
                 index = 2;
