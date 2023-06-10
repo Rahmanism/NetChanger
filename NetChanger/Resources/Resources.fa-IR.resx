@@ -186,6 +186,9 @@
   <data name="fa" xml:space="preserve">
     <value>فارسی</value>
   </data>
+  <data name="final_proxy" xml:space="preserve">
+    <value>پراکسی نهایی</value>
+  </data>
   <data name="gateway" xml:space="preserve">
     <value>دروازه شبکه</value>
   </data>
@@ -281,6 +284,9 @@
   </data>
   <data name="slogan" xml:space="preserve">
     <value>تنظیمات آی پی شبکه خود را به آسانی تغییر دهید!</value>
+  </data>
+  <data name="socks" xml:space="preserve">
+    <value>ساکس</value>
   </data>
   <data name="static_" xml:space="preserve">
     <value>ایستا</value>

@@ -26,6 +26,7 @@ namespace NetChanger
             saveBtn.Text = Resources.Resources.save;
             cancelBtn.Text = Resources.Resources.cancel;
             defaultValueBtn.Text = Resources.Resources.default1;
+            finalProxylbl.Text = Resources.Resources.final_proxy;
         }
 
         /// <summary>
@@ -33,10 +34,19 @@ namespace NetChanger
         /// </summary>
         private void LoadServer()
         {
-            (string Server, string Port) = _proxy.GetProxyServer();
+            (string Server, string Port, bool Socks) = _proxy.GetProxyServer();
             if (Server != null) {
                 ipTxt.Text = Server;
                 portTxt.Text = Port;
+                string proxy = $"{ipTxt.Text}:{portTxt.Text}";
+                if (Socks) {
+                    proxy = $"socks={proxy}";
+                    socksChb.Checked = true;
+                }
+                else {
+                    socksChb.Checked = false;
+                }
+                finalProxyValueLbl.Text = proxy;
             }
         }
 
@@ -49,14 +59,14 @@ namespace NetChanger
         {
             var log = new string[1];
             try {
-                _proxy.ChangeProxyServer(ipTxt.Text, portTxt.Text);
+                _proxy.ChangeProxyServer( ipTxt.Text, portTxt.Text, socksChb.Checked );
                 log[0] = "Proxy address changed.";
             }
             catch (Exception ex) {
                 log[0] = ex.Message;
             }
 
-            Program.operations.Log(log);
+            Program.operations.Log( log );
             Close();
         }
 
@@ -64,6 +74,15 @@ namespace NetChanger
         {
             ipTxt.Text = "127.0.0.1";
             portTxt.Text = "1080";
+        }
+
+        private void socksChb_CheckedChanged(object sender, EventArgs e)
+        {
+            if (socksChb.Checked) {
+                finalProxyValueLbl.Text = $"socks={ipTxt.Text}:{portTxt.Text}";
+            } else {
+                finalProxyValueLbl.Text = $"{ipTxt.Text}:{portTxt.Text}";
+            }
         }
     }
 }

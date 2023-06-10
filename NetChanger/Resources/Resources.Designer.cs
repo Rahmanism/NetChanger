@@ -268,6 +268,15 @@ namespace NetChanger.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Final Proxy.
+        /// </summary>
+        public static string final_proxy {
+            get {
+                return ResourceManager.GetString("final_proxy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &amp;Gateway.
         /// </summary>
         public static string gateway {
@@ -552,6 +561,15 @@ namespace NetChanger.Resources {
         public static string slogan {
             get {
                 return ResourceManager.GetString("slogan", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Socks.
+        /// </summary>
+        public static string socks {
+            get {
+                return ResourceManager.GetString("socks", resourceCulture);
             }
         }
         

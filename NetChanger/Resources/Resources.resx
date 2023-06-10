@@ -186,6 +186,9 @@
   <data name="fa" xml:space="preserve">
     <value>فارسی</value>
   </data>
+  <data name="final_proxy" xml:space="preserve">
+    <value>Final Proxy</value>
+  </data>
   <data name="gateway" xml:space="preserve">
     <value>&amp;Gateway</value>
   </data>
@@ -281,6 +284,9 @@
   </data>
   <data name="slogan" xml:space="preserve">
     <value>Change your network IP settings easily!</value>
+  </data>
+  <data name="socks" xml:space="preserve">
+    <value>Socks</value>
   </data>
   <data name="static_" xml:space="preserve">
     <value>Static</value>

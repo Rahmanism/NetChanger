@@ -16,7 +16,7 @@
             if (disposing && (components != null)) {
                 components.Dispose();
             }
-            base.Dispose(disposing);
+            base.Dispose( disposing );
         }
 
         #region Windows Form Designer generated code
@@ -27,99 +27,137 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ipLbl = new System.Windows.Forms.Label();
-            this.ipTxt = new System.Windows.Forms.TextBox();
-            this.portLbl = new System.Windows.Forms.Label();
-            this.portTxt = new System.Windows.Forms.TextBox();
-            this.saveBtn = new System.Windows.Forms.Button();
-            this.cancelBtn = new System.Windows.Forms.Button();
-            this.defaultValueBtn = new System.Windows.Forms.Button();
-            this.SuspendLayout();
+            ipLbl = new System.Windows.Forms.Label();
+            ipTxt = new System.Windows.Forms.TextBox();
+            portLbl = new System.Windows.Forms.Label();
+            portTxt = new System.Windows.Forms.TextBox();
+            saveBtn = new System.Windows.Forms.Button();
+            cancelBtn = new System.Windows.Forms.Button();
+            defaultValueBtn = new System.Windows.Forms.Button();
+            finalProxylbl = new System.Windows.Forms.Label();
+            finalProxyValueLbl = new System.Windows.Forms.Label();
+            socksChb = new System.Windows.Forms.CheckBox();
+            SuspendLayout();
             // 
             // ipLbl
             // 
-            this.ipLbl.AutoSize = true;
-            this.ipLbl.Location = new System.Drawing.Point(12, 9);
-            this.ipLbl.Name = "ipLbl";
-            this.ipLbl.Size = new System.Drawing.Size(93, 15);
-            this.ipLbl.TabIndex = 0;
-            this.ipLbl.Text = "Proxy IP address";
+            ipLbl.AutoSize = true;
+            ipLbl.Location = new System.Drawing.Point( 12, 9 );
+            ipLbl.Name = "ipLbl";
+            ipLbl.Size = new System.Drawing.Size( 93, 15 );
+            ipLbl.TabIndex = 0;
+            ipLbl.Text = "Proxy IP address";
             // 
             // ipTxt
             // 
-            this.ipTxt.Location = new System.Drawing.Point(12, 27);
-            this.ipTxt.Name = "ipTxt";
-            this.ipTxt.Size = new System.Drawing.Size(148, 23);
-            this.ipTxt.TabIndex = 1;
+            ipTxt.Location = new System.Drawing.Point( 12, 27 );
+            ipTxt.Name = "ipTxt";
+            ipTxt.Size = new System.Drawing.Size( 148, 23 );
+            ipTxt.TabIndex = 1;
             // 
             // portLbl
             // 
-            this.portLbl.AutoSize = true;
-            this.portLbl.Location = new System.Drawing.Point(225, 9);
-            this.portLbl.Name = "portLbl";
-            this.portLbl.Size = new System.Drawing.Size(29, 15);
-            this.portLbl.TabIndex = 2;
-            this.portLbl.Text = "Port";
+            portLbl.AutoSize = true;
+            portLbl.Location = new System.Drawing.Point( 225, 9 );
+            portLbl.Name = "portLbl";
+            portLbl.Size = new System.Drawing.Size( 29, 15 );
+            portLbl.TabIndex = 2;
+            portLbl.Text = "Port";
             // 
             // portTxt
             // 
-            this.portTxt.Location = new System.Drawing.Point(225, 27);
-            this.portTxt.Name = "portTxt";
-            this.portTxt.Size = new System.Drawing.Size(69, 23);
-            this.portTxt.TabIndex = 3;
+            portTxt.Location = new System.Drawing.Point( 225, 27 );
+            portTxt.Name = "portTxt";
+            portTxt.Size = new System.Drawing.Size( 69, 23 );
+            portTxt.TabIndex = 3;
             // 
             // saveBtn
             // 
-            this.saveBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.saveBtn.Location = new System.Drawing.Point(204, 69);
-            this.saveBtn.Name = "saveBtn";
-            this.saveBtn.Size = new System.Drawing.Size(90, 29);
-            this.saveBtn.TabIndex = 4;
-            this.saveBtn.Text = "Save";
-            this.saveBtn.UseVisualStyleBackColor = true;
-            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            saveBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            saveBtn.DialogResult = System.Windows.Forms.DialogResult.OK;
+            saveBtn.Location = new System.Drawing.Point( 204, 161 );
+            saveBtn.Name = "saveBtn";
+            saveBtn.Size = new System.Drawing.Size( 90, 29 );
+            saveBtn.TabIndex = 4;
+            saveBtn.Text = "Save";
+            saveBtn.UseVisualStyleBackColor = true;
+            saveBtn.Click += saveBtn_Click;
             // 
             // cancelBtn
             // 
-            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn.Location = new System.Drawing.Point(108, 69);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(90, 29);
-            this.cancelBtn.TabIndex = 5;
-            this.cancelBtn.Text = "Cancel";
-            this.cancelBtn.UseVisualStyleBackColor = true;
-            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            cancelBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            cancelBtn.Location = new System.Drawing.Point( 108, 161 );
+            cancelBtn.Name = "cancelBtn";
+            cancelBtn.Size = new System.Drawing.Size( 90, 29 );
+            cancelBtn.TabIndex = 5;
+            cancelBtn.Text = "Cancel";
+            cancelBtn.UseVisualStyleBackColor = true;
+            cancelBtn.Click += cancelBtn_Click;
             // 
             // defaultValueBtn
             // 
-            this.defaultValueBtn.Location = new System.Drawing.Point(12, 69);
-            this.defaultValueBtn.Name = "defaultValueBtn";
-            this.defaultValueBtn.Size = new System.Drawing.Size(90, 29);
-            this.defaultValueBtn.TabIndex = 6;
-            this.defaultValueBtn.Text = "Default";
-            this.defaultValueBtn.UseVisualStyleBackColor = true;
-            this.defaultValueBtn.Click += new System.EventHandler(this.defaultValueBtn_Click);
+            defaultValueBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            defaultValueBtn.Location = new System.Drawing.Point( 12, 161 );
+            defaultValueBtn.Name = "defaultValueBtn";
+            defaultValueBtn.Size = new System.Drawing.Size( 90, 29 );
+            defaultValueBtn.TabIndex = 6;
+            defaultValueBtn.Text = "Default";
+            defaultValueBtn.UseVisualStyleBackColor = true;
+            defaultValueBtn.Click += defaultValueBtn_Click;
+            // 
+            // finalProxylbl
+            // 
+            finalProxylbl.AutoSize = true;
+            finalProxylbl.Location = new System.Drawing.Point( 12, 98 );
+            finalProxylbl.Name = "finalProxylbl";
+            finalProxylbl.Size = new System.Drawing.Size( 65, 15 );
+            finalProxylbl.TabIndex = 7;
+            finalProxylbl.Text = "Final Proxy";
+            // 
+            // finalProxyValueLbl
+            // 
+            finalProxyValueLbl.AutoSize = true;
+            finalProxyValueLbl.Font = new System.Drawing.Font( "Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point );
+            finalProxyValueLbl.Location = new System.Drawing.Point( 12, 113 );
+            finalProxyValueLbl.Name = "finalProxyValueLbl";
+            finalProxyValueLbl.Size = new System.Drawing.Size( 89, 15 );
+            finalProxyValueLbl.TabIndex = 8;
+            finalProxyValueLbl.Text = "127.0.0.1:1080";
+            // 
+            // socksChb
+            // 
+            socksChb.AutoSize = true;
+            socksChb.Location = new System.Drawing.Point( 12, 56 );
+            socksChb.Name = "socksChb";
+            socksChb.Size = new System.Drawing.Size( 56, 19 );
+            socksChb.TabIndex = 9;
+            socksChb.Text = "Socks";
+            socksChb.UseVisualStyleBackColor = true;
+            socksChb.CheckedChanged += socksChb_CheckedChanged;
             // 
             // ProxyServerFrom
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(307, 110);
-            this.Controls.Add(this.defaultValueBtn);
-            this.Controls.Add(this.cancelBtn);
-            this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.portTxt);
-            this.Controls.Add(this.portLbl);
-            this.Controls.Add(this.ipTxt);
-            this.Controls.Add(this.ipLbl);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.Name = "ProxyServerFrom";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Proxy Server";
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new System.Drawing.SizeF( 7F, 15F );
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            ClientSize = new System.Drawing.Size( 307, 202 );
+            Controls.Add( socksChb );
+            Controls.Add( finalProxyValueLbl );
+            Controls.Add( finalProxylbl );
+            Controls.Add( defaultValueBtn );
+            Controls.Add( cancelBtn );
+            Controls.Add( saveBtn );
+            Controls.Add( portTxt );
+            Controls.Add( portLbl );
+            Controls.Add( ipTxt );
+            Controls.Add( ipLbl );
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
+            Name = "ProxyServerFrom";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Proxy Server";
+            ResumeLayout( false );
+            PerformLayout();
         }
 
         #endregion
@@ -131,5 +169,8 @@
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.Button cancelBtn;
         private System.Windows.Forms.Button defaultValueBtn;
+        private System.Windows.Forms.Label finalProxylbl;
+        private System.Windows.Forms.Label finalProxyValueLbl;
+        private System.Windows.Forms.CheckBox socksChb;
     }
 }
