@@ -27,10 +27,14 @@ There will be a system tray menu, so you can switch the network status fast enou
 [x] User can make duplicate of a profile.  
 [x] Make forms look good (sizes are bad now).  
 [x] Use resource for languages in all texts.  
-      (So we have two languages now: EN and FA).  
-[x] Add system proxy settings.  
+      (So we have two languages now: EN and FA).
+[x] Switch to dotnet core from .NetFramework.    
+[x] Add system proxy settings including socks.  
 [x] Add export option for profiles.  
 [x] Add import for profiles.  
+[x] Fix exception when no DNS are set in static mode.  
+[x] Clear previous DNS configuration before applying the new one.  
+[x] Fix multiple loading profiles in the submenu.  
   
 [ ] Load current system setting as a new profile names AutoProfile.  
 [ ] Add a command for gateway in DHCP mode if there was a gateway ip in profile.  

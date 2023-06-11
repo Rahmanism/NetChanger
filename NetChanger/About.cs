@@ -36,7 +36,7 @@ namespace NetChanger
             this.Text = Resources.Resources.about;
             descriptionLbl.Text = description;
             sloganLbl.Text = Resources.Resources.slogan;
-            string releaseDate = "Farvardin 1402 (April 2023)";
+            string releaseDate = "Xordad 1402 (June 2023)";
             dateLbl.Text = $"{Resources.Resources.release_date_of_this_version}: {releaseDate}";
         }
 
