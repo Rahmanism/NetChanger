@@ -25,6 +25,12 @@ namespace NetChanger
             => $"netsh interface ipv4 set address name=\"{Profile.Settings.InterfaceName}\" static {Profile.Settings.Address} {Profile.Settings.NetMask} {Profile.Settings.Gateway}";
 
         /// <summary>
+        /// Clear all DNS settings
+        /// </summary>
+        public string ClearDNSCommand
+            => $"netsh interface ipv4 set dns name=\"{Profile.Settings.InterfaceName}\" static \"\"";
+
+        /// <summary>
         /// A command to execute in cmd to set first DNS.
         /// </summary>
         public string SetFirstDnsCommand
@@ -53,8 +59,9 @@ namespace NetChanger
         /// </summary>
         public string[] StaticIPCommand {
             get {
-                List<string> commands = new List<string> {
-                    SetIPCommand
+                List<string> commands = new() {
+                    SetIPCommand,
+                    ClearDNSCommand
                 };
                 for ( index = 1; index <= Profile.Settings.Nameservers?.Count; index++ ) {
                     commands.Add( SetSecondDnsCommand );
